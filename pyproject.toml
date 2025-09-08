@@ -1,5 +1,5 @@
 [project]
-name = "AI_Environment"
+name = "Agenterprise"
 version = "0.1.0"
 description = "Generator for AI Environements"
 readme = "README.md"
