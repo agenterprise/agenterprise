@@ -4,8 +4,11 @@ __pycache__/
 build/
 dist/
 wheels/
+
 *.egg-info
-target/** */
+# Ignore everything inside target/, but keep the target directory itself
+target/*
+!target/.gitkeep
 
 # Virtual environments
 .venv
