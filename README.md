@@ -3,6 +3,7 @@
 ## Getting Started
 
 
+
 0. **Create a virtual environment**  
     Use [uv venv](https://github.com/astral-sh/uv) to create an isolated Python environment for your dependencies:
     ```bash
@@ -29,5 +30,12 @@
     uv run python -m app.main --setup --dsl template-definitions/agentswarm.a4 --target target/myagentenv
     ```
 
+
 4. **Explore the generated code**
     The generated agent code and Dockerfiles will be available in the target/myagentenv directory.
+
+---
+
+**Enterprise Environments:**
+For details on how to set up and use this project in enterprise or corporate environments (e.g. with internal package indexes, proxies, or authentication), please consult [ENTERPRISE.md](ENTERPRISE.md).
+
