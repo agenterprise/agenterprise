@@ -1,0 +1,16 @@
+[project]
+name = "AI_Environment"
+version = "0.1.0"
+description = "Generator for AI Environements"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "antlr4-python3-runtime>=4.13.2",
+    "antlr4-tools>=0.2.2",
+    "jinja2>=3.1.6",
+    "pydantic>=2.11.7",
+]
+
+
+
+
