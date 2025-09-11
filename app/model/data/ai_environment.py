@@ -24,6 +24,7 @@ class Agent:
 @dataclass
 class AIEnvironment:
     name: str
+    envid: str
     deployment: str
     techstack: AIURN
     agents: List[Agent]

@@ -1,10 +1,19 @@
 {
-    "project_name": "{{ cookiecutter.project_name }}",
-    "package_name": "{{ cookiecutter.project_name|lower|replace(' ', '_') }}",
-
-     "_copy_without_render": [
-       
-        "*.jinja_templates"
-       
-    ]
+    "templates": {
+        "projectlayer": {
+            "path": "./projectlayer",
+            "title": "Projectlayer",
+            "description": "A cookiecutter template for an projectr"
+        },
+        "agentlayer": {
+            "path": "./agentlayer",
+            "title": "Agentlayer",
+            "description": "A cookiecutter template for an agent layer"
+        },
+        "service": {
+            "path": "./servicelayer",
+            "title": "Servicelayer",
+            "description": "A cookiecutter template for a service layer"
+        }
+    }
 }

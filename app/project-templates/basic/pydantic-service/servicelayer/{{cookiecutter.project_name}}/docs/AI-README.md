@@ -1,17 +1,25 @@
-# {{ agent_name }}
+# {{ cookiecutter.project_name }}
+
+
+{% for key, agent in cookiecutter.agents.items() %}
+
+## {{ agent['name'] }}
 
 This agent is generated using Pydantic and Jinja2.
 
-## System Prompt
+### System Prompt
 ```
-{{ systemprompt }}
+{{ agent.systemprompt }}
 ```
 
-## Properties
-{% for key, value in properties.items() %}
-- **{{ key }}**: {{ value }}
+### Properties
+{% for key, value in agent.properties.items() %}
+- **{{ key | aiurnvar }}**: {{ value }}
 {% endfor %}
 
+{% endfor %}
+
+# Deployment
 ## Build Docker Image with external pip index
 
 ```bash
@@ -21,11 +29,11 @@ echo "https://pypi.org/simple/" > pip_index_url.txt
 # Build the Docker image using BuildKit and mount the secret
 DOCKER_BUILDKIT=1 docker build \
   --secret id=pip_index_url,src=pip_index_url.txt \
-  -t {{ docker_imagename }} -f {{ filename_dockerfile_gen }} .
+  -t {{ cookiecutter.package_name }} -f Dockerfile.build .
 ```
 
 ## Run Agent
 
 ```bash
-docker run --rm {{ docker_imagename}}
+docker run --rm {{ cookiecutter.package_name}}
 ```

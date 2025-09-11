@@ -14,6 +14,11 @@ class ai_environmentVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by ai_environmentParser#envid.
+    def visitEnvid(self, ctx:ai_environmentParser.EnvidContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by ai_environmentParser#deploymentPattern.
     def visitDeploymentPattern(self, ctx:ai_environmentParser.DeploymentPatternContext):
         return self.visitChildren(ctx)

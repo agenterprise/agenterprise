@@ -2,7 +2,7 @@ from app.agent_grammer.parser.ai_environmentListener import  ai_environmentListe
 from app.model.data.ai_environment import Agent
 from app.model.listener.AIURN import AIURN
 
-class PydanticAIListener(ai_environmentListener):
+class BaseAIAgentListener(ai_environmentListener):
     def __init__(self):
         super().__init__()
         self.agents = []

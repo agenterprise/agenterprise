@@ -1,5 +1,6 @@
 ai_environment "AgentMicroservice" 
 @nonfunctional{
+    envid = "c672da0bd68f41f1b77442524cfa48c4"
     deployment = aiurn:deployment:microservice
     techstack = aiurn:techstack:basic:pydantic
 }

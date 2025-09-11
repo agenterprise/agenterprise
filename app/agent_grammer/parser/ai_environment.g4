@@ -4,8 +4,10 @@ import ai_llm, ai_agent;
 
 
 
-ai_envDef: 'ai_environment' STRING '@nonfunctional' '{'deploymentPattern techstack '}' '@functional' '{' agentDef* llmDef* '}' ;
+ai_envDef: 'ai_environment' STRING '@nonfunctional' '{'envid deploymentPattern techstack '}' '@functional' '{' agentDef* llmDef* '}' ;
 
+//environmentid
+envid: 'envid' '=' STRING ;
 //deploymentpattern
 deploymentPattern: 'deployment' '=' DEPLOYMENT ;
 DEPLOYMENT: DEPLOYMENT_MICROSERVICE | DEPLOYMENT_SWARM | DEPLOYMENT_MCPSERVICE ;

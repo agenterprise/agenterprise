@@ -1,44 +1,84 @@
 import os
+from typing import List
+import uuid
 from antlr4 import FileStream, CommonTokenStream, ParseTreeWalker
 from cookiecutter.main import cookiecutter
 from cookiecutter.exceptions import OutputDirExistsException
 
+from app.model.data.ai_environment import Agent
 from app.model.generators import AgentGenerator
-from app.model.listener.agent.listener import PydanticAIListener
+from app.model.listener.agent.listener import BaseAIAgentListener
+from app.model.listener.service.listener import BasicServiceListener
 from app.model.listener.nonfunctional.listener import NonFunctionalListener
 from app.model.project import  Project, ProjectTemplate
 from app.agent_grammer.parser.ai_environmentLexer import ai_environmentLexer
 from app.agent_grammer.parser.ai_environmentParser import ai_environmentParser
-from app.generator.pydanticai.generator import PydanticAgentGenerator
 
 
 techstacks = [ProjectTemplate(
                         'aiurn:techstack:basic:pydantic', 
                         'Pydantic Standalone',
-                        os.path.join("project-templates", "basic", "pydantic-standalone"),
-                        [(PydanticAIListener,
-                        [PydanticAgentGenerator])] ),
-                 ProjectTemplate(
-                        'aiurn:techstack:basic:pydantic', 
-                        'Pydantic Standalone',
-                        os.path.join("project-templates", "basic", "pydantic-standalone"),
-                        [(PydanticAIListener,
-                        [PydanticAgentGenerator])] )
+                        os.path.join("project-templates", "basic", "pydantic-service"),
+                        [NonFunctionalListener],
+                        [BaseAIAgentListener],
+                        [BasicServiceListener] )
                         
                  ]
 
-def _scaffold_project_structure(target_dir, proj: Project):
+
+def _scaffold_project_layer(target_dir, proj: Project, ):
     """
     Create initial project structure using the selected cookiecutter template.
     """
-    template_path = os.path.join(os.path.dirname(__file__), proj.get_template_path())
+    template_path = os.path.join(os.path.dirname(__file__), proj.get_projectlayer())
     project_name = os.path.basename(os.path.abspath(target_dir))
     try:
         cookiecutter(
             template_path,
             output_dir=os.path.dirname(os.path.abspath(target_dir)),
             no_input=True,
-            extra_context={"project_name": project_name}
+            extra_context={"project_name": project_name,"project_build_id": proj.project_build_id},
+            overwrite_if_exists=True,
+            skip_if_file_exists=True
+        )
+    except OutputDirExistsException:
+        raise RuntimeError("The output directory exists already.")
+ 
+def _scaffold_agent_layer(target_dir, proj: Project, agent:Agent):
+    """
+    Create initial project structure using the selected cookiecutter template.
+    """
+    template_path = os.path.join(os.path.dirname(__file__), proj.get_agentlayer())
+    project_name = os.path.basename(os.path.abspath(target_dir))
+    try:
+        cookiecutter(
+            template_path,
+            output_dir=os.path.dirname(os.path.abspath(target_dir)),
+            no_input=True,
+            extra_context={"project_name": project_name, "agent":agent.__dict__, "project_build_id": proj.project_build_id},
+            overwrite_if_exists=True
+        )
+    except OutputDirExistsException:
+        raise RuntimeError("The output directory exists already.")
+    
+
+def _scaffold_service_layer(target_dir, proj: Project, agents:List[Agent]):
+    """
+    Create initial project structure using the selected cookiecutter template.
+    """
+
+    agents = [agent.__dict__ for agent in agents]
+    agents = dict(enumerate(agents))
+    
+    template_path = os.path.join(os.path.dirname(__file__), proj.get_servicelayer())
+    project_name = os.path.basename(os.path.abspath(target_dir))
+    try:
+        cookiecutter(
+            template_path,
+            output_dir=os.path.dirname(os.path.abspath(target_dir)),
+            no_input=True,
+            extra_context={"project_name": project_name, "agents":agents, "project_build_id": proj.project_build_id},
+            overwrite_if_exists=True
         )
     except OutputDirExistsException:
         raise RuntimeError("The output directory exists already.")
@@ -62,23 +102,28 @@ def run_code_generation(dsl_file, target_dir):
     walker = ParseTreeWalker()
     walker.walk(nonfuncListener, tree)
 
-    project = Project(urn=nonfuncListener.environment.techstack, target_dir=target_dir, techstacks=techstacks)
-    _scaffold_project_structure(target_dir, project)
+    aiEnv = nonfuncListener.environment
+    project = Project(urn=aiEnv.techstack, target_dir=target_dir, techstacks=techstacks, envid=aiEnv.envid)
+    _scaffold_project_layer(target_dir, project)
     # Functional Part
-    for bundle in project.template.generatorbundles:
-        listenerClass = bundle[0]
+    # Agent Layer
+    for listenerClass in project.template.agentlistener:
         listener = listenerClass()
         
         walker.walk(listener, tree)
+        for agent in listener.agents:
+            _scaffold_agent_layer(target_dir, project, agent)
 
-        for generatorClass in bundle[1]:
-            
-            generator = generatorClass(target_dir=target_dir, project=project)
-            if issubclass(generatorClass, AgentGenerator):
-                for agent in listener.agents:
-                    generator.generate_all(
-                        agent=agent
-                    )
+    # Service Layer
+    for listener in project.template.servicelistener:
+        listener = listenerClass()
+        
+        walker.walk(listener, tree)
+        for agent in listener.agents:
+            _scaffold_service_layer(target_dir, project, listener.agents)
+        
+        
+       
     print(f"AI Environment generated to {target_dir}")
 
 

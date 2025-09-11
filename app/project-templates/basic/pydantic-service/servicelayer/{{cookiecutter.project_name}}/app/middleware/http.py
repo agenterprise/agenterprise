@@ -1,15 +1,13 @@
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
-from mcp.server import Server
 
 
 class HttpMiddleware():
     """Middleware to validate Origin header according to MCP specification.
     This prevents DNS rebinding attacks by ensuring requests come from trusted origins."""
 
-    def __init__(self, app: FastAPI, mcpServer: Server):
+    def __init__(self, app: FastAPI):
         self.app = app
-        self.mcpServer = mcpServer
         self.define_middleware()
 
     def define_middleware(self):
