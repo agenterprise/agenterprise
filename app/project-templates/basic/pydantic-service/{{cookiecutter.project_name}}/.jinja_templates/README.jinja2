@@ -1,0 +1,31 @@
+# {{ agent_name }}
+
+This agent is generated using Pydantic and Jinja2.
+
+## System Prompt
+```
+{{ systemprompt }}
+```
+
+## Properties
+{% for key, value in properties.items() %}
+- **{{ key }}**: {{ value }}
+{% endfor %}
+
+## Build Docker Image with external pip index
+
+```bash
+# Create a secret file containing your pip index URL
+echo "https://pypi.org/simple/" > pip_index_url.txt
+
+# Build the Docker image using BuildKit and mount the secret
+DOCKER_BUILDKIT=1 docker build \
+  --secret id=pip_index_url,src=pip_index_url.txt \
+  -t {{ docker_imagename }} -f {{ filename_dockerfile_gen }} .
+```
+
+## Run Agent
+
+```bash
+docker run --rm {{ docker_imagename}}
+```

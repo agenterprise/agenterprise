@@ -1,48 +1,52 @@
 import os
 from jinja2 import Environment, FileSystemLoader
-from app.datamodel.agent import Agent
+from app.model.data.ai_environment import Agent
+from app.model.generators import AgentGenerator
+from app.model.project import Project
 
-class AgentFileGenerator:
+class PydanticAgentGenerator(AgentGenerator):
     """
     Generates agent source code and Dockerfile from Jinja2 templates and writes them to the filesystem.
     All folder and filename definitions are accessible via self, not as parameters.
     """
-    def __init__(self, target_dir: str, template_dir=None):
+    def __init__(self, target_dir: str, project: Project ):
         self.target_dir = target_dir
-        self.template_dir = template_dir or os.path.dirname(__file__)
+        self.project_root = target_dir
+        self.app_dir = os.path.join(target_dir, "app")
+        self.template_dir = project.get_jinja_template_path()
         self.env = Environment(loader=FileSystemLoader(self.template_dir))
         # File and folder names (can be customized after instantiation)
         self.filename_dockerfile_gen = 'Dockerfile.gen'
         self.filename_pyproject_toml = 'pyproject.toml'
-        self.filename_readme = 'README.md'
+        self.filename_readme = 'README.gen.md'
         self.folder_codegen = 'gen'
         self.filename_dockerfile = 'Dockerfile'
 
     def create_docker_buildimage_name(self, agent: Agent):
-        return f'build_{agent.uid.lower()}'
+        return f'build_{agent.uid.to_varname}'
     
     def get_module_folder(self, agent: Agent):
-        return os.path.join(self.target_dir, str(agent.namespace)) if agent.namespace else self.target_dir
+        return os.path.join(self.app_dir, agent.namespace.to_filepath()) if agent.namespace else self.target_dir
 
     def get_codegen_folder(self, module_folder):
         return os.path.join(module_folder, self.folder_codegen)
 
     def get_agent_pyfile(self, agent: Agent, codegenfolder):
-        return os.path.join(codegenfolder, f'{agent.uid}.py')
+        return os.path.join(codegenfolder, f'{agent.uid.to_varname()}.py')
 
     def get_dockerfile(self):
         return os.path.join(self.target_dir, self.filename_dockerfile)
 
     def get_dockerfile_build(self, module_folder):
-        return os.path.join(module_folder, self.filename_dockerfile_gen)
+        return os.path.join(self.project_root, self.filename_dockerfile_gen)
 
     def get_readme_filepath(self, module_folder):
-        return os.path.join(module_folder, self.filename_readme)
+        return os.path.join(self.project_root, self.filename_readme)
 
     def get_pyproject_filepath(self, module_folder):
-        return os.path.join(module_folder, self.filename_pyproject_toml)
+        return os.path.join(self.project_root, self.filename_pyproject_toml)
 
-    def scaffold_agent_folder(self, module_folder):
+    def _scaffold_agent_folder(self, module_folder):
         """
         Create the agent folder if it does not exist and add __init__.py for Python module.
         Args:
@@ -63,7 +67,7 @@ class AgentFileGenerator:
             tuple: (agent_filepath, docker_filepath, readme_filepath, pyproject_filepath)
         """
         module_folder = self.get_module_folder(agent)
-        self.scaffold_agent_folder(module_folder)
+        self._scaffold_agent_folder(module_folder)
         codegenfolder = self.get_codegen_folder(module_folder)
         os.makedirs(codegenfolder, exist_ok=True)
         agent_gen_sourcecode_filepath = self.get_agent_pyfile(agent, codegenfolder)
@@ -96,7 +100,7 @@ class AgentFileGenerator:
         return template.render(
             agent_name=agent.name,
             systemprompt=agent.systemprompt,
-            properties=agent.properties
+            properties={ key.to_varname():val for key,val in agent.properties.items()  }
         )
 
     def _render_dockerfile(self, agent: Agent):

@@ -1,0 +1,37 @@
+ai_environment "AgentMicroservice" 
+@nonfunctional{
+    deployment = aiurn:deployment:microservice
+    techstack = aiurn:techstack:basic:pydantic
+}
+
+@functional{
+    agent "Cook" {
+        uid = aiurn:agent:cook
+        namespace = aiurn:ns:janes_diner:kitchen
+        systemprompt = "You're a four star rated metre"
+        llmref = aiurn:model:llm:geepeetee 
+        aiurn:var:name = "Jane Smith"
+        aiurn:var:role = "manager"
+        aiurn:var:lifeycle = "permanent"
+        aiurn:var:event = "onRestaurantOpening"       
+    }
+
+    agent "Waiter" {
+        uid = aiurn:agent:waiter
+        namespace = aiurn:ns:janes_diner:guestroom
+        systemprompt = "Du bist ein freundlicher und aufmerksamer Kellner"
+        llmref = aiurn:model:llm:geepeetee 
+        aiurn:var:name = "Max Mustermann"
+        aiurn:var:role = "waiter"
+        aiurn:var:lifeycle = "permanent"
+        aiurn:var:events = "onRestaurantOpening"
+    }
+
+    llm "My LLM" {
+        uid = aiurn:model:llm:geepeetee
+        provider = aiurn:provider:azure
+        model = "gpt-5"
+        endpoint = "http://any.where.com/myModel"
+        version = "2323"
+    }
+}

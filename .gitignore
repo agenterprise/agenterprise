@@ -15,6 +15,7 @@ target/*
 .env
 uv.lock
 .antlr
+pip_index_url.txt
 
 
 

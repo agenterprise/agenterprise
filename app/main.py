@@ -1,74 +1,93 @@
 import os
 from antlr4 import FileStream, CommonTokenStream, ParseTreeWalker
-from app.agent_grammer.parser.agentenvironmentLexer import agentenvironmentLexer
-from app.agent_grammer.parser.agentenvironmentParser import agentenvironmentParser
-from app.generator.pydanticai.listener import PydanticAIListener
-from app.generator.pydanticai.generator import AgentFileGenerator
-from app.datamodel.agent import Agent  # <-- Use the shared Agent dataclass
+from cookiecutter.main import cookiecutter
+from cookiecutter.exceptions import OutputDirExistsException
+
+from app.model.generators import AgentGenerator
+from app.model.listener.agent.listener import PydanticAIListener
+from app.model.listener.nonfunctional.listener import NonFunctionalListener
+from app.model.project import  Project, ProjectTemplate
+from app.agent_grammer.parser.ai_environmentLexer import ai_environmentLexer
+from app.agent_grammer.parser.ai_environmentParser import ai_environmentParser
+from app.generator.pydanticai.generator import PydanticAgentGenerator
 
 
-def scaffold_project_structure(target_dir):
+techstacks = [ProjectTemplate(
+                        'aiurn:techstack:basic:pydantic', 
+                        'Pydantic Standalone',
+                        os.path.join("project-templates", "basic", "pydantic-standalone"),
+                        [(PydanticAIListener,
+                        [PydanticAgentGenerator])] ),
+                 ProjectTemplate(
+                        'aiurn:techstack:basic:pydantic', 
+                        'Pydantic Standalone',
+                        os.path.join("project-templates", "basic", "pydantic-standalone"),
+                        [(PydanticAIListener,
+                        [PydanticAgentGenerator])] )
+                        
+                 ]
+
+def _scaffold_project_structure(target_dir, proj: Project):
     """
-    Create initial project structure if it does not exist.
+    Create initial project structure using the selected cookiecutter template.
     """
-    os.makedirs(target_dir, exist_ok=True)
-    # Example: create a src folder and a .gitignore
-    src_dir = os.path.join(target_dir, "src")
-    os.makedirs(src_dir, exist_ok=True)
-    gitignore_path = os.path.join(target_dir, ".gitignore")
-    if not os.path.exists(gitignore_path):
-        with open(gitignore_path, "w") as f:
-            f.write("__pycache__/\n*.pyc\n.env\n")
-    # Add more initial files/folders as needed
-
-
-def run_setup(target_dir, dsl_file):
-    scaffold_project_structure(target_dir)
-    print(f"Project structure created in {target_dir}")
-    if not dsl_file:
-        raise ValueError("DSL file (--dsl) must be specified for code-generation.")
-    run_code_generation(dsl_file, target_dir)
+    template_path = os.path.join(os.path.dirname(__file__), proj.get_template_path())
+    project_name = os.path.basename(os.path.abspath(target_dir))
+    try:
+        cookiecutter(
+            template_path,
+            output_dir=os.path.dirname(os.path.abspath(target_dir)),
+            no_input=True,
+            extra_context={"project_name": project_name}
+        )
+    except OutputDirExistsException:
+        raise RuntimeError("The output directory exists already.")
+        
 
 
 def run_code_generation(dsl_file, target_dir):
+    """
+        run the code generation by dsl file
+        1. Identifiy Project Template
+        2. Start Code Generation
+    """
     input_stream = FileStream(dsl_file)
-    lexer = agentenvironmentLexer(input_stream)
+    lexer = ai_environmentLexer(input_stream)
     stream = CommonTokenStream(lexer)
-    parser = agentenvironmentParser(stream)
-    tree = parser.env()
-
-    listeners = [PydanticAIListener()]
+    parser = ai_environmentParser(stream)
+    tree = parser.ai_envDef()
+    
+    # Nonfunctional Part
+    nonfuncListener = NonFunctionalListener()
     walker = ParseTreeWalker()
-    for listener in listeners:
+    walker.walk(nonfuncListener, tree)
+
+    project = Project(urn=nonfuncListener.environment.techstack, target_dir=target_dir, techstacks=techstacks)
+    _scaffold_project_structure(target_dir, project)
+    # Functional Part
+    for bundle in project.template.generatorbundles:
+        listenerClass = bundle[0]
+        listener = listenerClass()
+        
         walker.walk(listener, tree)
 
-    generator = AgentFileGenerator(target_dir=target_dir)
-    for agent in listeners[0].agents:
-        # Ensure agent is an instance of the imported Agent dataclass
-        generator.generate_all(
-            agent=agent
-        )
-
-    print(f"Agent source code updated in {target_dir}")
+        for generatorClass in bundle[1]:
+            
+            generator = generatorClass(target_dir=target_dir, project=project)
+            if issubclass(generatorClass, AgentGenerator):
+                for agent in listener.agents:
+                    generator.generate_all(
+                        agent=agent
+                    )
+    print(f"AI Environment generated to {target_dir}")
 
 
 def run_dsl_template(dsl_file):
-    if not dsl_file:
-        raise ValueError("DSL file (--dsl) must be specified for template generation.")
-    dsl_dir = os.path.dirname(dsl_file)
-    os.makedirs(dsl_dir, exist_ok=True)
-    if not os.path.exists(dsl_file):
-        with open(dsl_file, "w") as f:
-            f.write("// Agent DSL template\n// Define your agents here\n")
-        print(f"DSL template created at {dsl_file}")
-    else:
-        print(f"DSL file already exists at {dsl_file}")
+    raise RuntimeError("Not implemented")
 
 
 def main(mode, dsl_file=None, target_dir=None):
-    if mode == "setup":
-        run_setup(target_dir, dsl_file)
-        return
+    
     if mode == "code-generation":
         run_code_generation(dsl_file, target_dir)
         return
@@ -80,22 +99,15 @@ def main(mode, dsl_file=None, target_dir=None):
 if __name__ == "__main__":
     import argparse
 
-    parser = argparse.ArgumentParser(description="Agent project generator")
+    parser = argparse.ArgumentParser(description="AI project generator")
     group = parser.add_mutually_exclusive_group(required=True)
-    group.add_argument("--setup", action="store_true", help="Initial project setup (scaffold folders)")
     group.add_argument("--code-generation", action="store_true", help="Generate agent code from DSL")
     group.add_argument("--dsl-template", action="store_true", help="Generate a DSL template file at the specified path")
     parser.add_argument("--dsl", type=str, help="Path to agent DSL file (required for setup/code-generation/template)")
     parser.add_argument("--target", type=str, help="Target directory for generated code (required for setup/code-generation)")
     args = parser.parse_args()
 
-    if args.setup:
-        if not args.target:
-            raise ValueError("--target is required for setup.")
-        if not args.dsl:
-            raise ValueError("--dsl is required for setup.")
-        main("setup", target_dir=args.target, dsl_file=args.dsl)
-    elif args.code_generation:
+    if args.code_generation:
         if not args.target:
             raise ValueError("--target is required for code-generation.")
         if not args.dsl:
@@ -107,3 +119,4 @@ if __name__ == "__main__":
         main("dsl-template", dsl_file=args.dsl)
     else:
         parser.print_help()
+

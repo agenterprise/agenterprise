@@ -22,12 +22,12 @@
     ```
 
 2. **Prepare your DSL file**
-    Place your agent DSL file (e.g. template-definitions/agentswarm.a4) in the project directory or specify your own path.
+    Place your agent DSL file (e.g. template-definitions/agentmicroservice.a4) in the project directory or specify your own path.
 
 3. **Initialize the project and generate agents**
     Run the following command to scaffold the project and generate agent code:
     ```bash
-    uv run python -m app.main --setup --dsl template-definitions/agentswarm.a4 --target target/myagentenv
+    uv run python -m app.main --setup --dsl template-definitions/agentmicroservice.a4 --target target/myagentenv
     ```
 
 

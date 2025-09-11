@@ -1,6 +1,6 @@
 import unittest
 import os
-from app.generator.pydanticai.generator import AgentFileGenerator
+from app.generator.pydanticai.generator import PydanticAgentGenerator
 
 class TestPydanticGenerator(unittest.TestCase):
     def test_generate_and_write_files(self):
@@ -8,7 +8,7 @@ class TestPydanticGenerator(unittest.TestCase):
         systemprompt = "Test system prompt"
         properties = {"role": "tester", "language": "Python"}
         target_dir = os.path.join(os.path.dirname(__file__), '../../target/test/TestAgent')
-        generator = AgentFileGenerator()
+        generator = PydanticAgentGenerator()
         agent_file, docker_file, readme_file, pyproject_file = generator.generate_all(
             agent_name=agent_name,
             systemprompt=systemprompt,

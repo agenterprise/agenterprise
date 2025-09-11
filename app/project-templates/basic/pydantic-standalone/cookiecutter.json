@@ -1,0 +1,10 @@
+{
+    "project_name": "{{ cookiecutter.project_name }}",
+    "package_name": "{{ cookiecutter.project_name|lower|replace(' ', '_') }}",
+
+     "_copy_without_render": [
+       
+        "*.jinja_templates"
+       
+    ]
+}
