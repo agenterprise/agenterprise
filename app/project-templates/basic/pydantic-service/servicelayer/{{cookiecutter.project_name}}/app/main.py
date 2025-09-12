@@ -1,19 +1,13 @@
-from fastapi import FastAPI, Request
-from fastapi.responses import JSONResponse
-from mcp.server import Server
-from app.auth.keymanager import KeyManager
 import uvicorn
-
-from app.middleware.http import HttpMiddleware
-from app.routes.router import Router
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.routes.router import Router
+from app.middleware.http import HttpMiddleware
 
-app = FastAPI(title="MCP Echo Server", version="0.1.0")
-server = Server("mcp-echo")
-km = KeyManager(public_keyfile="public-key.pem")
-km.generate_jwk()
-middleware = HttpMiddleware(app, server)
+
+app = FastAPI(title="AI-Environment {{cookiecutter.project_name}}", version="0.1.0")
+middleware = HttpMiddleware(app)
 origins = ["*"]
 
 app.add_middleware(
@@ -23,7 +17,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-router = Router(app=app, mcpServer=server, keymanager=km)
+router = Router(app=app)
 
 def main():
     uvicorn.run("main:app", host="0.0.0.0", reload=True, port=9000, env_file=".env", log_level="info")

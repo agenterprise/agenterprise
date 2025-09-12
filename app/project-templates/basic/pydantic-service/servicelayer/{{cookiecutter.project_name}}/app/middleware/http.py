@@ -26,7 +26,7 @@ class HttpMiddleware():
             origin = request.headers.get("origin")
             
             if not origin:
-                print("✅ No Origin header - allowing for MCP client")
+                print("✅ No Origin header")
                 response = await call_next(request)
                 return response
             # Validate the origin - allow localhost and 127.0.0.1 on any port

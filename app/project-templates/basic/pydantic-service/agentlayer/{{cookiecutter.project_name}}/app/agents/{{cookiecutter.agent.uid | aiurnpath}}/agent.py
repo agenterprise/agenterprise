@@ -1,9 +1,9 @@
 from pydantic import BaseModel
 
-class {{ cookiecutter.agent.name }}(BaseModel):
+class BaseAgent(BaseModel):
     systemprompt: str = "{{ cookiecutter.agent.systemprompt }}"
     {% for key, value in cookiecutter.agent.properties.items() %}
-    {{ key | aiurnvar }}: str = "{{ value }}"
+    {{ key | aiurnvar }}:str = "{{ value }}"
     {% endfor %}
 
     def ask(self, query: str):
