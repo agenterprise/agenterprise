@@ -1,26 +1,45 @@
 import uvicorn
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
+import sys
+import logging
+from app.gen.config.service_settings import BaseAISettings, EnvEnum
+from app.gen.config.crosscutting_settings import CrossCuttingSettings
 
-from app.routes.router import Router
-from app.middleware.http import HttpMiddleware
+settings = BaseAISettings()
 
 
-app = FastAPI(title="AI-Environment {{cookiecutter.project_name}}", version="0.1.0")
-middleware = HttpMiddleware(app)
-origins = ["*"]
+logger = logging.getLogger(__name__)
+crosscutting = CrossCuttingSettings()
+def app():
+   
+    try:
+        if settings.run_environment == EnvEnum.base:
+            from app.gen.config.base import app
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-router = Router(app=app)
+        logger.info(f"Running App in Env Mode: {settings.run_environment}")
+        return app()
+    except Exception as e:
+        logger.error(f"Error during app initialization: {e}")
+        raise
+
+def logger_conf():
+    try:
+        if settings.run_environment == EnvEnum.base:
+            from app.gen.config.base import logger_conf
+
+        logger.info(f"Applying Logging in Env Mode: {settings.run_environment}")
+        return logger_conf()
+    except Exception as e:
+        logger.error(f"Error during logger initialization: {e}")
+        raise
 
 def main():
-    uvicorn.run("main:app", host="0.0.0.0", reload=True, port=9000, env_file=".env", log_level="info")
-
+    logger.info(f"Starting {settings.app_name}")
+    uvicorn.run("main:app", 
+                host=str(settings.uvicorn_host), 
+                reload=settings.uvicorn_reload, 
+                port=settings.uvicorn_port, 
+                env_file=settings.uvicorn_env_file, 
+                log_level=settings.uvicorn_log_level,
+                log_config=logger_conf())
 if __name__ == "__main__":
     main()

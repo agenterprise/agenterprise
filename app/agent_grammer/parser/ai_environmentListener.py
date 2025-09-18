@@ -44,12 +44,12 @@ class ai_environmentListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by ai_environmentParser#llms.
-    def enterLlms(self, ctx:ai_environmentParser.LlmsContext):
+    # Enter a parse tree produced by ai_environmentParser#llmSet.
+    def enterLlmSet(self, ctx:ai_environmentParser.LlmSetContext):
         pass
 
-    # Exit a parse tree produced by ai_environmentParser#llms.
-    def exitLlms(self, ctx:ai_environmentParser.LlmsContext):
+    # Exit a parse tree produced by ai_environmentParser#llmSet.
+    def exitLlmSet(self, ctx:ai_environmentParser.LlmSetContext):
         pass
 
 
@@ -71,48 +71,48 @@ class ai_environmentListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by ai_environmentParser#providerProp.
-    def enterProviderProp(self, ctx:ai_environmentParser.ProviderPropContext):
+    # Enter a parse tree produced by ai_environmentParser#llmProviderProp.
+    def enterLlmProviderProp(self, ctx:ai_environmentParser.LlmProviderPropContext):
         pass
 
-    # Exit a parse tree produced by ai_environmentParser#providerProp.
-    def exitProviderProp(self, ctx:ai_environmentParser.ProviderPropContext):
-        pass
-
-
-    # Enter a parse tree produced by ai_environmentParser#modelProp.
-    def enterModelProp(self, ctx:ai_environmentParser.ModelPropContext):
-        pass
-
-    # Exit a parse tree produced by ai_environmentParser#modelProp.
-    def exitModelProp(self, ctx:ai_environmentParser.ModelPropContext):
+    # Exit a parse tree produced by ai_environmentParser#llmProviderProp.
+    def exitLlmProviderProp(self, ctx:ai_environmentParser.LlmProviderPropContext):
         pass
 
 
-    # Enter a parse tree produced by ai_environmentParser#endpointProp.
-    def enterEndpointProp(self, ctx:ai_environmentParser.EndpointPropContext):
+    # Enter a parse tree produced by ai_environmentParser#llmModelProp.
+    def enterLlmModelProp(self, ctx:ai_environmentParser.LlmModelPropContext):
         pass
 
-    # Exit a parse tree produced by ai_environmentParser#endpointProp.
-    def exitEndpointProp(self, ctx:ai_environmentParser.EndpointPropContext):
-        pass
-
-
-    # Enter a parse tree produced by ai_environmentParser#versionProp.
-    def enterVersionProp(self, ctx:ai_environmentParser.VersionPropContext):
-        pass
-
-    # Exit a parse tree produced by ai_environmentParser#versionProp.
-    def exitVersionProp(self, ctx:ai_environmentParser.VersionPropContext):
+    # Exit a parse tree produced by ai_environmentParser#llmModelProp.
+    def exitLlmModelProp(self, ctx:ai_environmentParser.LlmModelPropContext):
         pass
 
 
-    # Enter a parse tree produced by ai_environmentParser#otherLLMProperty.
-    def enterOtherLLMProperty(self, ctx:ai_environmentParser.OtherLLMPropertyContext):
+    # Enter a parse tree produced by ai_environmentParser#llmEndpointProp.
+    def enterLlmEndpointProp(self, ctx:ai_environmentParser.LlmEndpointPropContext):
         pass
 
-    # Exit a parse tree produced by ai_environmentParser#otherLLMProperty.
-    def exitOtherLLMProperty(self, ctx:ai_environmentParser.OtherLLMPropertyContext):
+    # Exit a parse tree produced by ai_environmentParser#llmEndpointProp.
+    def exitLlmEndpointProp(self, ctx:ai_environmentParser.LlmEndpointPropContext):
+        pass
+
+
+    # Enter a parse tree produced by ai_environmentParser#llmVersionProp.
+    def enterLlmVersionProp(self, ctx:ai_environmentParser.LlmVersionPropContext):
+        pass
+
+    # Exit a parse tree produced by ai_environmentParser#llmVersionProp.
+    def exitLlmVersionProp(self, ctx:ai_environmentParser.LlmVersionPropContext):
+        pass
+
+
+    # Enter a parse tree produced by ai_environmentParser#llmOtherProperty.
+    def enterLlmOtherProperty(self, ctx:ai_environmentParser.LlmOtherPropertyContext):
+        pass
+
+    # Exit a parse tree produced by ai_environmentParser#llmOtherProperty.
+    def exitLlmOtherProperty(self, ctx:ai_environmentParser.LlmOtherPropertyContext):
         pass
 
 

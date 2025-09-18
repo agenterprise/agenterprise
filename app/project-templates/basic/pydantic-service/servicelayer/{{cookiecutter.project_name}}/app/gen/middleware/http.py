@@ -1,17 +1,26 @@
+import logging
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
+
+logger = logging.getLogger(__name__)
 
 
-class HttpMiddleware():
+class BaseHttpMiddleware():
     """Middleware to validate Origin header according to MCP specification.
     This prevents DNS rebinding attacks by ensuring requests come from trusted origins."""
 
-    def __init__(self, app: FastAPI):
-        self.app = app
-        self.define_middleware()
 
-    def define_middleware(self):
-        @self.app.middleware("http")
+
+    def define_middleware(self, app: FastAPI):
+        app.add_middleware(
+            CORSMiddleware,
+            allow_origins=["*"],
+            allow_credentials=True,
+            allow_methods=["*"],
+            allow_headers=["*"],
+        )
+        @app.middleware("http")
         async def origin_validation_middleware(request: Request, call_next):
             """
             Middleware to validate Origin header according to MCP specification.
@@ -26,7 +35,7 @@ class HttpMiddleware():
             origin = request.headers.get("origin")
             
             if not origin:
-                print("✅ No Origin header")
+                logger.info("✅ No Origin header")
                 response = await call_next(request)
                 return response
             # Validate the origin - allow localhost and 127.0.0.1 on any port

@@ -10,4 +10,5 @@ Overview agent
 {% endfor %}
 
 
-
+# Extend
+Create a file "custom_agent.py" with a Subclass below /app/ext/agents/{{cookiecutter.agent.uid | aiurnpath}} so that model factory can find it.

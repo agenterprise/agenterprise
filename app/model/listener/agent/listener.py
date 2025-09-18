@@ -25,6 +25,7 @@ class BaseAIAgentListener(ai_environmentListener):
             uid=AIURN(self.current_agent.get("uid")),
             namespace=AIURN(self.current_agent.get("namespace")),
             systemprompt=self.current_agent.get("systemprompt"),
+            llmref=AIURN(self.current_agent.get("llmref")),
             properties=self.current_agent.get("properties", {})
         )
         self.agents.append(agent)
@@ -39,6 +40,11 @@ class BaseAIAgentListener(ai_environmentListener):
         super().enterAgentNamespace(ctx)
         if self.current_agent is not None and ctx.NAMESPACE():
             self.current_agent["namespace"] = ctx.NAMESPACE().getText()
+
+    def enterLlmRefProperty(self, ctx):
+        super().enterLlmRefProperty(ctx)
+        if self.current_agent is not None and ctx.LLMID():
+            self.current_agent["llmref"] = ctx.LLMID().getText()
 
     def enterSystemPromptProperty(self, ctx):
         super().enterSystemPromptProperty(ctx)

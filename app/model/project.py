@@ -2,19 +2,27 @@ import os
 from typing import List
 import uuid
 
+from app.model.listener.agent.listener import BaseAIAgentListener
+from app.model.listener.llm.listener import BaseAILLMListener
+from app.model.listener.nonfunctional.listener import NonFunctionalListener
+from app.model.listener.service.listener import BasicServiceListener
+
 
 class ProjectTemplate():
 
-    def __init__(self, urn, name, template_url, projectlistener:List,agentlistener:List, servicelistener:List):
+    def __init__(self, urn, name, template_url, projectlistener:NonFunctionalListener,agentlistener:BaseAIAgentListener, llmlistener:BaseAILLMListener, servicelistener:BasicServiceListener):
         self.urn = urn
         self.name = name
         self.template_url = template_url    
         self.AGENTLAYER = "agentlayer"
         self.SERVICELAYER = "servicelayer"
         self.PROJECTLAYER= "projectlayer"   
-        self.agentlistener = agentlistener
-        self.servicelistener = servicelistener
+        self.LLMLAYER= "llmlayer"   
+
         self.projectlistener = projectlistener
+        self.agentlistener = agentlistener
+        self.llmlistener = llmlistener
+        self.servicelistener = servicelistener
 
 
 class Project():
@@ -42,3 +50,5 @@ class Project():
     def get_servicelayer(self):
         return os.path.join(self.template.template_url,self.template.SERVICELAYER)
     
+    def get_llmlayer(self):
+        return os.path.join(self.template.template_url,self.template.LLMLAYER)

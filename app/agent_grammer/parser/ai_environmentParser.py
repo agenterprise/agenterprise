@@ -93,14 +93,14 @@ class ai_environmentParser ( Parser ):
     RULE_envid = 1
     RULE_deploymentPattern = 2
     RULE_techstack = 3
-    RULE_llms = 4
+    RULE_llmSet = 4
     RULE_llmDef = 5
     RULE_llmIdProp = 6
-    RULE_providerProp = 7
-    RULE_modelProp = 8
-    RULE_endpointProp = 9
-    RULE_versionProp = 10
-    RULE_otherLLMProperty = 11
+    RULE_llmProviderProp = 7
+    RULE_llmModelProp = 8
+    RULE_llmEndpointProp = 9
+    RULE_llmVersionProp = 10
+    RULE_llmOtherProperty = 11
     RULE_prog = 12
     RULE_agentDef = 13
     RULE_systemPromptProperty = 14
@@ -111,9 +111,9 @@ class ai_environmentParser ( Parser ):
     RULE_agentProperty = 19
 
     ruleNames =  [ "ai_envDef", "envid", "deploymentPattern", "techstack", 
-                   "llms", "llmDef", "llmIdProp", "providerProp", "modelProp", 
-                   "endpointProp", "versionProp", "otherLLMProperty", "prog", 
-                   "agentDef", "systemPromptProperty", "agentIdentity", 
+                   "llmSet", "llmDef", "llmIdProp", "llmProviderProp", "llmModelProp", 
+                   "llmEndpointProp", "llmVersionProp", "llmOtherProperty", 
+                   "prog", "agentDef", "systemPromptProperty", "agentIdentity", 
                    "agentNamespace", "llmRefProperty", "otherAgentProperty", 
                    "agentProperty" ]
 
@@ -427,7 +427,7 @@ class ai_environmentParser ( Parser ):
         return localctx
 
 
-    class LlmsContext(ParserRuleContext):
+    class LlmSetContext(ParserRuleContext):
         __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
@@ -442,29 +442,29 @@ class ai_environmentParser ( Parser ):
 
 
         def getRuleIndex(self):
-            return ai_environmentParser.RULE_llms
+            return ai_environmentParser.RULE_llmSet
 
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterLlms" ):
-                listener.enterLlms(self)
+            if hasattr( listener, "enterLlmSet" ):
+                listener.enterLlmSet(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitLlms" ):
-                listener.exitLlms(self)
+            if hasattr( listener, "exitLlmSet" ):
+                listener.exitLlmSet(self)
 
         def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitLlms" ):
-                return visitor.visitLlms(self)
+            if hasattr( visitor, "visitLlmSet" ):
+                return visitor.visitLlmSet(self)
             else:
                 return visitor.visitChildren(self)
 
 
 
 
-    def llms(self):
+    def llmSet(self):
 
-        localctx = ai_environmentParser.LlmsContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 8, self.RULE_llms)
+        localctx = ai_environmentParser.LlmSetContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 8, self.RULE_llmSet)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
@@ -501,27 +501,27 @@ class ai_environmentParser ( Parser ):
             return self.getTypedRuleContext(ai_environmentParser.LlmIdPropContext,0)
 
 
-        def providerProp(self):
-            return self.getTypedRuleContext(ai_environmentParser.ProviderPropContext,0)
+        def llmProviderProp(self):
+            return self.getTypedRuleContext(ai_environmentParser.LlmProviderPropContext,0)
 
 
-        def modelProp(self):
-            return self.getTypedRuleContext(ai_environmentParser.ModelPropContext,0)
+        def llmModelProp(self):
+            return self.getTypedRuleContext(ai_environmentParser.LlmModelPropContext,0)
 
 
-        def endpointProp(self):
-            return self.getTypedRuleContext(ai_environmentParser.EndpointPropContext,0)
+        def llmEndpointProp(self):
+            return self.getTypedRuleContext(ai_environmentParser.LlmEndpointPropContext,0)
 
 
-        def versionProp(self):
-            return self.getTypedRuleContext(ai_environmentParser.VersionPropContext,0)
+        def llmVersionProp(self):
+            return self.getTypedRuleContext(ai_environmentParser.LlmVersionPropContext,0)
 
 
-        def otherLLMProperty(self, i:int=None):
+        def llmOtherProperty(self, i:int=None):
             if i is None:
-                return self.getTypedRuleContexts(ai_environmentParser.OtherLLMPropertyContext)
+                return self.getTypedRuleContexts(ai_environmentParser.LlmOtherPropertyContext)
             else:
-                return self.getTypedRuleContext(ai_environmentParser.OtherLLMPropertyContext,i)
+                return self.getTypedRuleContext(ai_environmentParser.LlmOtherPropertyContext,i)
 
 
         def getRuleIndex(self):
@@ -560,19 +560,19 @@ class ai_environmentParser ( Parser ):
             self.state = 85
             self.llmIdProp()
             self.state = 86
-            self.providerProp()
+            self.llmProviderProp()
             self.state = 87
-            self.modelProp()
+            self.llmModelProp()
             self.state = 88
-            self.endpointProp()
+            self.llmEndpointProp()
             self.state = 89
-            self.versionProp()
+            self.llmVersionProp()
             self.state = 93
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while _la==26:
                 self.state = 90
-                self.otherLLMProperty()
+                self.llmOtherProperty()
                 self.state = 95
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
@@ -639,7 +639,7 @@ class ai_environmentParser ( Parser ):
         return localctx
 
 
-    class ProviderPropContext(ParserRuleContext):
+    class LlmProviderPropContext(ParserRuleContext):
         __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
@@ -650,29 +650,29 @@ class ai_environmentParser ( Parser ):
             return self.getToken(ai_environmentParser.LLMPROVIDER, 0)
 
         def getRuleIndex(self):
-            return ai_environmentParser.RULE_providerProp
+            return ai_environmentParser.RULE_llmProviderProp
 
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterProviderProp" ):
-                listener.enterProviderProp(self)
+            if hasattr( listener, "enterLlmProviderProp" ):
+                listener.enterLlmProviderProp(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitProviderProp" ):
-                listener.exitProviderProp(self)
+            if hasattr( listener, "exitLlmProviderProp" ):
+                listener.exitLlmProviderProp(self)
 
         def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitProviderProp" ):
-                return visitor.visitProviderProp(self)
+            if hasattr( visitor, "visitLlmProviderProp" ):
+                return visitor.visitLlmProviderProp(self)
             else:
                 return visitor.visitChildren(self)
 
 
 
 
-    def providerProp(self):
+    def llmProviderProp(self):
 
-        localctx = ai_environmentParser.ProviderPropContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 14, self.RULE_providerProp)
+        localctx = ai_environmentParser.LlmProviderPropContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 14, self.RULE_llmProviderProp)
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 102
@@ -690,7 +690,7 @@ class ai_environmentParser ( Parser ):
         return localctx
 
 
-    class ModelPropContext(ParserRuleContext):
+    class LlmModelPropContext(ParserRuleContext):
         __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
@@ -701,29 +701,29 @@ class ai_environmentParser ( Parser ):
             return self.getToken(ai_environmentParser.STRING, 0)
 
         def getRuleIndex(self):
-            return ai_environmentParser.RULE_modelProp
+            return ai_environmentParser.RULE_llmModelProp
 
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterModelProp" ):
-                listener.enterModelProp(self)
+            if hasattr( listener, "enterLlmModelProp" ):
+                listener.enterLlmModelProp(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitModelProp" ):
-                listener.exitModelProp(self)
+            if hasattr( listener, "exitLlmModelProp" ):
+                listener.exitLlmModelProp(self)
 
         def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitModelProp" ):
-                return visitor.visitModelProp(self)
+            if hasattr( visitor, "visitLlmModelProp" ):
+                return visitor.visitLlmModelProp(self)
             else:
                 return visitor.visitChildren(self)
 
 
 
 
-    def modelProp(self):
+    def llmModelProp(self):
 
-        localctx = ai_environmentParser.ModelPropContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 16, self.RULE_modelProp)
+        localctx = ai_environmentParser.LlmModelPropContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 16, self.RULE_llmModelProp)
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 106
@@ -741,7 +741,7 @@ class ai_environmentParser ( Parser ):
         return localctx
 
 
-    class EndpointPropContext(ParserRuleContext):
+    class LlmEndpointPropContext(ParserRuleContext):
         __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
@@ -752,29 +752,29 @@ class ai_environmentParser ( Parser ):
             return self.getToken(ai_environmentParser.STRING, 0)
 
         def getRuleIndex(self):
-            return ai_environmentParser.RULE_endpointProp
+            return ai_environmentParser.RULE_llmEndpointProp
 
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterEndpointProp" ):
-                listener.enterEndpointProp(self)
+            if hasattr( listener, "enterLlmEndpointProp" ):
+                listener.enterLlmEndpointProp(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitEndpointProp" ):
-                listener.exitEndpointProp(self)
+            if hasattr( listener, "exitLlmEndpointProp" ):
+                listener.exitLlmEndpointProp(self)
 
         def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitEndpointProp" ):
-                return visitor.visitEndpointProp(self)
+            if hasattr( visitor, "visitLlmEndpointProp" ):
+                return visitor.visitLlmEndpointProp(self)
             else:
                 return visitor.visitChildren(self)
 
 
 
 
-    def endpointProp(self):
+    def llmEndpointProp(self):
 
-        localctx = ai_environmentParser.EndpointPropContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 18, self.RULE_endpointProp)
+        localctx = ai_environmentParser.LlmEndpointPropContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 18, self.RULE_llmEndpointProp)
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 110
@@ -792,7 +792,7 @@ class ai_environmentParser ( Parser ):
         return localctx
 
 
-    class VersionPropContext(ParserRuleContext):
+    class LlmVersionPropContext(ParserRuleContext):
         __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
@@ -803,29 +803,29 @@ class ai_environmentParser ( Parser ):
             return self.getToken(ai_environmentParser.STRING, 0)
 
         def getRuleIndex(self):
-            return ai_environmentParser.RULE_versionProp
+            return ai_environmentParser.RULE_llmVersionProp
 
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterVersionProp" ):
-                listener.enterVersionProp(self)
+            if hasattr( listener, "enterLlmVersionProp" ):
+                listener.enterLlmVersionProp(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitVersionProp" ):
-                listener.exitVersionProp(self)
+            if hasattr( listener, "exitLlmVersionProp" ):
+                listener.exitLlmVersionProp(self)
 
         def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitVersionProp" ):
-                return visitor.visitVersionProp(self)
+            if hasattr( visitor, "visitLlmVersionProp" ):
+                return visitor.visitLlmVersionProp(self)
             else:
                 return visitor.visitChildren(self)
 
 
 
 
-    def versionProp(self):
+    def llmVersionProp(self):
 
-        localctx = ai_environmentParser.VersionPropContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 20, self.RULE_versionProp)
+        localctx = ai_environmentParser.LlmVersionPropContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 20, self.RULE_llmVersionProp)
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 114
@@ -843,7 +843,7 @@ class ai_environmentParser ( Parser ):
         return localctx
 
 
-    class OtherLLMPropertyContext(ParserRuleContext):
+    class LlmOtherPropertyContext(ParserRuleContext):
         __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
@@ -857,29 +857,29 @@ class ai_environmentParser ( Parser ):
             return self.getToken(ai_environmentParser.STRING, 0)
 
         def getRuleIndex(self):
-            return ai_environmentParser.RULE_otherLLMProperty
+            return ai_environmentParser.RULE_llmOtherProperty
 
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterOtherLLMProperty" ):
-                listener.enterOtherLLMProperty(self)
+            if hasattr( listener, "enterLlmOtherProperty" ):
+                listener.enterLlmOtherProperty(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitOtherLLMProperty" ):
-                listener.exitOtherLLMProperty(self)
+            if hasattr( listener, "exitLlmOtherProperty" ):
+                listener.exitLlmOtherProperty(self)
 
         def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitOtherLLMProperty" ):
-                return visitor.visitOtherLLMProperty(self)
+            if hasattr( visitor, "visitLlmOtherProperty" ):
+                return visitor.visitLlmOtherProperty(self)
             else:
                 return visitor.visitChildren(self)
 
 
 
 
-    def otherLLMProperty(self):
+    def llmOtherProperty(self):
 
-        localctx = ai_environmentParser.OtherLLMPropertyContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 22, self.RULE_otherLLMProperty)
+        localctx = ai_environmentParser.LlmOtherPropertyContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 22, self.RULE_llmOtherProperty)
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 118

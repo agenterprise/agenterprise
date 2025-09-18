@@ -31,8 +31,8 @@ ai_environment "AgentMicroservice"
     llm "My LLM" {
         uid = aiurn:model:llm:geepeetee
         provider = aiurn:provider:azure
-        model = "gpt-5"
-        endpoint = "http://any.where.com/myModel"
-        version = "2323"
+        model = "gpt-4o"
+        endpoint = "https://gpt-mvo-sweden.openai.azure.com/openai/deployments/gpt-4o/chat/completions"
+        version = "2025-01-01-preview"
     }
 }

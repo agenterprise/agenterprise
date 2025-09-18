@@ -1,7 +1,8 @@
-# Add your Documentation 
+# {{cookiecutter.project_name}}
+Add your Documentation 
 ...
 
 
 # References
 
-* [Agents](docs/agent/Index.md)
+* [Docs](docs)

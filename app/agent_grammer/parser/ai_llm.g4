@@ -1,23 +1,23 @@
 grammar ai_llm;
 
-llms: llmDef* ;
+llmSet: llmDef* ;
 
 llmDef: 'llm' STRING '{'
            llmIdProp
-           providerProp
-           modelProp
-           endpointProp
-           versionProp
-           otherLLMProperty*
+           llmProviderProp
+           llmModelProp
+           llmEndpointProp
+           llmVersionProp
+           llmOtherProperty*
        '}' ;
 
 llmIdProp: 'uid' '=' LLMID ;
-providerProp: 'provider' '=' LLMPROVIDER ;
-modelProp: 'model' '=' STRING ;
-endpointProp: 'endpoint' '=' STRING ;
-versionProp: 'version' '=' STRING ;
+llmProviderProp: 'provider' '=' LLMPROVIDER ;
+llmModelProp: 'model' '=' STRING ;
+llmEndpointProp: 'endpoint' '=' STRING ;
+llmVersionProp: 'version' '=' STRING ;
 
 // Für weitere optionale Properties
-otherLLMProperty: VAR '=' STRING ;
+llmOtherProperty: VAR '=' STRING ;
 
 

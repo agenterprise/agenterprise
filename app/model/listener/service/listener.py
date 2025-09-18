@@ -16,9 +16,13 @@ class BasicServiceListener(ai_environmentListener):
     def exitTechstack(self, ctx):
         self.techstack = ctx.TECHSTACK_AIURN().getText().strip('"')
 
+    def exitEnvid(self, ctx):
+        super().exitEnvid(ctx)
+        self.envid = ctx.STRING().getText().strip('"')
     def exitAi_envDef(self, ctx):
         self.environment = AIEnvironment(
             name=ctx.STRING().getText().strip('"'),
+            envid=self.envid,
             deployment=self.deploymentpattern,
             techstack=self.techstack,
             agents=[],

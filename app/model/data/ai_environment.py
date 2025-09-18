@@ -5,12 +5,13 @@ from app.model.listener.AIURN import AIURN
 
 @dataclass
 class LLM:
+    name: str
     uid: AIURN
-    provider: str
+    provider: AIURN
     model: str
     endpoint: str
     version: str
-    properties: Optional[Dict[str, str]] = None 
+    properties: Optional[Dict[AIURN, str]] = None 
 
 @dataclass
 class Agent:
@@ -18,6 +19,7 @@ class Agent:
     namespace: AIURN
     name: str
     systemprompt: str
+    llmref: AIURN
     properties: Optional[Dict[AIURN, str]] = None
 
 

@@ -29,8 +29,8 @@ class ai_environmentVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ai_environmentParser#llms.
-    def visitLlms(self, ctx:ai_environmentParser.LlmsContext):
+    # Visit a parse tree produced by ai_environmentParser#llmSet.
+    def visitLlmSet(self, ctx:ai_environmentParser.LlmSetContext):
         return self.visitChildren(ctx)
 
 
@@ -44,28 +44,28 @@ class ai_environmentVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ai_environmentParser#providerProp.
-    def visitProviderProp(self, ctx:ai_environmentParser.ProviderPropContext):
+    # Visit a parse tree produced by ai_environmentParser#llmProviderProp.
+    def visitLlmProviderProp(self, ctx:ai_environmentParser.LlmProviderPropContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ai_environmentParser#modelProp.
-    def visitModelProp(self, ctx:ai_environmentParser.ModelPropContext):
+    # Visit a parse tree produced by ai_environmentParser#llmModelProp.
+    def visitLlmModelProp(self, ctx:ai_environmentParser.LlmModelPropContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ai_environmentParser#endpointProp.
-    def visitEndpointProp(self, ctx:ai_environmentParser.EndpointPropContext):
+    # Visit a parse tree produced by ai_environmentParser#llmEndpointProp.
+    def visitLlmEndpointProp(self, ctx:ai_environmentParser.LlmEndpointPropContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ai_environmentParser#versionProp.
-    def visitVersionProp(self, ctx:ai_environmentParser.VersionPropContext):
+    # Visit a parse tree produced by ai_environmentParser#llmVersionProp.
+    def visitLlmVersionProp(self, ctx:ai_environmentParser.LlmVersionPropContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ai_environmentParser#otherLLMProperty.
-    def visitOtherLLMProperty(self, ctx:ai_environmentParser.OtherLLMPropertyContext):
+    # Visit a parse tree produced by ai_environmentParser#llmOtherProperty.
+    def visitLlmOtherProperty(self, ctx:ai_environmentParser.LlmOtherPropertyContext):
         return self.visitChildren(ctx)
 
 
