@@ -1,5 +1,5 @@
 import uvicorn
-import sys
+import traceback
 import logging
 from app.gen.config.service_settings import BaseAISettings, EnvEnum
 from app.gen.config.crosscutting_settings import CrossCuttingSettings
@@ -18,7 +18,8 @@ def app():
         logger.info(f"Running App in Env Mode: {settings.run_environment}")
         return app()
     except Exception as e:
-        logger.error(f"Error during app initialization: {e}")
+        logger.critical(f"Error during app initialization: {e}")
+        logger.error(traceback.format_exc())
         raise
 
 def logger_conf():
@@ -29,7 +30,8 @@ def logger_conf():
         logger.info(f"Applying Logging in Env Mode: {settings.run_environment}")
         return logger_conf()
     except Exception as e:
-        logger.error(f"Error during logger initialization: {e}")
+        logger.critical(f"Error during logger initialization: {e}")
+        logger.error(traceback.format_exc())
         raise
 
 def main():
@@ -40,6 +42,7 @@ def main():
                 port=settings.uvicorn_port, 
                 env_file=settings.uvicorn_env_file, 
                 log_level=settings.uvicorn_log_level,
-                log_config=logger_conf())
+                log_config=logger_conf(),
+                factory=True)
 if __name__ == "__main__":
     main()

@@ -1,8 +1,9 @@
 from pydantic import BaseModel
 from pydantic_ai import Agent
-from app.gen.aimodel.modelregistry import BaseModelregistry
+from app.gen.domainmodel.agent import AbstractAgent
+from app.gen.domainmodel.modelregistry import BaseModelregistry
 
-class BaseAgent(BaseModel):
+class BaseAgent(AbstractAgent):
 
     modelregistry: BaseModelregistry
     systemprompt: str = "{{ cookiecutter.agent.systemprompt }}"

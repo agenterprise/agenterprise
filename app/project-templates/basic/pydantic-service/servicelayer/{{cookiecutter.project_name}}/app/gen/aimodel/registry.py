@@ -1,4 +1,4 @@
-from app.gen.aimodel.modelregistry import BaseModelregistry
+from app.gen.domainmodel.modelregistry import BaseModelregistry
 {% for key, llm in cookiecutter.llms.items() %}
 from app.gen.aimodel.{{llm.uid | aiurnvar }}.model import {{llm.uid | aiurnvar}}
 {% endfor %}

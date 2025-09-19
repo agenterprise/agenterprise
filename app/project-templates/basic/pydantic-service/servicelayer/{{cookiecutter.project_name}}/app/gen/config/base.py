@@ -15,8 +15,15 @@ def app():
     from app.gen.routes.router import BaseRouter as Router
     from app.gen.aimodel.registry import baseAimodelregistry as modelregistry
     from app.gen.ioc.IoCContainer import IoCContainer
+    {% for key, agent in cookiecutter.agents.items() %}
+    from app.gen.agents.{{agent.uid | aiurnpath}}.agent import BaseAgent as {{agent.uid | aiurnpath}}
+    {% endfor %}
    
-    router = Router()
+    router = Router(
+         {% for key, agent in cookiecutter.agents.items() %}
+        {{agent.uid | aiurnpath}}={{agent.uid | aiurnpath}}(modelregistry=modelregistry),
+        {% endfor %}
+    )
     middleware = HttpMiddleware()
 
     container = IoCContainer(middleware=middleware, router=router, modelregistry=modelregistry, toolregistry=None)

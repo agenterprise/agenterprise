@@ -1,23 +1,25 @@
 import logging
 from app.gen.aiapp import BaseAIApp
 from fastapi import Request
-from app.gen.routes.health.handler import health
-from app.gen.aimodel.modelregistry import BaseModelregistry
-
+from app.gen.routes.health.handler import health as service_health
+from app.gen.domainmodel.router import AbstractRouter
+from app.gen.domainmodel.agent import  AbstractAgent
 logger = logging.getLogger(__name__)
 
-class BaseRouter():
+class BaseRouter(AbstractRouter):
    
-    def define_routes(self, app:BaseAIApp, modelregistry: BaseModelregistry):
+    {% for key, agent in cookiecutter.agents.items() %}
+    {{agent.uid | aiurnpath}}:AbstractAgent
+    {% endfor %}
+    
+    def define_routes(self, app:BaseAIApp):
         @app.get("/health")
-        async def health(request: Request):
-            return await health(request)
+        async def handle_health(request: Request):
+            return await service_health(request)
         
         {% for key, agent in cookiecutter.agents.items() %}
         @app.get("/agent/{{agent.name | lower}}/ask/{question}")
-        async def {{agent.uid | aiurnvar}}(request: Request, question):  
-            from app.gen.agents.{{agent.uid | aiurnpath}}.agent import BaseAgent
-            
-            return await BaseAgent(modelregistry=modelregistry).ask(question)
+        async def handle_{{agent.uid | aiurnvar}}(request: Request, question):  
+            return await self.{{agent.uid | aiurnpath}}.ask(question)
         {% endfor %}
       
