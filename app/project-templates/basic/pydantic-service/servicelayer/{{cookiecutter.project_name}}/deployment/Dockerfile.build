@@ -12,7 +12,8 @@ RUN --mount=type=secret,id=pip_index_url \
 
 # Install agent requirements using custom index from secret
 RUN --mount=type=secret,id=pip_index_url \
-    .venv/bin/uv pip install --index-url "$(cat /run/secrets/pip_index_url)" -r pyproject.toml
+    .venv/bin/uv sync --all-groups  --index-url "$(cat /run/secrets/pip_index_url)" 
+
 
 RUN --mount=type=secret,id=pip_index_url \
     .venv/bin/uv lock --index-url "$(cat /run/secrets/pip_index_url)"
