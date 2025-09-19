@@ -5,18 +5,18 @@ from app.gen.config.service_settings import BaseAISettings, EnvEnum
 from app.gen.config.crosscutting_settings import CrossCuttingSettings
 
 settings = BaseAISettings()
-
-
 logger = logging.getLogger(__name__)
 crosscutting = CrossCuttingSettings()
 def app():
    
     try:
         if settings.run_environment == EnvEnum.base:
-            from app.gen.config.base import app
+            from app.gen.config.base import BaseEnvironmentContext as Context
+        if settings.run_environment == EnvEnum.dev:
+            from app.ext.config.dev import DevContext as Context
 
         logger.info(f"Running App in Env Mode: {settings.run_environment}")
-        return app()
+        return Context().app()
     except Exception as e:
         logger.critical(f"Error during app initialization: {e}")
         logger.error(traceback.format_exc())
@@ -25,10 +25,13 @@ def app():
 def logger_conf():
     try:
         if settings.run_environment == EnvEnum.base:
-            from app.gen.config.base import logger_conf
+            from app.gen.config.base import BaseEnvironmentContext as Context
+        if settings.run_environment == EnvEnum.dev:
+            from app.ext.config.dev import DevContext as Context
+
 
         logger.info(f"Applying Logging in Env Mode: {settings.run_environment}")
-        return logger_conf()
+        return Context().logger_conf()
     except Exception as e:
         logger.critical(f"Error during logger initialization: {e}")
         logger.error(traceback.format_exc())
