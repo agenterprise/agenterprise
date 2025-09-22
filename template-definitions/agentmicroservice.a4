@@ -1,11 +1,22 @@
 ai_environment "AgentMicroservice" 
-@nonfunctional{
+architecture{
     envid = "c672da0bd68f41f1b77442524cfa48c4"
-    deployment = aiurn:deployment:microservice
+    app-pattern = aiurn:app:microservice
     techstack = aiurn:techstack:basic:pydantic
 }
 
-@functional{
+infrastructure {
+    llm "My LLM" {
+        uid = aiurn:model:llm:geepeetee
+        provider = aiurn:provider:azure
+        model = "gpt-4o"
+        endpoint = "https://gpt-mvo-sweden.openai.azure.com/openai/deployments/gpt-4o/chat/completions"
+        version = "2025-01-01-preview"
+    }
+}
+
+
+functional{
     agent "Cook" {
         uid = aiurn:agent:cook
         namespace = aiurn:ns:janes_diner:kitchen
@@ -28,11 +39,5 @@ ai_environment "AgentMicroservice"
         aiurn:var:events = "onRestaurantOpening"
     }
 
-    llm "My LLM" {
-        uid = aiurn:model:llm:geepeetee
-        provider = aiurn:provider:azure
-        model = "gpt-4o"
-        endpoint = "https://gpt-mvo-sweden.openai.azure.com/openai/deployments/gpt-4o/chat/completions"
-        version = "2025-01-01-preview"
-    }
 }
+

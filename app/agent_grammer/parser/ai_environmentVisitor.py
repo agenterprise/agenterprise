@@ -19,8 +19,8 @@ class ai_environmentVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ai_environmentParser#deploymentPattern.
-    def visitDeploymentPattern(self, ctx:ai_environmentParser.DeploymentPatternContext):
+    # Visit a parse tree produced by ai_environmentParser#appPattern.
+    def visitAppPattern(self, ctx:ai_environmentParser.AppPatternContext):
         return self.visitChildren(ctx)
 
 

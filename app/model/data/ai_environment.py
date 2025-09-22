@@ -27,7 +27,7 @@ class Agent:
 class AIEnvironment:
     name: str
     envid: str
-    deployment: str
+    app_pattern: str
     techstack: AIURN
     agents: List[Agent]
     llms: List[LLM]

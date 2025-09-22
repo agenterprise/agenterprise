@@ -4,16 +4,16 @@ import ai_llm, ai_agent;
 
 
 
-ai_envDef: 'ai_environment' STRING '@nonfunctional' '{'envid deploymentPattern techstack '}' '@functional' '{' agentDef* llmDef* '}' ;
+ai_envDef: 'ai_environment' STRING 'architecture' '{'envid appPattern techstack '}' 'infrastructure' '{' llmDef* '}'  'functional' '{' agentDef* '}' ;
 
 //environmentid
 envid: 'envid' '=' STRING ;
-//deploymentpattern
-deploymentPattern: 'deployment' '=' DEPLOYMENT ;
-DEPLOYMENT: DEPLOYMENT_MICROSERVICE | DEPLOYMENT_SWARM | DEPLOYMENT_MCPSERVICE ;
-DEPLOYMENT_MICROSERVICE: 'aiurn:deployment:microservice';
-DEPLOYMENT_SWARM: 'aiurn:deployment:swarm';
-DEPLOYMENT_MCPSERVICE: 'aiurn:deployment:mcpservice';
+//appPattern
+appPattern: 'app-pattern' '=' APP ;
+APP: APP_MICROSERVICE | APP_SWARM | APP_MCPSERVICE ;
+APP_MICROSERVICE: 'aiurn:app:microservice';
+APP_SWARM: 'aiurn:app:swarm';
+APP_MCPSERVICE: 'aiurn:app:mcpservice';
 
 // Techstacks
 techstack: 'techstack' '=' TECHSTACK_AIURN ;

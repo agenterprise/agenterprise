@@ -26,12 +26,12 @@ class ai_environmentListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by ai_environmentParser#deploymentPattern.
-    def enterDeploymentPattern(self, ctx:ai_environmentParser.DeploymentPatternContext):
+    # Enter a parse tree produced by ai_environmentParser#appPattern.
+    def enterAppPattern(self, ctx:ai_environmentParser.AppPatternContext):
         pass
 
-    # Exit a parse tree produced by ai_environmentParser#deploymentPattern.
-    def exitDeploymentPattern(self, ctx:ai_environmentParser.DeploymentPatternContext):
+    # Exit a parse tree produced by ai_environmentParser#appPattern.
+    def exitAppPattern(self, ctx:ai_environmentParser.AppPatternContext):
         pass
 
 
