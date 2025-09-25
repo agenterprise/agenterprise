@@ -15,9 +15,11 @@ class BaseAIAgentListener(ai_environmentListener):
             "uid": None,
             "namespace": None,
             "systemprompt": None,
+            "toolrefs": [],
             "properties": {}
         }
-
+    def enterToolRefProperty(self, ctx):
+        self.current_agent["toolrefs"].append(ctx.TOOLID().getText())
     def exitAgentDef(self, ctx):
         super().exitAgentDef(ctx)
         agent = Agent(
@@ -26,6 +28,7 @@ class BaseAIAgentListener(ai_environmentListener):
             namespace=AIURN(self.current_agent.get("namespace")),
             systemprompt=self.current_agent.get("systemprompt"),
             llmref=AIURN(self.current_agent.get("llmref")),
+            toolrefs=[ AIURN(x) for x in self.current_agent["toolrefs"]],
             properties=self.current_agent.get("properties", {})
         )
         self.agents.append(agent)
@@ -38,8 +41,8 @@ class BaseAIAgentListener(ai_environmentListener):
 
     def enterAgentNamespace(self, ctx):
         super().enterAgentNamespace(ctx)
-        if self.current_agent is not None and ctx.NAMESPACE():
-            self.current_agent["namespace"] = ctx.NAMESPACE().getText()
+        if self.current_agent is not None and ctx.AGENTNAMESPACE():
+            self.current_agent["namespace"] = ctx.AGENTNAMESPACE().getText()
 
     def enterLlmRefProperty(self, ctx):
         super().enterLlmRefProperty(ctx)

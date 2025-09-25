@@ -20,6 +20,17 @@ class Agent:
     name: str
     systemprompt: str
     llmref: AIURN
+    toolrefs: List[AIURN]
+    properties: Optional[Dict[AIURN, str]] = None
+
+
+@dataclass
+class Tool:
+    uid: AIURN
+    name: str
+    endpoint: str
+    description: str
+    type: str
     properties: Optional[Dict[AIURN, str]] = None
 
 
@@ -27,8 +38,8 @@ class Agent:
 class AIEnvironment:
     name: str
     envid: str
-    app_pattern: str
-    techstack: AIURN
+    ai_techstack: AIURN
+    service_techstack: AIURN
     agents: List[Agent]
     llms: List[LLM]
 

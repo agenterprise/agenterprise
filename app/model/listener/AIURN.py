@@ -8,7 +8,8 @@ class AIURN(str):
         self.parts = urn.split(':')
         if len(self.parts) < 3 or self.parts[0] != 'aiurn':
             raise ValueError(f"Invalid AIURN format: {urn}")
-        self.namespace = self.parts[2]
+        self.namespace = self.parts[1]
+        self.context = self.parts[2]
         self.resource = self.parts[3] if len(self.parts) > 3 else None
         self.subresource = self.parts[4] if len(self.parts) > 4 else None
 
@@ -19,6 +20,16 @@ class AIURN(str):
     def to_varname(self):
         return '_'.join(self.parts[2:]).replace('-', '_')
     
+    def to_url(self):
+        if "github" in self.context:
+            host = self.resource or "github.com"
+            github_path = os.path.join(*self.parts[4:])
+            return f"https://{host}/{github_path}.git"
+        
+        if "local" in self.context:
+            template_path = os.path.join(*self.parts[3:])
+            return f"{template_path}"
+        
     @classmethod
     def __get_pydantic_core_schema__(
         cls, source_type: type, handler: GetCoreSchemaHandler

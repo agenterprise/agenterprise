@@ -1,7 +1,0 @@
-# Dockerfile.jinja2 for multi-stage build
-FROM python:3.11-slim AS run_{{uid}}
-WORKDIR /app
-COPY --from={{docker_imagename}} /app /app
-ENV VIRTUAL_ENV=/app/.venv
-ENV PATH="$VIRTUAL_ENV/bin:$PATH"
-CMD ["uv", "run", "python", "{{ agent_file }}"]
