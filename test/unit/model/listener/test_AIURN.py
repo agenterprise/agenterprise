@@ -1,4 +1,4 @@
-from app.model.listener.AIURN import AIURN
+from agenterprise.model.listener.AIURN import AIURN
 
 def test_github():
     t1 = "aiurn:service-stack:github:www.github.com:agenterprise:ai-layer-pydanticai"

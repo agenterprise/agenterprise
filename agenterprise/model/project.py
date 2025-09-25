@@ -2,12 +2,12 @@ import os
 from typing import List
 import uuid
 
-from app.model.listener.AIURN import AIURN
-from app.model.listener.agent.listener import BaseAIAgentListener
-from app.model.listener.llm.listener import BaseAILLMListener
-from app.model.listener.nonfunctional.listener import NonFunctionalListener
-from app.model.listener.service.listener import BasicServiceListener
-from app.model.listener.tool.listener import BaseAIToolListener
+from agenterprise.model.listener.AIURN import AIURN
+from agenterprise.model.listener.agent.listener import BaseAIAgentListener
+from agenterprise.model.listener.llm.listener import BaseAILLMListener
+from agenterprise.model.listener.nonfunctional.listener import NonFunctionalListener
+from agenterprise.model.listener.service.listener import BasicServiceListener
+from agenterprise.model.listener.tool.listener import BaseAIToolListener
 
 
 

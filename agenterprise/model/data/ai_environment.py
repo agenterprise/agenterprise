@@ -1,7 +1,7 @@
 from pydantic.dataclasses import dataclass
 from typing import List, Optional, Dict
 
-from app.model.listener.AIURN import AIURN
+from agenterprise.model.listener.AIURN import AIURN
 
 @dataclass
 class LLM:

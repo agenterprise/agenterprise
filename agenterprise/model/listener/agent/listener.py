@@ -1,6 +1,6 @@
-from app.agent_grammer.parser.ai_environmentListener import  ai_environmentListener
-from app.model.data.ai_environment import Agent
-from app.model.listener.AIURN import AIURN
+from agenterprise.agent_grammer.parser.ai_environmentListener import  ai_environmentListener
+from agenterprise.model.data.ai_environment import Agent
+from agenterprise.model.listener.AIURN import AIURN
 
 class BaseAIAgentListener(ai_environmentListener):
     def __init__(self):

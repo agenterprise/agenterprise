@@ -13,7 +13,6 @@
 
 - Generate complete AI agent environments from a DSL specification
 - Supports modern Python (3.12+)
-- Integrates with Pydantic, ANTLR, Cookiecutter, and Jinja2
 - Produces ready-to-use code, Dockerfiles, and configuration
 - Designed for enterprise and MDSD (Model-Driven Software Development) workflows
 
@@ -21,8 +20,16 @@
 
 ## Installation
 
+### PyPI
+
+```bash
+pip install agenterprise
+```
+
 > **Note:** Agenterprise is not yet published on PyPI. To install from source, clone the repository and use pip:
 
+### Local
+Follow these steps to install it from source
 ```bash
 git clone https://github.com/agenterprise/agenterprise.git
 cd agenterprise
@@ -35,52 +42,18 @@ Or, for development:
 pip install -e .
 ```
 
----
-
-## Quick Start
-
-### 1. Create a virtual environment
-
-Use [uv venv](https://github.com/astral-sh/uv) or your preferred tool:
-
-```bash
-uv venv .venv
-source .venv/bin/activate
-```
-
-### 2. Install dependencies
-
-```bash
-uv pip install -r pyproject.toml
-```
-
-### 3. Prepare your DSL file
-
-Place your agent DSL file (e.g. `template-definitions/agentmicroservice.a4`) in the project directory or specify your own path.
-
-### 4. Generate agent code
-
-```bash
-uv run python -m app.main --setup --dsl template-definitions/agentmicroservice.a4 --target target/myagentenv
-```
-
-### 5. Explore the generated code
-
-The generated agent code and Dockerfiles will be available in the `target/myagentenv` directory.
-
----
-
 ## Usage Example
 
-After generating your agent environment, you can import and use the generated modules in your own Python code:
-
-```python
-from target.myagentenv.app.main import main
-
-main()
+### Create a DSL File
+You can either start with a DSL File from scratch (see http://www.agenterprise.ai) or generate a sample file with:
+```bash
+agenterprise --dsl-template --dsl mydsl.dsl     
 ```
-
-Or run the CLI as shown above.
+### Generate a project
+Whith your created DSL File you can now generate a project:
+```bash
+agenterprise --code-generation --dsl mydsl.dsl --target target/mydsl
+```
 
 ---
 
@@ -92,7 +65,7 @@ Or run the CLI as shown above.
 
 ## License
 
-This project is licensed under the Apache 2.0 License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
 

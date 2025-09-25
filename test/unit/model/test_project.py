@@ -1,5 +1,5 @@
-from app.model.listener.AIURN import AIURN
-from app.model.project import Project
+from agenterprise.model.listener.AIURN import AIURN
+from agenterprise.model.project import Project
 def test_project_setup_default():
 
     service_techstack = AIURN("aiurn:techstack:github::agenterprise:service-layer-fastapi-base")

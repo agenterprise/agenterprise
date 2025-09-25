@@ -7,17 +7,17 @@ from antlr4 import FileStream, CommonTokenStream, ParseTreeWalker
 from cookiecutter.main import cookiecutter
 from cookiecutter.exceptions import OutputDirExistsException
 
-from app.model.data.ai_environment import Agent, Tool
-from app.model.data.ai_environment import LLM
-from app.model.generators import AgentGenerator
-from app.model.listener.agent.listener import BaseAIAgentListener
-from app.model.listener.llm.listener import BaseAILLMListener
-from app.model.listener.service.listener import BasicServiceListener
-from app.model.listener.nonfunctional.listener import NonFunctionalListener
-from app.model.listener.tool.listener import BaseAIToolListener
-from app.model.project import  Project
-from app.agent_grammer.parser.ai_environmentLexer import ai_environmentLexer
-from app.agent_grammer.parser.ai_environmentParser import ai_environmentParser
+from agenterprise.model.data.ai_environment import Agent, Tool
+from agenterprise.model.data.ai_environment import LLM
+from agenterprise.model.generators import AgentGenerator
+from agenterprise.model.listener.agent.listener import BaseAIAgentListener
+from agenterprise.model.listener.llm.listener import BaseAILLMListener
+from agenterprise.model.listener.service.listener import BasicServiceListener
+from agenterprise.model.listener.nonfunctional.listener import NonFunctionalListener
+from agenterprise.model.listener.tool.listener import BaseAIToolListener
+from agenterprise.model.project import  Project
+from agenterprise.agent_grammer.parser.ai_environmentLexer import ai_environmentLexer
+from agenterprise.agent_grammer.parser.ai_environmentParser import ai_environmentParser
 
 logging.basicConfig(level=logging.INFO, stream=sys.stdout, format='%(levelname)s: %(message)s')
 
@@ -144,6 +144,10 @@ def run_code_generation(dsl_file, target_dir):
     stream = CommonTokenStream(lexer)
     parser = ai_environmentParser(stream)
     tree = parser.ai_envDef()
+    dsl_target_file = os.path.join(target_dir, "dsl", os.path.basename(dsl_file))
+    os.makedirs(os.path.dirname(dsl_target_file), exist_ok=True)
+    with open(dsl_target_file, "w") as f:
+        f.write(str(input_stream))
     
     # Nonfunctional Part
     nonfuncListener = NonFunctionalListener()
@@ -153,6 +157,9 @@ def run_code_generation(dsl_file, target_dir):
     aiEnv = nonfuncListener.environment
     project = Project(ai_techstack=aiEnv.ai_techstack,service_techstack=aiEnv.service_techstack, target_dir=target_dir,  envid=aiEnv.envid)
     _scaffold_project_layer(target_dir, project)
+    
+   
+
     # Functional Part
 
     #LLM Layer
@@ -182,20 +189,14 @@ def run_code_generation(dsl_file, target_dir):
 
 
 def run_dsl_template(dsl_file):
-    raise RuntimeError("Not implemented")
+    with open(dsl_file, "w") as f:
+        from agenterprise.agent_grammer.examples.agentmicroservice import example
+        f.write(example)
+    logger.info(f"DSL template generated to {dsl_file}")    
 
 
-def main(mode, dsl_file=None, target_dir=None):
+def main():
     
-    if mode == "code-generation":
-        run_code_generation(dsl_file, target_dir)
-        return
-    if mode == "dsl-template":
-        run_dsl_template(dsl_file)
-        return
-
-
-if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser(description="AI project generator")
@@ -211,11 +212,15 @@ if __name__ == "__main__":
             raise ValueError("--target is required for code-generation.")
         if not args.dsl:
             raise ValueError("--dsl is required for code-generation.")
-        main("code-generation", dsl_file=args.dsl, target_dir=args.target)
+        run_code_generation(args.dsl, args.target)
     elif args.dsl_template:
         if not args.dsl:
             raise ValueError("--dsl is required for dsl-template.")
-        main("dsl-template", dsl_file=args.dsl)
+        run_dsl_template(args.dsl)
     else:
         parser.print_help()
+    
 
+if __name__ == "__main__":
+   
+    main()

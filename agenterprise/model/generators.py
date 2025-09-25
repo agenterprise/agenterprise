@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
-from app.model.data.ai_environment import Agent
-from app.model.project import Project
+from agenterprise.model.data.ai_environment import Agent
+from agenterprise.model.project import Project
 
 
 class BaseGenerator():
