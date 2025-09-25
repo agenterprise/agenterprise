@@ -19,3 +19,6 @@ pip_index_url.txt
 
 
 
+.DS_Store
+.coverage
+coverage.xml

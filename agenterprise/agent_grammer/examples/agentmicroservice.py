@@ -12,6 +12,7 @@ infrastructure {
         model = "gpt-4o"
         endpoint = "https://mygpt.openai.azure.com/openai/deployments/gpt-4o/chat/completions"
         version = "2025-01-01-preview"
+        eol = "2026-03-01"
     }
 }
 

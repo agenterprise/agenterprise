@@ -32,6 +32,11 @@ classifiers = [
 [tool.setuptools]
 packages = { find = { include = ["agenterprise-generator*", "dsl-examples*"], exclude = ["target*", "test*"] } }
 
+[dependency-groups]
+dev = [
+    "pytest-cov>=7.0.0",
+]
+
 [project.optional-dependencies]
 dev = [
     "pytest>=8.4.2",
@@ -45,5 +50,8 @@ agenterprise = "agenterprise.__main__:main"
 [project.urls]
 Homepage = "https://agenterprise.ai"
 Repository = "https://github.com/agenterprise/agenterprise"
+
+[tool.pytest.ini_options]
+addopts = "--maxfail=1 --cov=agenterprise.model --cov-report=term-missing --cov-report=xml"
 
 

@@ -1,4 +1,4 @@
-# Generated from app/agent_grammer/parser/ai_environment.g4 by ANTLR 4.13.2
+# Generated from agenterprise/agent_grammer/parser/ai_environment.g4 by ANTLR 4.13.2
 from antlr4 import *
 if "." in __name__:
     from .ai_environmentParser import ai_environmentParser
@@ -14,23 +14,53 @@ class ai_environmentVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ai_environmentParser#envid.
-    def visitEnvid(self, ctx:ai_environmentParser.EnvidContext):
+    # Visit a parse tree produced by ai_environmentParser#envId.
+    def visitEnvId(self, ctx:ai_environmentParser.EnvIdContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ai_environmentParser#serviceStack.
-    def visitServiceStack(self, ctx:ai_environmentParser.ServiceStackContext):
+    # Visit a parse tree produced by ai_environmentParser#architectureServiceStack.
+    def visitArchitectureServiceStack(self, ctx:ai_environmentParser.ArchitectureServiceStackContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ai_environmentParser#aiStack.
-    def visitAiStack(self, ctx:ai_environmentParser.AiStackContext):
+    # Visit a parse tree produced by ai_environmentParser#architectureAiStack.
+    def visitArchitectureAiStack(self, ctx:ai_environmentParser.ArchitectureAiStackContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by ai_environmentParser#llmSet.
-    def visitLlmSet(self, ctx:ai_environmentParser.LlmSetContext):
+    # Visit a parse tree produced by ai_environmentParser#agentDef.
+    def visitAgentDef(self, ctx:ai_environmentParser.AgentDefContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by ai_environmentParser#agentSystemPromptProperty.
+    def visitAgentSystemPromptProperty(self, ctx:ai_environmentParser.AgentSystemPromptPropertyContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by ai_environmentParser#agentIdentity.
+    def visitAgentIdentity(self, ctx:ai_environmentParser.AgentIdentityContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by ai_environmentParser#agentNamespace.
+    def visitAgentNamespace(self, ctx:ai_environmentParser.AgentNamespaceContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by ai_environmentParser#agentLLMRefProperty.
+    def visitAgentLLMRefProperty(self, ctx:ai_environmentParser.AgentLLMRefPropertyContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by ai_environmentParser#agentToolRefProperty.
+    def visitAgentToolRefProperty(self, ctx:ai_environmentParser.AgentToolRefPropertyContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by ai_environmentParser#agentCustomProperty.
+    def visitAgentCustomProperty(self, ctx:ai_environmentParser.AgentCustomPropertyContext):
         return self.visitChildren(ctx)
 
 
@@ -66,56 +96,6 @@ class ai_environmentVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by ai_environmentParser#llmOtherProperty.
     def visitLlmOtherProperty(self, ctx:ai_environmentParser.LlmOtherPropertyContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by ai_environmentParser#prog.
-    def visitProg(self, ctx:ai_environmentParser.ProgContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by ai_environmentParser#agentDef.
-    def visitAgentDef(self, ctx:ai_environmentParser.AgentDefContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by ai_environmentParser#systemPromptProperty.
-    def visitSystemPromptProperty(self, ctx:ai_environmentParser.SystemPromptPropertyContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by ai_environmentParser#agentIdentity.
-    def visitAgentIdentity(self, ctx:ai_environmentParser.AgentIdentityContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by ai_environmentParser#agentNamespace.
-    def visitAgentNamespace(self, ctx:ai_environmentParser.AgentNamespaceContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by ai_environmentParser#llmRefProperty.
-    def visitLlmRefProperty(self, ctx:ai_environmentParser.LlmRefPropertyContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by ai_environmentParser#toolRefProperty.
-    def visitToolRefProperty(self, ctx:ai_environmentParser.ToolRefPropertyContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by ai_environmentParser#otherAgentProperty.
-    def visitOtherAgentProperty(self, ctx:ai_environmentParser.OtherAgentPropertyContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by ai_environmentParser#agentProperty.
-    def visitAgentProperty(self, ctx:ai_environmentParser.AgentPropertyContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by ai_environmentParser#toolSet.
-    def visitToolSet(self, ctx:ai_environmentParser.ToolSetContext):
         return self.visitChildren(ctx)
 
 

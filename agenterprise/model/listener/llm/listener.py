@@ -34,6 +34,7 @@ class BaseAILLMListener(ai_environmentListener):
     def enterLlmProviderProp(self, ctx):
         super().enterLlmProviderProp(ctx) 
         self.current_llm["provider"] = ctx.LLMPROVIDER().getText() 
+        
     def enterLlmOtherProperty(self, ctx):
         super().enterLlmOtherProperty(ctx)
         var_name = ctx.VAR().getText()

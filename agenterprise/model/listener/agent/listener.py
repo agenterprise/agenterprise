@@ -18,7 +18,7 @@ class BaseAIAgentListener(ai_environmentListener):
             "toolrefs": [],
             "properties": {}
         }
-    def enterToolRefProperty(self, ctx):
+    def enterAgentToolRefProperty(self, ctx):
         self.current_agent["toolrefs"].append(ctx.TOOLID().getText())
     def exitAgentDef(self, ctx):
         super().exitAgentDef(ctx)
@@ -44,25 +44,19 @@ class BaseAIAgentListener(ai_environmentListener):
         if self.current_agent is not None and ctx.AGENTNAMESPACE():
             self.current_agent["namespace"] = ctx.AGENTNAMESPACE().getText()
 
-    def enterLlmRefProperty(self, ctx):
-        super().enterLlmRefProperty(ctx)
+    def enterAgentLLMRefProperty(self, ctx):
+        super().enterAgentLLMRefProperty(ctx)
         if self.current_agent is not None and ctx.LLMID():
             self.current_agent["llmref"] = ctx.LLMID().getText()
-
-    def enterSystemPromptProperty(self, ctx):
-        super().enterSystemPromptProperty(ctx)
+   
+    def enterAgentSystemPromptProperty(self, ctx):
+        super().enterAgentSystemPromptProperty(ctx)
         if self.current_agent is not None:
-            self.current_agent["systemprompt"] = ctx.STRING().getText().strip('"')
+            self.current_agent["systemprompt"] = ctx.STRING().getText().strip('"')  
 
-    def enterAgentProperty(self, ctx):
-        super().enterAgentProperty(ctx)
+    def enterAgentCustomProperty(self, ctx):
+        super().enterAgentCustomProperty(ctx)
         if self.current_agent is not None and ctx.VAR():
             key = AIURN(ctx.VAR().getText())
             value = ctx.STRING().getText().strip('"')
             self.current_agent["properties"][key] = value
-        elif ctx.getChild(0).getText() == "prompt":
-            value = ctx.STRING().getText().strip('"')
-            self.current_agent["properties"]["prompt"] = value
-        elif ctx.getChild(0).getText() == "systemprompt":
-            value = ctx.STRING().getText().strip('"')
-            self.current_agent["properties"]["systemprompt"] = value

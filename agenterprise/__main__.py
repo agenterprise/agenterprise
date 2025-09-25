@@ -1,20 +1,15 @@
 import os
 import sys
 from typing import List
-import uuid
 import logging 
 from antlr4 import FileStream, CommonTokenStream, ParseTreeWalker
+from antlr4.error.ErrorListener import ErrorListener
 from cookiecutter.main import cookiecutter
 from cookiecutter.exceptions import OutputDirExistsException
 
 from agenterprise.model.data.ai_environment import Agent, Tool
 from agenterprise.model.data.ai_environment import LLM
-from agenterprise.model.generators import AgentGenerator
-from agenterprise.model.listener.agent.listener import BaseAIAgentListener
-from agenterprise.model.listener.llm.listener import BaseAILLMListener
-from agenterprise.model.listener.service.listener import BasicServiceListener
 from agenterprise.model.listener.nonfunctional.listener import NonFunctionalListener
-from agenterprise.model.listener.tool.listener import BaseAIToolListener
 from agenterprise.model.project import  Project
 from agenterprise.agent_grammer.parser.ai_environmentLexer import ai_environmentLexer
 from agenterprise.agent_grammer.parser.ai_environmentParser import ai_environmentParser
@@ -22,6 +17,12 @@ from agenterprise.agent_grammer.parser.ai_environmentParser import ai_environmen
 logging.basicConfig(level=logging.INFO, stream=sys.stdout, format='%(levelname)s: %(message)s')
 
 logger = logging.getLogger(__name__)
+
+class AIEnvironmentErrorListener(ErrorListener):
+    def syntaxError(self, recognizer, offendingSymbol, line, column, msg, eroer):
+        logger.error(f"Syntax error at line {line}, column {column}: {msg}")
+        logger.error("Exiting due to syntax error.")
+        sys.exit(1) 
 
 
 def _scaffold_project_layer(target_dir, proj: Project):
@@ -143,6 +144,8 @@ def run_code_generation(dsl_file, target_dir):
     lexer = ai_environmentLexer(input_stream)
     stream = CommonTokenStream(lexer)
     parser = ai_environmentParser(stream)
+ 
+    parser.addErrorListener(AIEnvironmentErrorListener())
     tree = parser.ai_envDef()
     dsl_target_file = os.path.join(target_dir, "dsl", os.path.basename(dsl_file))
     os.makedirs(os.path.dirname(dsl_target_file), exist_ok=True)
@@ -155,7 +158,7 @@ def run_code_generation(dsl_file, target_dir):
     walker.walk(nonfuncListener, tree)
 
     aiEnv = nonfuncListener.environment
-    project = Project(ai_techstack=aiEnv.ai_techstack,service_techstack=aiEnv.service_techstack, target_dir=target_dir,  envid=aiEnv.envid)
+    project = Project(ai_techstack=aiEnv.ai_techlayer,service_techstack=aiEnv.service_techlayer, target_dir=target_dir,  envid=aiEnv.envid)
     _scaffold_project_layer(target_dir, project)
     
    

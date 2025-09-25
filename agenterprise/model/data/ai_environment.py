@@ -38,8 +38,8 @@ class Tool:
 class AIEnvironment:
     name: str
     envid: str
-    ai_techstack: AIURN
-    service_techstack: AIURN
+    ai_techlayer: AIURN
+    service_techlayer: AIURN
     agents: List[Agent]
     llms: List[LLM]
 

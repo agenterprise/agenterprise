@@ -7,26 +7,30 @@ from agenterprise.model.listener.AIURN import AIURN
 
 class NonFunctionalListener(ai_environmentListener):
     def __init__(self):
-        self.ai_techstack = None
-        self.service_techstack = None
+        self.ai_techlayer = None
+        self.service_techlayer = None
         self.project_techstack = None
         self.environment = None
         self.envid = None
     
-    def enterAiStack(self, ctx):
-        self.ai_techstack = ctx.TECHSTACK_AIURN().getText()
+    def enterArchitectureAiStack(self, ctx):
+        super().enterArchitectureAiStack(ctx)
+        self.ai_techlayer = ctx.TECHLAYER_AIURN().getText()
 
-    def enterServiceStack(self, ctx):
-        self.service_techstack = ctx.TECHSTACK_AIURN().getText()
+    def enterArchitectureServiceStack(self, ctx):
+        super().enterArchitectureServiceStack(ctx)
+        self.service_techlayer = ctx.TECHLAYER_AIURN().getText()
  
-    def exitEnvid(self, ctx):
+    def exitEnvId(self, ctx):
+        super().exitEnvId(ctx)
         self.envid = ctx.STRING().getText().strip('"')
 
     def exitAi_envDef(self, ctx):
+        super().exitAi_envDef(ctx)
         self.environment = AIEnvironment(
             name=ctx.STRING().getText().strip('"'),
-            ai_techstack=AIURN(self.ai_techstack),
-            service_techstack=AIURN(self.service_techstack),
+            ai_techlayer=AIURN(self.ai_techlayer),
+            service_techlayer=AIURN(self.service_techlayer),
             envid=self.envid,
             agents=[],
             llms=[]

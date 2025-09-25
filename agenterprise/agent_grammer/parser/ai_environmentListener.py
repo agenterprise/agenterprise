@@ -1,4 +1,4 @@
-# Generated from app/agent_grammer/parser/ai_environment.g4 by ANTLR 4.13.2
+# Generated from agenterprise/agent_grammer/parser/ai_environment.g4 by ANTLR 4.13.2
 from antlr4 import *
 if "." in __name__:
     from .ai_environmentParser import ai_environmentParser
@@ -17,39 +17,93 @@ class ai_environmentListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by ai_environmentParser#envid.
-    def enterEnvid(self, ctx:ai_environmentParser.EnvidContext):
+    # Enter a parse tree produced by ai_environmentParser#envId.
+    def enterEnvId(self, ctx:ai_environmentParser.EnvIdContext):
         pass
 
-    # Exit a parse tree produced by ai_environmentParser#envid.
-    def exitEnvid(self, ctx:ai_environmentParser.EnvidContext):
-        pass
-
-
-    # Enter a parse tree produced by ai_environmentParser#serviceStack.
-    def enterServiceStack(self, ctx:ai_environmentParser.ServiceStackContext):
-        pass
-
-    # Exit a parse tree produced by ai_environmentParser#serviceStack.
-    def exitServiceStack(self, ctx:ai_environmentParser.ServiceStackContext):
+    # Exit a parse tree produced by ai_environmentParser#envId.
+    def exitEnvId(self, ctx:ai_environmentParser.EnvIdContext):
         pass
 
 
-    # Enter a parse tree produced by ai_environmentParser#aiStack.
-    def enterAiStack(self, ctx:ai_environmentParser.AiStackContext):
+    # Enter a parse tree produced by ai_environmentParser#architectureServiceStack.
+    def enterArchitectureServiceStack(self, ctx:ai_environmentParser.ArchitectureServiceStackContext):
         pass
 
-    # Exit a parse tree produced by ai_environmentParser#aiStack.
-    def exitAiStack(self, ctx:ai_environmentParser.AiStackContext):
+    # Exit a parse tree produced by ai_environmentParser#architectureServiceStack.
+    def exitArchitectureServiceStack(self, ctx:ai_environmentParser.ArchitectureServiceStackContext):
         pass
 
 
-    # Enter a parse tree produced by ai_environmentParser#llmSet.
-    def enterLlmSet(self, ctx:ai_environmentParser.LlmSetContext):
+    # Enter a parse tree produced by ai_environmentParser#architectureAiStack.
+    def enterArchitectureAiStack(self, ctx:ai_environmentParser.ArchitectureAiStackContext):
         pass
 
-    # Exit a parse tree produced by ai_environmentParser#llmSet.
-    def exitLlmSet(self, ctx:ai_environmentParser.LlmSetContext):
+    # Exit a parse tree produced by ai_environmentParser#architectureAiStack.
+    def exitArchitectureAiStack(self, ctx:ai_environmentParser.ArchitectureAiStackContext):
+        pass
+
+
+    # Enter a parse tree produced by ai_environmentParser#agentDef.
+    def enterAgentDef(self, ctx:ai_environmentParser.AgentDefContext):
+        pass
+
+    # Exit a parse tree produced by ai_environmentParser#agentDef.
+    def exitAgentDef(self, ctx:ai_environmentParser.AgentDefContext):
+        pass
+
+
+    # Enter a parse tree produced by ai_environmentParser#agentSystemPromptProperty.
+    def enterAgentSystemPromptProperty(self, ctx:ai_environmentParser.AgentSystemPromptPropertyContext):
+        pass
+
+    # Exit a parse tree produced by ai_environmentParser#agentSystemPromptProperty.
+    def exitAgentSystemPromptProperty(self, ctx:ai_environmentParser.AgentSystemPromptPropertyContext):
+        pass
+
+
+    # Enter a parse tree produced by ai_environmentParser#agentIdentity.
+    def enterAgentIdentity(self, ctx:ai_environmentParser.AgentIdentityContext):
+        pass
+
+    # Exit a parse tree produced by ai_environmentParser#agentIdentity.
+    def exitAgentIdentity(self, ctx:ai_environmentParser.AgentIdentityContext):
+        pass
+
+
+    # Enter a parse tree produced by ai_environmentParser#agentNamespace.
+    def enterAgentNamespace(self, ctx:ai_environmentParser.AgentNamespaceContext):
+        pass
+
+    # Exit a parse tree produced by ai_environmentParser#agentNamespace.
+    def exitAgentNamespace(self, ctx:ai_environmentParser.AgentNamespaceContext):
+        pass
+
+
+    # Enter a parse tree produced by ai_environmentParser#agentLLMRefProperty.
+    def enterAgentLLMRefProperty(self, ctx:ai_environmentParser.AgentLLMRefPropertyContext):
+        pass
+
+    # Exit a parse tree produced by ai_environmentParser#agentLLMRefProperty.
+    def exitAgentLLMRefProperty(self, ctx:ai_environmentParser.AgentLLMRefPropertyContext):
+        pass
+
+
+    # Enter a parse tree produced by ai_environmentParser#agentToolRefProperty.
+    def enterAgentToolRefProperty(self, ctx:ai_environmentParser.AgentToolRefPropertyContext):
+        pass
+
+    # Exit a parse tree produced by ai_environmentParser#agentToolRefProperty.
+    def exitAgentToolRefProperty(self, ctx:ai_environmentParser.AgentToolRefPropertyContext):
+        pass
+
+
+    # Enter a parse tree produced by ai_environmentParser#agentCustomProperty.
+    def enterAgentCustomProperty(self, ctx:ai_environmentParser.AgentCustomPropertyContext):
+        pass
+
+    # Exit a parse tree produced by ai_environmentParser#agentCustomProperty.
+    def exitAgentCustomProperty(self, ctx:ai_environmentParser.AgentCustomPropertyContext):
         pass
 
 
@@ -113,96 +167,6 @@ class ai_environmentListener(ParseTreeListener):
 
     # Exit a parse tree produced by ai_environmentParser#llmOtherProperty.
     def exitLlmOtherProperty(self, ctx:ai_environmentParser.LlmOtherPropertyContext):
-        pass
-
-
-    # Enter a parse tree produced by ai_environmentParser#prog.
-    def enterProg(self, ctx:ai_environmentParser.ProgContext):
-        pass
-
-    # Exit a parse tree produced by ai_environmentParser#prog.
-    def exitProg(self, ctx:ai_environmentParser.ProgContext):
-        pass
-
-
-    # Enter a parse tree produced by ai_environmentParser#agentDef.
-    def enterAgentDef(self, ctx:ai_environmentParser.AgentDefContext):
-        pass
-
-    # Exit a parse tree produced by ai_environmentParser#agentDef.
-    def exitAgentDef(self, ctx:ai_environmentParser.AgentDefContext):
-        pass
-
-
-    # Enter a parse tree produced by ai_environmentParser#systemPromptProperty.
-    def enterSystemPromptProperty(self, ctx:ai_environmentParser.SystemPromptPropertyContext):
-        pass
-
-    # Exit a parse tree produced by ai_environmentParser#systemPromptProperty.
-    def exitSystemPromptProperty(self, ctx:ai_environmentParser.SystemPromptPropertyContext):
-        pass
-
-
-    # Enter a parse tree produced by ai_environmentParser#agentIdentity.
-    def enterAgentIdentity(self, ctx:ai_environmentParser.AgentIdentityContext):
-        pass
-
-    # Exit a parse tree produced by ai_environmentParser#agentIdentity.
-    def exitAgentIdentity(self, ctx:ai_environmentParser.AgentIdentityContext):
-        pass
-
-
-    # Enter a parse tree produced by ai_environmentParser#agentNamespace.
-    def enterAgentNamespace(self, ctx:ai_environmentParser.AgentNamespaceContext):
-        pass
-
-    # Exit a parse tree produced by ai_environmentParser#agentNamespace.
-    def exitAgentNamespace(self, ctx:ai_environmentParser.AgentNamespaceContext):
-        pass
-
-
-    # Enter a parse tree produced by ai_environmentParser#llmRefProperty.
-    def enterLlmRefProperty(self, ctx:ai_environmentParser.LlmRefPropertyContext):
-        pass
-
-    # Exit a parse tree produced by ai_environmentParser#llmRefProperty.
-    def exitLlmRefProperty(self, ctx:ai_environmentParser.LlmRefPropertyContext):
-        pass
-
-
-    # Enter a parse tree produced by ai_environmentParser#toolRefProperty.
-    def enterToolRefProperty(self, ctx:ai_environmentParser.ToolRefPropertyContext):
-        pass
-
-    # Exit a parse tree produced by ai_environmentParser#toolRefProperty.
-    def exitToolRefProperty(self, ctx:ai_environmentParser.ToolRefPropertyContext):
-        pass
-
-
-    # Enter a parse tree produced by ai_environmentParser#otherAgentProperty.
-    def enterOtherAgentProperty(self, ctx:ai_environmentParser.OtherAgentPropertyContext):
-        pass
-
-    # Exit a parse tree produced by ai_environmentParser#otherAgentProperty.
-    def exitOtherAgentProperty(self, ctx:ai_environmentParser.OtherAgentPropertyContext):
-        pass
-
-
-    # Enter a parse tree produced by ai_environmentParser#agentProperty.
-    def enterAgentProperty(self, ctx:ai_environmentParser.AgentPropertyContext):
-        pass
-
-    # Exit a parse tree produced by ai_environmentParser#agentProperty.
-    def exitAgentProperty(self, ctx:ai_environmentParser.AgentPropertyContext):
-        pass
-
-
-    # Enter a parse tree produced by ai_environmentParser#toolSet.
-    def enterToolSet(self, ctx:ai_environmentParser.ToolSetContext):
-        pass
-
-    # Exit a parse tree produced by ai_environmentParser#toolSet.
-    def exitToolSet(self, ctx:ai_environmentParser.ToolSetContext):
         pass
 
 
