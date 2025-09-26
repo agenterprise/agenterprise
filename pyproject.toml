@@ -30,7 +30,7 @@ classifiers = [
     "Operating System :: OS Independent"
 ]
 [tool.setuptools]
-packages = { find = { include = ["agenterprise-generator*", "dsl-examples*"], exclude = ["target*", "test*"] } }
+packages = { find = { include = ["agenterprise*"], exclude = ["target*", "test*"] } }
 
 [dependency-groups]
 dev = [
