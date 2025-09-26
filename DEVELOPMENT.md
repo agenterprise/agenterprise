@@ -39,12 +39,12 @@ For deep details please consult https://www.agenterprise.ai/
 ### Grammar Modification 
 In order to be sure the grammar is still valid you can test with 
 ```bash
-antlr4-parse agenterprise/agent_grammer/parser/ai_environment.g4 ai_envDef template-definitions/agentmicroservice.a4
+antlr4-parse agenterprise/agent_grammer/parser/ai_environment.g4 ai_envDef template-definitions/agentmicroservice.dsl
 ```
 If test are a sucessfull it is mandatory to generate the parser. 
 Note: The parsers will be in same directory as the grammar. 
 ```bash
-antlr4 -Dlanguage=Python3 -visitor agenterprise/agent_grammer/parser/ai_environment.g4
+antlr4 -Dlanguage=Python3 -visitor agenterprise/agent_grammer/parser/ai_environment.dsl
 ```
 
 # Check Template Definitions
