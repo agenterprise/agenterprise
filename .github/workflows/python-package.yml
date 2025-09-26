@@ -19,10 +19,7 @@ jobs:
         python-version: ["3.12"]
 
     steps:
-
-    
     - uses: actions/checkout@v4
-   
     - name: Setup UV
       uses: astral-sh/setup-uv@v6.7.0
       with:
@@ -33,3 +30,13 @@ jobs:
     - name: Test with pytest
       run: |
         uv run pytest
+    - name: Package with build
+      run: |
+        uv run python -m build
+    - name: Publish to PyPI
+      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+      env:
+        TWINE_USERNAME: __token__
+        TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+      run: |
+        uv run twine upload dist/*
