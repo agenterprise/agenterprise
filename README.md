@@ -65,13 +65,13 @@ agenterprise --code-generation --dsl mydsl.dsl --target target/mydsl
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/agenterprise/agenterprise/tree/master?tab=MIT-1-ov-file#readme) file for details.
 
 ---
 
 ## Project Links
 
-- Homepage: [https://agenterprise.ai](https://agenterprise.ai)
+- Homepage: [https://www.agenterprise.ai](https://www.agenterprise.ai)
 - Repository: [https://github.com/agenterprise/agenterprise](https://github.com/agenterprise/agenterprise)
 - Issues: [https://github.com/agenterprise/agenterprise/issues](https://github.com/agenterprise/agenterprise/issues)
 
@@ -84,6 +84,3 @@ Email: [mail@agenterprise.ai](mailto:mail@agenterprise.ai)
 
 ---
 
-## Enterprise Environments
-
-For details on how to set up and use this project in enterprise or corporate environments (e.g. with internal package indexes, proxies, or authentication), please consult [ENTERPRISE.md](ENTERPRISE.md).

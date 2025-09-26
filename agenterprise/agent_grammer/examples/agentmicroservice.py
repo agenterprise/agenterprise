@@ -1,6 +1,10 @@
+import uuid
+
+identifier = str(uuid.uuid4()).replace("-", "")
+
 example = """ai_environment "AgentMicroservice" {
     architecture{
-        envid = "c672da0bd68f41f1b77442524cfa48c4"
+        envid = "$$IDENTIFIER$$"
         service-techlayer = aiurn:techlayer:github:www.github.com:agenterprise:service-layer-fastapi-base
         ai-techlayer = aiurn:techlayer:github:www.github.com:agenterprise:ai-layer-pydanticai
     }
@@ -55,4 +59,4 @@ example = """ai_environment "AgentMicroservice" {
 }
 
 
-"""
+""".replace("$$IDENTIFIER$$", identifier)
