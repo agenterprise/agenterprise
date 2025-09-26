@@ -10,7 +10,7 @@ example = """ai_environment "AgentMicroservice" {
             uid = aiurn:model:llm:geepeetee
             provider = aiurn:provider:azure 
             model = "gpt-4o"
-            endpoint = "https://gpt-mvo-sweden.openai.azure.com/openai/deployments/gpt-4o/chat/completions"
+            endpoint = "https://any.openai.azure.com/openai/deployments/gpt-4o/chat/completions"
             version = "2025-01-01-preview"
         }
     }
