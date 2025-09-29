@@ -10,20 +10,20 @@ ai_environment "AgentMicroservice" {
             uid = aiurn:model:llm:geepeetee
             provider = aiurn:provider:azure 
             model = "gpt-4o"
-            endpoint = "https://any.openai.azure.com/openai/deployments/gpt-4o/chat/completions"
+            endpoint = "https://any.openai.azure.com/"
             version = "2025-01-01-preview"
         }
     }
 
 
-    functional{
+   functional{
         agent "Cook" {
             uid = aiurn:agent:cook
             namespace = aiurn:ns:janes_diner:kitchen
             systemprompt = "You're a four star rated metre"
             llmref = aiurn:model:llm:geepeetee 
             toolref = aiurn:tool:cooking:v1
-            toolref = aiurn:tool:cooking:v2
+            toolref = aiurn:tool:freezer:v2
             aiurn:var:name = "Max Mustermann"
             aiurn:var:role = "waiter"
             aiurn:var:lifeycle = "permanent"
@@ -50,7 +50,12 @@ ai_environment "AgentMicroservice" {
             description = "Tool for finding good cooking combinations"
             
         }
-
-    }
+        tool "FreezerApi2" {
+            uid = aiurn:tool:freezer:v2
+            endpoint = "http://localhost:8000/mcp"
+            type = aiurn:tooltype:mcp
+            description = "Tool for inspecting contents of the freezer"
+            
+        }
 }
 
