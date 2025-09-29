@@ -26,8 +26,6 @@
 pip install agenterprise
 ```
 
-> **Note:** Agenterprise is not yet published on PyPI. To install from source, clone the repository and use pip:
-
 ### Local
 Follow these steps to install it from source
 ```bash
