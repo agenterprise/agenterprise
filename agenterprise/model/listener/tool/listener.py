@@ -10,7 +10,7 @@ class BaseAIToolListener(ai_environmentListener):
 
     def enterToolDef(self, ctx):
          self.current_tool = {
-            "name": ctx.PROPERTYVALUE().getText().strip('"'),
+            "name": ctx.PROPERTYVALUE().getText(),
             "uid": "",
             "endpoint": "",
             "type": "",

@@ -23,12 +23,12 @@ class NonFunctionalListener(ai_environmentListener):
  
     def exitEnvId(self, ctx):
         super().exitEnvId(ctx)
-        self.envid = ctx.PROPERTYVALUE().getText().strip('"')
+        self.envid = ctx.PROPERTYVALUE().getText()
 
     def exitAi_envDef(self, ctx):
         super().exitAi_envDef(ctx)
         self.environment = AIEnvironment(
-            name=ctx.PROPERTYVALUE().getText().strip('"'),
+            name=ctx.PROPERTYVALUE().getText(),
             ai_techlayer=AIURN(self.ai_techlayer),
             service_techlayer=AIURN(self.service_techlayer),
             envid=self.envid,

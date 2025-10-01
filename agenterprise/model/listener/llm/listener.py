@@ -41,7 +41,7 @@ class BaseAILLMListener(ai_environmentListener):
     def enterLlmOtherProperty(self, ctx):
         super().enterLlmOtherProperty(ctx)
         var_name = ctx.VAR().getText()
-        var_value = ctx.PROPERTYVALUE().getText().strip('"') 
+        var_value = ctx.PROPERTYVALUE().getText() 
         
         self.current_llm["properties"][AIURN(var_name)] = var_value
     
