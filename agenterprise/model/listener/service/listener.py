@@ -22,13 +22,13 @@ class BasicServiceListener(ai_environmentListener):
  
     def exitEnvId(self, ctx):
         super().exitEnvId(ctx)
-        self.envId = ctx.PROPERTYVALUE().getText()
+        self.envId = ctx.PROPERTYVALUE().getText().strip('"')
 
 
     def exitAi_envDef(self, ctx):
         super().exitAi_envDef(ctx)
         self.environment = AIEnvironment(
-            name=ctx.PROPERTYVALUE().getText(),
+            name=ctx.PROPERTYVALUE().getText().strip('"'),
             ai_techlayer=AIURN(self.ai_techlayer),
             service_techlayer=AIURN(self.service_techlayer),
             envid=self.envId,
