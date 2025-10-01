@@ -71,7 +71,7 @@ TOOLID
 TOOL_TYPE
 AGENTID
 AGENTNAMESPACE
-STRING
+PROPERTYVALUE
 WS
 
 rule names:
@@ -96,7 +96,7 @@ llmOtherProperty
 toolDef
 toolIdProp
 toolEndpointProp
-toolDescription
+toolDescriptionProp
 toolTypeProp
 toolOtherProperty
 

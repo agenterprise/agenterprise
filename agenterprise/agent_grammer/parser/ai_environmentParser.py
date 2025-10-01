@@ -103,7 +103,7 @@ class ai_environmentParser ( Parser ):
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "TECHLAYER_RESSOURCE", "TECHLAYER_AIURN", 
                       "VAR", "LLMPROVIDER", "LLMID", "TOOLID", "TOOL_TYPE", 
-                      "AGENTID", "AGENTNAMESPACE", "STRING", "WS" ]
+                      "AGENTID", "AGENTNAMESPACE", "PROPERTYVALUE", "WS" ]
 
     RULE_ai_envDef = 0
     RULE_envId = 1
@@ -126,7 +126,7 @@ class ai_environmentParser ( Parser ):
     RULE_toolDef = 18
     RULE_toolIdProp = 19
     RULE_toolEndpointProp = 20
-    RULE_toolDescription = 21
+    RULE_toolDescriptionProp = 21
     RULE_toolTypeProp = 22
     RULE_toolOtherProperty = 23
 
@@ -136,7 +136,7 @@ class ai_environmentParser ( Parser ):
                    "agentCustomProperty", "llmDef", "llmIdProp", "llmProviderProp", 
                    "llmModelProp", "llmEndpointProp", "llmVersionProp", 
                    "llmOtherProperty", "toolDef", "toolIdProp", "toolEndpointProp", 
-                   "toolDescription", "toolTypeProp", "toolOtherProperty" ]
+                   "toolDescriptionProp", "toolTypeProp", "toolOtherProperty" ]
 
     EOF = Token.EOF
     T__0=1
@@ -172,7 +172,7 @@ class ai_environmentParser ( Parser ):
     TOOL_TYPE=31
     AGENTID=32
     AGENTNAMESPACE=33
-    STRING=34
+    PROPERTYVALUE=34
     WS=35
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
@@ -191,8 +191,8 @@ class ai_environmentParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def STRING(self):
-            return self.getToken(ai_environmentParser.STRING, 0)
+        def PROPERTYVALUE(self):
+            return self.getToken(ai_environmentParser.PROPERTYVALUE, 0)
 
         def envId(self):
             return self.getTypedRuleContext(ai_environmentParser.EnvIdContext,0)
@@ -257,7 +257,7 @@ class ai_environmentParser ( Parser ):
             self.state = 48
             self.match(ai_environmentParser.T__0)
             self.state = 49
-            self.match(ai_environmentParser.STRING)
+            self.match(ai_environmentParser.PROPERTYVALUE)
             self.state = 50
             self.match(ai_environmentParser.T__1)
             self.state = 51
@@ -332,8 +332,8 @@ class ai_environmentParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def STRING(self):
-            return self.getToken(ai_environmentParser.STRING, 0)
+        def PROPERTYVALUE(self):
+            return self.getToken(ai_environmentParser.PROPERTYVALUE, 0)
 
         def getRuleIndex(self):
             return ai_environmentParser.RULE_envId
@@ -366,7 +366,7 @@ class ai_environmentParser ( Parser ):
             self.state = 84
             self.match(ai_environmentParser.T__7)
             self.state = 85
-            self.match(ai_environmentParser.STRING)
+            self.match(ai_environmentParser.PROPERTYVALUE)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -485,8 +485,8 @@ class ai_environmentParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def STRING(self):
-            return self.getToken(ai_environmentParser.STRING, 0)
+        def PROPERTYVALUE(self):
+            return self.getToken(ai_environmentParser.PROPERTYVALUE, 0)
 
         def agentIdentity(self):
             return self.getTypedRuleContext(ai_environmentParser.AgentIdentityContext,0)
@@ -548,7 +548,7 @@ class ai_environmentParser ( Parser ):
             self.state = 95
             self.match(ai_environmentParser.T__10)
             self.state = 96
-            self.match(ai_environmentParser.STRING)
+            self.match(ai_environmentParser.PROPERTYVALUE)
             self.state = 97
             self.match(ai_environmentParser.T__1)
             self.state = 98
@@ -597,8 +597,8 @@ class ai_environmentParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def STRING(self):
-            return self.getToken(ai_environmentParser.STRING, 0)
+        def PROPERTYVALUE(self):
+            return self.getToken(ai_environmentParser.PROPERTYVALUE, 0)
 
         def getRuleIndex(self):
             return ai_environmentParser.RULE_agentSystemPromptProperty
@@ -631,7 +631,7 @@ class ai_environmentParser ( Parser ):
             self.state = 117
             self.match(ai_environmentParser.T__7)
             self.state = 118
-            self.match(ai_environmentParser.STRING)
+            self.match(ai_environmentParser.PROPERTYVALUE)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -855,8 +855,8 @@ class ai_environmentParser ( Parser ):
         def VAR(self):
             return self.getToken(ai_environmentParser.VAR, 0)
 
-        def STRING(self):
-            return self.getToken(ai_environmentParser.STRING, 0)
+        def PROPERTYVALUE(self):
+            return self.getToken(ai_environmentParser.PROPERTYVALUE, 0)
 
         def getRuleIndex(self):
             return ai_environmentParser.RULE_agentCustomProperty
@@ -889,7 +889,7 @@ class ai_environmentParser ( Parser ):
             self.state = 137
             self.match(ai_environmentParser.T__7)
             self.state = 138
-            self.match(ai_environmentParser.STRING)
+            self.match(ai_environmentParser.PROPERTYVALUE)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -906,8 +906,8 @@ class ai_environmentParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def STRING(self):
-            return self.getToken(ai_environmentParser.STRING, 0)
+        def PROPERTYVALUE(self):
+            return self.getToken(ai_environmentParser.PROPERTYVALUE, 0)
 
         def llmIdProp(self):
             return self.getTypedRuleContext(ai_environmentParser.LlmIdPropContext,0)
@@ -966,7 +966,7 @@ class ai_environmentParser ( Parser ):
             self.state = 140
             self.match(ai_environmentParser.T__16)
             self.state = 141
-            self.match(ai_environmentParser.STRING)
+            self.match(ai_environmentParser.PROPERTYVALUE)
             self.state = 142
             self.match(ai_environmentParser.T__1)
             self.state = 143
@@ -1109,8 +1109,8 @@ class ai_environmentParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def STRING(self):
-            return self.getToken(ai_environmentParser.STRING, 0)
+        def PROPERTYVALUE(self):
+            return self.getToken(ai_environmentParser.PROPERTYVALUE, 0)
 
         def getRuleIndex(self):
             return ai_environmentParser.RULE_llmModelProp
@@ -1143,7 +1143,7 @@ class ai_environmentParser ( Parser ):
             self.state = 165
             self.match(ai_environmentParser.T__7)
             self.state = 166
-            self.match(ai_environmentParser.STRING)
+            self.match(ai_environmentParser.PROPERTYVALUE)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1160,8 +1160,8 @@ class ai_environmentParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def STRING(self):
-            return self.getToken(ai_environmentParser.STRING, 0)
+        def PROPERTYVALUE(self):
+            return self.getToken(ai_environmentParser.PROPERTYVALUE, 0)
 
         def getRuleIndex(self):
             return ai_environmentParser.RULE_llmEndpointProp
@@ -1194,7 +1194,7 @@ class ai_environmentParser ( Parser ):
             self.state = 169
             self.match(ai_environmentParser.T__7)
             self.state = 170
-            self.match(ai_environmentParser.STRING)
+            self.match(ai_environmentParser.PROPERTYVALUE)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1211,8 +1211,8 @@ class ai_environmentParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def STRING(self):
-            return self.getToken(ai_environmentParser.STRING, 0)
+        def PROPERTYVALUE(self):
+            return self.getToken(ai_environmentParser.PROPERTYVALUE, 0)
 
         def getRuleIndex(self):
             return ai_environmentParser.RULE_llmVersionProp
@@ -1245,7 +1245,7 @@ class ai_environmentParser ( Parser ):
             self.state = 173
             self.match(ai_environmentParser.T__7)
             self.state = 174
-            self.match(ai_environmentParser.STRING)
+            self.match(ai_environmentParser.PROPERTYVALUE)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1265,8 +1265,8 @@ class ai_environmentParser ( Parser ):
         def VAR(self):
             return self.getToken(ai_environmentParser.VAR, 0)
 
-        def STRING(self):
-            return self.getToken(ai_environmentParser.STRING, 0)
+        def PROPERTYVALUE(self):
+            return self.getToken(ai_environmentParser.PROPERTYVALUE, 0)
 
         def getRuleIndex(self):
             return ai_environmentParser.RULE_llmOtherProperty
@@ -1299,7 +1299,7 @@ class ai_environmentParser ( Parser ):
             self.state = 177
             self.match(ai_environmentParser.T__7)
             self.state = 178
-            self.match(ai_environmentParser.STRING)
+            self.match(ai_environmentParser.PROPERTYVALUE)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1316,8 +1316,8 @@ class ai_environmentParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def STRING(self):
-            return self.getToken(ai_environmentParser.STRING, 0)
+        def PROPERTYVALUE(self):
+            return self.getToken(ai_environmentParser.PROPERTYVALUE, 0)
 
         def toolIdProp(self):
             return self.getTypedRuleContext(ai_environmentParser.ToolIdPropContext,0)
@@ -1331,8 +1331,8 @@ class ai_environmentParser ( Parser ):
             return self.getTypedRuleContext(ai_environmentParser.ToolTypePropContext,0)
 
 
-        def toolDescription(self):
-            return self.getTypedRuleContext(ai_environmentParser.ToolDescriptionContext,0)
+        def toolDescriptionProp(self):
+            return self.getTypedRuleContext(ai_environmentParser.ToolDescriptionPropContext,0)
 
 
         def toolOtherProperty(self, i:int=None):
@@ -1372,7 +1372,7 @@ class ai_environmentParser ( Parser ):
             self.state = 180
             self.match(ai_environmentParser.T__21)
             self.state = 181
-            self.match(ai_environmentParser.STRING)
+            self.match(ai_environmentParser.PROPERTYVALUE)
             self.state = 182
             self.match(ai_environmentParser.T__1)
             self.state = 183
@@ -1382,7 +1382,7 @@ class ai_environmentParser ( Parser ):
             self.state = 185
             self.toolTypeProp()
             self.state = 186
-            self.toolDescription()
+            self.toolDescriptionProp()
             self.state = 190
             self._errHandler.sync(self)
             _la = self._input.LA(1)
@@ -1462,8 +1462,8 @@ class ai_environmentParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def STRING(self):
-            return self.getToken(ai_environmentParser.STRING, 0)
+        def PROPERTYVALUE(self):
+            return self.getToken(ai_environmentParser.PROPERTYVALUE, 0)
 
         def getRuleIndex(self):
             return ai_environmentParser.RULE_toolEndpointProp
@@ -1496,7 +1496,7 @@ class ai_environmentParser ( Parser ):
             self.state = 200
             self.match(ai_environmentParser.T__7)
             self.state = 201
-            self.match(ai_environmentParser.STRING)
+            self.match(ai_environmentParser.PROPERTYVALUE)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1506,40 +1506,40 @@ class ai_environmentParser ( Parser ):
         return localctx
 
 
-    class ToolDescriptionContext(ParserRuleContext):
+    class ToolDescriptionPropContext(ParserRuleContext):
         __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def STRING(self):
-            return self.getToken(ai_environmentParser.STRING, 0)
+        def PROPERTYVALUE(self):
+            return self.getToken(ai_environmentParser.PROPERTYVALUE, 0)
 
         def getRuleIndex(self):
-            return ai_environmentParser.RULE_toolDescription
+            return ai_environmentParser.RULE_toolDescriptionProp
 
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterToolDescription" ):
-                listener.enterToolDescription(self)
+            if hasattr( listener, "enterToolDescriptionProp" ):
+                listener.enterToolDescriptionProp(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitToolDescription" ):
-                listener.exitToolDescription(self)
+            if hasattr( listener, "exitToolDescriptionProp" ):
+                listener.exitToolDescriptionProp(self)
 
         def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitToolDescription" ):
-                return visitor.visitToolDescription(self)
+            if hasattr( visitor, "visitToolDescriptionProp" ):
+                return visitor.visitToolDescriptionProp(self)
             else:
                 return visitor.visitChildren(self)
 
 
 
 
-    def toolDescription(self):
+    def toolDescriptionProp(self):
 
-        localctx = ai_environmentParser.ToolDescriptionContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 42, self.RULE_toolDescription)
+        localctx = ai_environmentParser.ToolDescriptionPropContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 42, self.RULE_toolDescriptionProp)
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 203
@@ -1547,7 +1547,7 @@ class ai_environmentParser ( Parser ):
             self.state = 204
             self.match(ai_environmentParser.T__7)
             self.state = 205
-            self.match(ai_environmentParser.STRING)
+            self.match(ai_environmentParser.PROPERTYVALUE)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1618,8 +1618,8 @@ class ai_environmentParser ( Parser ):
         def VAR(self):
             return self.getToken(ai_environmentParser.VAR, 0)
 
-        def STRING(self):
-            return self.getToken(ai_environmentParser.STRING, 0)
+        def PROPERTYVALUE(self):
+            return self.getToken(ai_environmentParser.PROPERTYVALUE, 0)
 
         def getRuleIndex(self):
             return ai_environmentParser.RULE_toolOtherProperty
@@ -1652,7 +1652,7 @@ class ai_environmentParser ( Parser ):
             self.state = 212
             self.match(ai_environmentParser.T__7)
             self.state = 213
-            self.match(ai_environmentParser.STRING)
+            self.match(ai_environmentParser.PROPERTYVALUE)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)

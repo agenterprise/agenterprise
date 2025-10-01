@@ -1,3 +1,4 @@
+from pydantic import Field
 from pydantic.dataclasses import dataclass
 from typing import List, Optional, Dict
 
@@ -29,9 +30,10 @@ class Tool:
     uid: AIURN
     name: str
     endpoint: str
-    description: str
     type: str
     properties: Optional[Dict[AIURN, str]] = None
+    description: str = Field("No description", description="A brief description of the tool's functionality"   )
+    
 
 
 @dataclass

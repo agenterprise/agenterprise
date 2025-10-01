@@ -23,7 +23,7 @@ Grab `dsl-examples/agentmicroservice.a4` or copy and modify it
 
 At CLI execute
 ```bash
- uv run python -m agenterprise --code-generation  --dsl dsl-examples/agentmicroservice.a4 --target target/myagentenv  
+ uv run python -m agenterprise --code-generation  --dsl dsl-examples/agentmicroservice-localtemplates.dsl --target target/myagentenv  
 ```
 
 ### 5. Explore the generated code
@@ -39,12 +39,12 @@ For deep details please consult https://www.agenterprise.ai/
 ### Grammar Modification 
 In order to be sure the grammar is still valid you can test with 
 ```bash
-antlr4-parse agenterprise/agent_grammer/parser/ai_environment.g4 ai_envDef template-definitions/agentmicroservice.dsl
+antlr4-parse agenterprise/agent_grammer/parser/ai_environment.g4 ai_envDef dsl-examples/agentmicroservice-githubtemplates.dsl 
 ```
 If test are a sucessfull it is mandatory to generate the parser. 
 Note: The parsers will be in same directory as the grammar. 
 ```bash
-antlr4 -Dlanguage=Python3 -visitor agenterprise/agent_grammer/parser/ai_environment.dsl
+antlr4 -Dlanguage=Python3 -visitor agenterprise/agent_grammer/parser/ai_environment.g4
 ```
 
 # Check Template Definitions

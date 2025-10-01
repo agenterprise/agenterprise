@@ -12,7 +12,10 @@ class BaseAILLMListener(ai_environmentListener):
     def enterLlmDef(self, ctx):
         super().enterLlmDef(ctx)
         self.current_llm = {
-            "name": ctx.STRING().getText(),
+            "name": ctx.PROPERTYVALUE().getText(),
+            "properties" : {
+               
+            }
         
         }
 
@@ -21,24 +24,25 @@ class BaseAILLMListener(ai_environmentListener):
         self.current_llm["uid"] = ctx.LLMID().getText()
     def enterLlmEndpointProp(self, ctx):
         super().enterLlmEndpointProp(ctx)
-        self.current_llm["endpoint"] = ctx.STRING().getText()
+        self.current_llm["endpoint"] = ctx.PROPERTYVALUE().getText()
 
     def enterLlmModelProp(self, ctx):
         super().enterLlmModelProp(ctx)
-        self.current_llm["model"] = ctx.STRING().getText()
+        self.current_llm["model"] = ctx.PROPERTYVALUE().getText()
 
     def enterLlmVersionProp(self, ctx):
         super().enterLlmVersionProp(ctx)   
-        self.current_llm["version"] = ctx.STRING().getText()
+        self.current_llm["version"] = ctx.PROPERTYVALUE().getText()
 
     def enterLlmProviderProp(self, ctx):
         super().enterLlmProviderProp(ctx) 
         self.current_llm["provider"] = ctx.LLMPROVIDER().getText() 
-        
+
     def enterLlmOtherProperty(self, ctx):
         super().enterLlmOtherProperty(ctx)
         var_name = ctx.VAR().getText()
-        var_value = ctx.STRING().getText().strip('"')  
+        var_value = ctx.PROPERTYVALUE().getText() 
+        
         self.current_llm["properties"][AIURN(var_name)] = var_value
     
 

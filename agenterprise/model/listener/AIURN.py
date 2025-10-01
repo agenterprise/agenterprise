@@ -34,9 +34,9 @@ class AIURN(str):
     def __get_pydantic_core_schema__(
         cls, source_type: type, handler: GetCoreSchemaHandler
     ) -> CoreSchema:
-        # Validate as string, then convert to aiurn instance
+        # Validate as PROPERTYVALUE, then convert to aiurn instance
         return core_schema.no_info_after_validator_function(
             cls,  # Constructor
-            core_schema.str_schema(),  # Expect string input
+            core_schema.str_schema(),  # Expect PROPERTYVALUE input
         )
     

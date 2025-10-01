@@ -11,7 +11,7 @@ class BaseAIAgentListener(ai_environmentListener):
     def enterAgentDef(self, ctx):
         super().enterAgentDef(ctx)
         self.current_agent = {
-            "name": ctx.STRING().getText().strip('"'),
+            "name": ctx.PROPERTYVALUE().getText(),
             "uid": None,
             "namespace": None,
             "systemprompt": None,
@@ -52,11 +52,11 @@ class BaseAIAgentListener(ai_environmentListener):
     def enterAgentSystemPromptProperty(self, ctx):
         super().enterAgentSystemPromptProperty(ctx)
         if self.current_agent is not None:
-            self.current_agent["systemprompt"] = ctx.STRING().getText().strip('"')  
+            self.current_agent["systemprompt"] = ctx.PROPERTYVALUE().getText()  
 
     def enterAgentCustomProperty(self, ctx):
         super().enterAgentCustomProperty(ctx)
         if self.current_agent is not None and ctx.VAR():
             key = AIURN(ctx.VAR().getText())
-            value = ctx.STRING().getText().strip('"')
+            value = ctx.PROPERTYVALUE().getText()
             self.current_agent["properties"][key] = value

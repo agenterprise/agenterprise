@@ -2,7 +2,7 @@ grammar ai_environment;
 
 //// AI Environment Grammar 
 ///////////////////////
-ai_envDef: 'ai_environment' STRING '{' 
+ai_envDef: 'ai_environment' PROPERTYVALUE '{' 
                     'architecture' '{'envId architectureServiceStack architectureAiStack '}' 
                     'infrastructure' '{' llmDef* '}'  
                     'functional' '{' agentDef*  toolDef* '}' 
@@ -10,7 +10,7 @@ ai_envDef: 'ai_environment' STRING '{'
                     ;
 
 //environmentid
-envId: 'envid' '=' STRING ;
+envId: 'envid' '=' PROPERTYVALUE ;
 architectureServiceStack: 'service-techlayer' '=' TECHLAYER_AIURN; //service TECHLAYER
 architectureAiStack: 'ai-techlayer' '=' TECHLAYER_AIURN; // AI TECHLAYERs
 
@@ -18,19 +18,19 @@ architectureAiStack: 'ai-techlayer' '=' TECHLAYER_AIURN; // AI TECHLAYERs
 /////////// 
 // Agents
 ///////////
-agentDef: 'agent' STRING '{' agentIdentity agentNamespace agentSystemPromptProperty agentLLMRefProperty agentToolRefProperty* agentCustomProperty* '}' ;
+agentDef: 'agent' PROPERTYVALUE '{' agentIdentity agentNamespace agentSystemPromptProperty agentLLMRefProperty agentToolRefProperty* agentCustomProperty* '}' ;
 
-agentSystemPromptProperty: 'systemprompt' '=' STRING ;
+agentSystemPromptProperty: 'systemprompt' '=' PROPERTYVALUE ;
 agentIdentity: 'uid' '=' AGENTID ;
 agentNamespace: 'namespace' '=' AGENTNAMESPACE ;
 agentLLMRefProperty: 'llmref' '=' LLMID ;
 agentToolRefProperty: 'toolref' '=' TOOLID ;
-agentCustomProperty: VAR '=' STRING  ;
+agentCustomProperty: VAR '=' PROPERTYVALUE   ;
 
 ///////////
 // LLMs
 ///////////
-llmDef: 'llm' STRING '{'
+llmDef: 'llm' PROPERTYVALUE '{'
            llmIdProp
            llmProviderProp
            llmModelProp
@@ -41,38 +41,40 @@ llmDef: 'llm' STRING '{'
 
 llmIdProp: 'uid' '=' LLMID ;
 llmProviderProp: 'provider' '=' LLMPROVIDER ;
-llmModelProp: 'model' '=' STRING ;
-llmEndpointProp: 'endpoint' '=' STRING ;
-llmVersionProp: 'version' '=' STRING ;
-llmOtherProperty: VAR '=' STRING ;
+llmModelProp: 'model' '=' PROPERTYVALUE ;
+llmEndpointProp: 'endpoint' '=' PROPERTYVALUE ;
+llmVersionProp: 'version' '=' PROPERTYVALUE ;
+llmOtherProperty: VAR '=' PROPERTYVALUE; 
 
 ///////////
 // Tools
 ///////////
-toolDef: 'tool' STRING '{'
+toolDef: 'tool' PROPERTYVALUE '{'
            toolIdProp
            toolEndpointProp
            toolTypeProp
-           toolDescription
+           toolDescriptionProp
            toolOtherProperty*
        '}' ;
 
 toolIdProp: 'uid' '=' TOOLID ;
-toolEndpointProp: 'endpoint' '=' STRING ;
-toolDescription: 'description' '=' STRING ;
+toolEndpointProp: 'endpoint' '=' PROPERTYVALUE ;
+toolDescriptionProp: 'description' '=' PROPERTYVALUE ;
 toolTypeProp: 'type' '=' TOOL_TYPE ;
-toolOtherProperty: VAR '=' STRING ;
+toolOtherProperty: VAR '=' PROPERTYVALUE  ;
 
 /////// Lexer TOKENS ///////
-TECHLAYER_RESSOURCE:  'github' | 'zip' | 'file' ;
-TECHLAYER_AIURN: 'aiurn:techlayer:'TECHLAYER_RESSOURCE':'[a-zA-Z_][a-zA-Z_0-9.:-]* ;
+TECHLAYER_RESSOURCE:  'github' | 'local';
+TECHLAYER_AIURN: 'aiurn:techlayer:'TECHLAYER_RESSOURCE':'[a-zA-Z._][a-zA-Z_0-9.:-]* ;
 
 // URNs
 VAR: 'aiurn:var:'[a-zA-Z_][a-zA-Z0-9_]* ;
 
 //LLMs
-LLMPROVIDER: 'aiurn:provider:azure' | 'aiurn:provider:openai' ;
-LLMID: 'aiurn:model:llm:'[a-zA-Z_][a-zA-Z_0-9:]* ;
+LLMPROVIDER: 'aiurn:model:provider:azure' | 'aiurn:model:provider:openai' ;
+//LLMPRODUCT: 'aiurn:model:product:azure' | 'aiurn:provider:openai' ;
+
+LLMID: 'aiurn:model:id:'[a-zA-Z_][a-zA-Z_0-9:]* ;
 
 //Tools
 TOOLID: 'aiurn:tool:'[a-zA-Z_][a-zA-Z_0-9:]* ;
@@ -82,7 +84,10 @@ TOOL_TYPE: 'aiurn:tooltype:mcp' | 'aiurn:tooltype:openapi' | 'aiurn:tooltype:cod
 AGENTID: 'aiurn:agent:'[a-zA-Z_][a-zA-Z_0-9:]* ;
 AGENTNAMESPACE: 'aiurn:ns:'[a-zA-Z_][a-zA-Z_0-9:]* ;
 
+fragment FLOAT: [0-9]+ '.' [0-9]+ ;
+fragment INT: [0-9]+ ;
+fragment BOOL: 'True' | 'False' ;
+fragment STRING: '"' (~["])* '"' ;
+PROPERTYVALUE: FLOAT | INT | BOOL | STRING;
 
-
-STRING: '"' (~["])* '"' ;
 WS:     [ \t\r\n]+ -> skip;  // Weißraum ignorieren

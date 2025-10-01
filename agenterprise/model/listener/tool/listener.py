@@ -10,7 +10,7 @@ class BaseAIToolListener(ai_environmentListener):
 
     def enterToolDef(self, ctx):
          self.current_tool = {
-            "name": ctx.STRING().getText().strip('"'),
+            "name": ctx.PROPERTYVALUE().getText().strip('"'),
             "uid": "",
             "endpoint": "",
             "type": "",
@@ -23,11 +23,11 @@ class BaseAIToolListener(ai_environmentListener):
 
     def enterToolEndpointProp(self, ctx):
         super().enterToolEndpointProp(ctx)
-        self.current_tool["endpoint"] = ctx.STRING().getText()
+        self.current_tool["endpoint"] = ctx.PROPERTYVALUE().getText()
 
     def enterToolDescriptionProp(self, ctx):
         super().enterToolDescriptionProp(ctx)
-        self.current_tool["description"] = ctx.STRING().getText()
+        self.current_tool["description"] = ctx.PROPERTYVALUE().getText()
 
     def enterToolTypeProp(self, ctx):
         super().enterToolEndpointProp(ctx)

@@ -1,27 +1,31 @@
 ai_environment "AgentMicroservice" {
     architecture{
-        envid = "c672da0bd68f41f1b77442524cfa48c4"
-        service-techlayer = aiurn:techlayer:github:www.github.com:agenterprise:service-layer-fastapi-base
-        ai-techlayer = aiurn:techlayer:github:www.github.com:agenterprise:ai-layer-pydanticai
-    }
+        envid = "fb98001a0ce94c44ad091de3d2e78164"
+        service-techlayer = aiurn:techlayer:local:..:templates:service-layer-fastapi-base
+        ai-techlayer = aiurn:techlayer:local:..:templates:ai-layer-pydanticai
+        
+        }
 
     infrastructure {
         llm "My LLM" {
-            uid = aiurn:model:llm:geepeetee
-            provider = aiurn:provider:azure 
+            uid = aiurn:model:id:geepeetee
+            provider = aiurn:model:provider:azure 
             model = "gpt-4o"
             endpoint = "https://any.openai.azure.com/"
             version = "2025-01-01-preview"
+            aiurn:var:temperature = 0.7
+            aiurn:var:costid = "ewe3949" 
+            aiurn:var:hello = True 
         }
     }
 
 
-   functional{
+    functional{
         agent "Cook" {
             uid = aiurn:agent:cook
             namespace = aiurn:ns:janes_diner:kitchen
             systemprompt = "You're a four star rated metre"
-            llmref = aiurn:model:llm:geepeetee 
+            llmref = aiurn:model:id:geepeetee 
             toolref = aiurn:tool:cooking:v1
             toolref = aiurn:tool:freezer:v2
             aiurn:var:name = "Max Mustermann"
@@ -35,7 +39,7 @@ ai_environment "AgentMicroservice" {
             uid = aiurn:agent:waiter
             namespace = aiurn:ns:janes_diner:guestroom
             systemprompt = "Du bist ein freundlicher und aufmerksamer Kellner"
-            llmref = aiurn:model:llm:geepeetee 
+            llmref = aiurn:model:id:geepeetee 
             toolref = aiurn:tool:cooking:v1
             aiurn:var:name = "Max Mustermann"
             aiurn:var:role = "waiter"
@@ -50,12 +54,15 @@ ai_environment "AgentMicroservice" {
             description = "Tool for finding good cooking combinations"
             
         }
-        tool "FreezerApi2" {
+         tool "FreezerApi2" {
             uid = aiurn:tool:freezer:v2
             endpoint = "http://localhost:8000/mcp"
             type = aiurn:tooltype:mcp
             description = "Tool for inspecting contents of the freezer"
             
         }
+
+    }
 }
+
 
