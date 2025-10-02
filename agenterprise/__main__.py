@@ -38,7 +38,9 @@ def _scaffold_project_layer(target_dir, proj: Project):
             directory="projectlayer",
             output_dir=os.path.dirname(os.path.abspath(target_dir)),
             no_input=True,
-            extra_context={"project_name": project_name,"project_build_id": proj.project_build_id},
+            extra_context={"project_name": project_name,
+                           "project_build_id": proj.project_build_id,
+                           "dsl_file": proj.dsl_file},
             overwrite_if_exists=True,
             skip_if_file_exists=True
         )
@@ -158,7 +160,11 @@ def run_code_generation(dsl_file, target_dir):
     walker.walk(nonfuncListener, tree)
 
     aiEnv = nonfuncListener.environment
-    project = Project(ai_techstack=aiEnv.ai_techlayer,service_techstack=aiEnv.service_techlayer, target_dir=target_dir,  envid=aiEnv.envid)
+    project = Project(ai_techstack=aiEnv.ai_techlayer,
+                      service_techstack=aiEnv.service_techlayer, 
+                      target_dir=target_dir,  
+                      envid=aiEnv.envid,
+                      dsl_file=dsl_target_file)
     _scaffold_project_layer(target_dir, project)
     
    

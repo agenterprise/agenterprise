@@ -13,12 +13,13 @@ from agenterprise.model.listener.tool.listener import BaseAIToolListener
 
 class Project():
 
-    def __init__(self, ai_techstack: AIURN, service_techstack: AIURN, target_dir: str, envid: str = None):
+    def __init__(self, ai_techstack: AIURN, service_techstack: AIURN, target_dir: str, envid: str = None, dsl_file: str = None):
         self.ai_techstack = ai_techstack
         self.service_techstack = service_techstack
         self.project_layer = service_techstack
         self.project_build_id = envid
         self.target_dir = target_dir
+        self.dsl_file = dsl_file
 
         self.projectlistener = NonFunctionalListener
         self.agentlistener = BaseAIAgentListener
