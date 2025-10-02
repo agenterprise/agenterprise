@@ -78,7 +78,7 @@ LLMID: 'aiurn:model:id:'[a-zA-Z_][a-zA-Z_0-9:]* ;
 
 //Tools
 TOOLID: 'aiurn:tool:'[a-zA-Z_][a-zA-Z_0-9:]* ;
-TOOL_TYPE: 'aiurn:tooltype:mcp' | 'aiurn:tooltype:openapi' | 'aiurn:tooltype:code' ;
+TOOL_TYPE: 'aiurn:tooltype:mcp' | 'aiurn:tooltype:openapi' | 'aiurn:tooltype:code' | 'aiurn:tooltype:ressource'  ;
 
 //Agents
 AGENTID: 'aiurn:agent:'[a-zA-Z_][a-zA-Z_0-9:]* ;
