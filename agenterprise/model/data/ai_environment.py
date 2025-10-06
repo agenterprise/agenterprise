@@ -32,6 +32,8 @@ class Tool:
     endpoint: str
     type: str
     properties: Optional[Dict[AIURN, str]] = None
+    inputproperties: Optional[Dict[AIURN, Dict]] = None
+    outputproperties: Optional[Dict[AIURN, Dict]] = None
     description: str = Field("No description", description="A brief description of the tool's functionality"   )
     
 

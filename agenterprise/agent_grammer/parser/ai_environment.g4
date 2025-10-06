@@ -51,6 +51,8 @@ llmOtherProperty: VAR '=' PROPERTYVALUE;
 ///////////
 toolDef: 'tool' PROPERTYVALUE '{'
            toolIdProp
+           toolInputProperty*
+           toolOutputProperty*
            toolEndpointProp
            toolTypeProp
            toolDescriptionProp
@@ -59,15 +61,18 @@ toolDef: 'tool' PROPERTYVALUE '{'
 
 toolIdProp: 'uid' '=' TOOLID ;
 toolEndpointProp: 'endpoint' '=' PROPERTYVALUE ;
+toolInputProperty: 'in' '=' TOOLVAR  toolInputPropertyDescription ;
+toolOutputProperty: 'out' '='  TOOLVAR  toolOutputPropertyDescription ;
+toolOutputPropertyDescription: '#' PROPERTYVALUE ;
+toolInputPropertyDescription: '#' PROPERTYVALUE ;
 toolDescriptionProp: 'description' '=' PROPERTYVALUE ;
 toolTypeProp: 'type' '=' TOOL_TYPE ;
 toolOtherProperty: VAR '=' PROPERTYVALUE  ;
-
 /////// Lexer TOKENS ///////
 TECHLAYER_RESSOURCE:  'github' | 'local';
 TECHLAYER_AIURN: 'aiurn:techlayer:'TECHLAYER_RESSOURCE':'[a-zA-Z._][a-zA-Z_0-9.:-]* ;
 
-// URNs
+// VARs
 VAR: 'aiurn:var:'[a-zA-Z_][a-zA-Z0-9_]* ;
 
 //LLMs
@@ -77,6 +82,7 @@ LLMPROVIDER: 'aiurn:model:provider:azure' | 'aiurn:model:provider:openai' ;
 LLMID: 'aiurn:model:id:'[a-zA-Z_][a-zA-Z_0-9:]* ;
 
 //Tools
+TOOLVAR: 'aiurn:toolvar:'[a-zA-Z_][a-zA-Z0-9_:]* ;
 TOOLID: 'aiurn:tool:'[a-zA-Z_][a-zA-Z_0-9:]* ;
 TOOL_TYPE: 'aiurn:tooltype:mcp' | 'aiurn:tooltype:openapi' | 'aiurn:tooltype:code' | 'aiurn:tooltype:ressource'  ;
 
@@ -89,5 +95,7 @@ fragment INT: [0-9]+ ;
 fragment BOOL: 'True' | 'False' ;
 fragment STRING: '"' (~["])* '"' ;
 PROPERTYVALUE: FLOAT | INT | BOOL | STRING;
-
-WS:     [ \t\r\n]+ -> skip;  // Weißraum ignorieren
+THINK: '...' (~["])* '...' ;
+WS:     [ \t\r\n]+ -> skip;  // Whitespace
+COMMENT: '//' ~[\r\n]* -> skip ; // Single line comment
+ML_COMMENT: '/*' .*? '*/' -> skip ; // Multi line comment   

@@ -4,7 +4,7 @@ ai_environment "AgentMicroservice" {
         service-techlayer = aiurn:techlayer:local:..:templates:service-layer-fastapi-base
         ai-techlayer = aiurn:techlayer:local:..:templates:ai-layer-pydanticai
         
-        }
+    }
 
     infrastructure {
         llm "My LLM" {
@@ -49,6 +49,9 @@ ai_environment "AgentMicroservice" {
         }
         tool "bmicalculator" {
             uid = aiurn:tool:bmi:v1
+            in = aiurn:toolvar:weight # "The weight of the person"
+            in = aiurn:toolvar:height # "The heigt of ther person"
+            out = aiurn:toolvar:bmi # "The calculated BMI (Body Mass Index)"
             endpoint = "lambda weight, height: round(weight / (height ** 2), 2)"
             type = aiurn:tooltype:code
             description = "Tool calculating the bmi by weight and height"
@@ -56,9 +59,11 @@ ai_environment "AgentMicroservice" {
         }
         tool "Mealdb" {
             uid = aiurn:tool:cooking:v1
-            endpoint = "https://www.themealdb.com/api/json/v1/1/search.php?s=$INPUT"
+            in = aiurn:toolvar:meal # "A meal"
+            out = aiurn:toolvar:description # "A listing about ingridients"
+            endpoint = "https://www.themealdb.com/api/json/v1/1/search.php?s=aiurn:tool:input:meal"
             type = aiurn:tooltype:ressource
-            description = "Tool for finding meal. Replace the $INPUT with the meal you like"
+            description = "Tool for finding a meal deescription."
             
         }
          tool "Webcrawler" {

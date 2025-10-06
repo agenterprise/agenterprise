@@ -197,6 +197,42 @@ class ai_environmentListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by ai_environmentParser#toolInputProperty.
+    def enterToolInputProperty(self, ctx:ai_environmentParser.ToolInputPropertyContext):
+        pass
+
+    # Exit a parse tree produced by ai_environmentParser#toolInputProperty.
+    def exitToolInputProperty(self, ctx:ai_environmentParser.ToolInputPropertyContext):
+        pass
+
+
+    # Enter a parse tree produced by ai_environmentParser#toolOutputProperty.
+    def enterToolOutputProperty(self, ctx:ai_environmentParser.ToolOutputPropertyContext):
+        pass
+
+    # Exit a parse tree produced by ai_environmentParser#toolOutputProperty.
+    def exitToolOutputProperty(self, ctx:ai_environmentParser.ToolOutputPropertyContext):
+        pass
+
+
+    # Enter a parse tree produced by ai_environmentParser#toolOutputPropertyDescription.
+    def enterToolOutputPropertyDescription(self, ctx:ai_environmentParser.ToolOutputPropertyDescriptionContext):
+        pass
+
+    # Exit a parse tree produced by ai_environmentParser#toolOutputPropertyDescription.
+    def exitToolOutputPropertyDescription(self, ctx:ai_environmentParser.ToolOutputPropertyDescriptionContext):
+        pass
+
+
+    # Enter a parse tree produced by ai_environmentParser#toolInputPropertyDescription.
+    def enterToolInputPropertyDescription(self, ctx:ai_environmentParser.ToolInputPropertyDescriptionContext):
+        pass
+
+    # Exit a parse tree produced by ai_environmentParser#toolInputPropertyDescription.
+    def exitToolInputPropertyDescription(self, ctx:ai_environmentParser.ToolInputPropertyDescriptionContext):
+        pass
+
+
     # Enter a parse tree produced by ai_environmentParser#toolDescriptionProp.
     def enterToolDescriptionProp(self, ctx:ai_environmentParser.ToolDescriptionPropContext):
         pass

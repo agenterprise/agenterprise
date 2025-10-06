@@ -23,10 +23,9 @@ ai_environment "AgentMicroservice" {
         agent "Cook" {
             uid = aiurn:agent:cook
             namespace = aiurn:ns:janes_diner:kitchen
-            systemprompt = "You're a four star rated metre"
+            systemprompt = "You're a four star rated metre working at https://www.mcdonalds.com/de/de-de/restaurant-suche.html/l/mannheim/willy-brandt-platz-17/1271"
             llmref = aiurn:model:id:geepeetee 
-            toolref = aiurn:tool:cooking:v1
-            toolref = aiurn:tool:freezer:v2
+            toolref =aiurn:tool:crawler:v2
             aiurn:var:name = "Max Mustermann"
             aiurn:var:role = "waiter"
             aiurn:var:lifeycle = "permanent"
@@ -36,28 +35,31 @@ ai_environment "AgentMicroservice" {
 
         agent "Waiter" {
             uid = aiurn:agent:waiter
-            namespace = aiurn:ns:janes_diner:guestroom
-            systemprompt = "Du bist ein freundlicher und aufmerksamer Kellner"
+            namespace = aiurn:ns:kkweinhauschen:guestroom
+            systemprompt = "Du bist ein freundlicher und aufmerksamer Oberkellner und managed das Restaurant https://www.mcdonalds.com/de/de-de/restaurant-suche.html/l/mannheim/willy-brandt-platz-17/1271"
             llmref = aiurn:model:id:geepeetee 
-            toolref = aiurn:tool:cooking:v1
+            toolref = aiurn:tool:bmi:v1
             aiurn:var:name = "Max Mustermann"
             aiurn:var:role = "waiter"
             aiurn:var:lifeycle = "permanent"
             aiurn:var:events = "onRestaurantOpening"
         }
-
-        tool "CookingApi" {
-            uid = aiurn:tool:cooking:v1
-            endpoint = "http://localhost:8000/mcp"
-            type = aiurn:tooltype:mcp
-            description = "Tool for finding good cooking combinations"
+        tool "bmicalculator" {
+            uid = aiurn:tool:bmi:v1
+            in = aiurn:toolvar:weight # "The weight of the person"
+            in = aiurn:toolvar:height # "The heigt of ther person"
+            out = aiurn:toolvar:bmi # "The calculated BMI (Body Mass Index)"
+            endpoint = "lambda weight, height: round(weight / (height ** 2), 2)"
+            type = aiurn:tooltype:code
+            description = "Tool calculating the bmi by weight and height"
             
         }
-         tool "FreezerApi2" {
-            uid = aiurn:tool:freezer:v2
-            endpoint = "http://localhost:8000/mcp"
+        
+         tool "Webcrawler" {
+            uid = aiurn:tool:crawler:v2
+            endpoint = "https://remote.mcpservers.org/fetch/mcp"
             type = aiurn:tooltype:mcp
-            description = "Tool for inspecting contents of the freezer"
+            description = "Tool for fetching webpages"
             
         }
 

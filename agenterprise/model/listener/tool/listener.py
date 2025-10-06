@@ -15,11 +15,36 @@ class BaseAIToolListener(ai_environmentListener):
             "endpoint": "",
             "type": "",
             "description" : "",
-            "properties": {}
+            "properties": {},
+            "inputproperties": {},
+            "outputproperties": {}
         }
     def enterToolIdProp(self, ctx):
         super().enterToolIdProp(ctx)
         self.current_tool["uid"] = ctx.TOOLID().getText()
+
+    def enterToolInputProperty(self, ctx):
+        super().enterToolInputProperty(ctx)
+        var = ctx.TOOLVAR().getText()
+        self.current_tool["inputproperties"][var] = {}
+
+    def enterToolOutputProperty(self, ctx):
+        super().enterToolOutputProperty(ctx)
+        var = ctx.TOOLVAR().getText()
+        self.current_tool["outputproperties"][var] = {}
+
+    def enterToolOutputPropertyDescription(self, ctx):
+        super().enterToolOutputPropertyDescription(ctx)
+        var = ctx.parentCtx.TOOLVAR().getText()
+        description = ctx.PROPERTYVALUE().getText()
+        self.current_tool["outputproperties"][var] = { 'description': description.strip('...').strip() }
+
+    def enterToolInputPropertyDescription(self, ctx):
+        super().enterToolInputPropertyDescription(ctx)
+        var = ctx.parentCtx.TOOLVAR().getText()
+        description = ctx.PROPERTYVALUE().getText()
+        self.current_tool["inputproperties"][var] = { 'description': description.strip('...').strip() }
+
 
     def enterToolEndpointProp(self, ctx):
         super().enterToolEndpointProp(ctx)
@@ -44,7 +69,9 @@ class BaseAIToolListener(ai_environmentListener):
             toolrefs=self.current_tool.get("toolrefs"),
             endpoint=self.current_tool.get("endpoint"),
             type = self.current_tool.get("type"),
-            properties=self.current_tool.get("properties", {})
+            properties=self.current_tool.get("properties", {}),
+            outputproperties=self.current_tool.get("outputproperties", []),
+            inputproperties=self.current_tool.get("inputproperties", [])
         )
         self.tools.append(tool)
         self.tool = None
