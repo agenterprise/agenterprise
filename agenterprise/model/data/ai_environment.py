@@ -22,6 +22,8 @@ class Agent:
     systemprompt: str
     llmref: AIURN
     toolrefs: List[AIURN]
+    inputproperties: Optional[Dict[AIURN, Dict]] = None
+    outputproperties: Optional[Dict[AIURN, Dict]] = None
     properties: Optional[Dict[AIURN, str]] = None
 
 

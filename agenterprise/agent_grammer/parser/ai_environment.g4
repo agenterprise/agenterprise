@@ -18,13 +18,17 @@ architectureAiStack: 'ai-techlayer' '=' TECHLAYER_AIURN; // AI TECHLAYERs
 /////////// 
 // Agents
 ///////////
-agentDef: 'agent' PROPERTYVALUE '{' agentIdentity agentNamespace agentSystemPromptProperty agentLLMRefProperty agentToolRefProperty* agentCustomProperty* '}' ;
+agentDef: 'agent' PROPERTYVALUE '{' agentIdentity agentNamespace agentSystemPromptProperty agentLLMRefProperty agentToolRefProperty* agentInputProperty* agentOutputProperty* agentCustomProperty* '}' ;
 
 agentSystemPromptProperty: 'systemprompt' '=' PROPERTYVALUE ;
 agentIdentity: 'uid' '=' AGENTID ;
 agentNamespace: 'namespace' '=' AGENTNAMESPACE ;
 agentLLMRefProperty: 'llmref' '=' LLMID ;
 agentToolRefProperty: 'toolref' '=' TOOLID ;
+agentInputProperty: 'in' '=' AGENTVAR  agentInputPropertyDescription ;
+agentOutputProperty: 'out' '='  AGENTVAR  agentOutputPropertyDescription ;
+agentOutputPropertyDescription: '#' PROPERTYVALUE ;
+agentInputPropertyDescription: '#' PROPERTYVALUE ;
 agentCustomProperty: VAR '=' PROPERTYVALUE   ;
 
 ///////////
@@ -89,6 +93,8 @@ TOOL_TYPE: 'aiurn:tooltype:mcp' | 'aiurn:tooltype:openapi' | 'aiurn:tooltype:cod
 //Agents
 AGENTID: 'aiurn:agent:'[a-zA-Z_][a-zA-Z_0-9:]* ;
 AGENTNAMESPACE: 'aiurn:ns:'[a-zA-Z_][a-zA-Z_0-9:]* ;
+AGENTVAR: 'aiurn:agentvar:'[a-zA-Z_][a-zA-Z0-9_:]* ;
+
 
 fragment FLOAT: [0-9]+ '.' [0-9]+ ;
 fragment INT: [0-9]+ ;

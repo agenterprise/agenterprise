@@ -16,6 +16,8 @@ class BaseAIAgentListener(ai_environmentListener):
             "namespace": None,
             "systemprompt": None,
             "toolrefs": [],
+            "inputproperties": {},
+            "outputproperties": {},
             "properties": {}
         }
     def enterAgentToolRefProperty(self, ctx):
@@ -29,7 +31,9 @@ class BaseAIAgentListener(ai_environmentListener):
             systemprompt=self.current_agent.get("systemprompt"),
             llmref=AIURN(self.current_agent.get("llmref")),
             toolrefs=[ AIURN(x) for x in self.current_agent["toolrefs"]],
-            properties=self.current_agent.get("properties", {})
+            properties=self.current_agent.get("properties", {}),
+            outputproperties=self.current_agent.get("outputproperties", []),
+            inputproperties=self.current_agent.get("inputproperties", [])
         )
         self.agents.append(agent)
         self.current_agent = None
@@ -53,6 +57,28 @@ class BaseAIAgentListener(ai_environmentListener):
         super().enterAgentSystemPromptProperty(ctx)
         if self.current_agent is not None:
             self.current_agent["systemprompt"] = ctx.PROPERTYVALUE().getText()  
+
+    def enterAgentInputProperty(self, ctx):
+        super().enterAgentInputProperty(ctx)
+        var = ctx.AGENTVAR().getText()
+        self.current_agent["inputproperties"][var] = {}
+
+    def enterAgentOutputProperty(self, ctx):
+        super().enterAgentOutputProperty(ctx)
+        var = ctx.AGENTVAR().getText()
+        self.current_agent["outputproperties"][var] = {}
+
+    def enterAgentOutputPropertyDescription(self, ctx):
+        super().enterAgentOutputPropertyDescription(ctx)
+        var = ctx.parentCtx.AGENTVAR().getText()
+        description = ctx.PROPERTYVALUE().getText()
+        self.current_agent["outputproperties"][var] = { 'description': description.strip('...').strip() }
+
+    def enterAgentInputPropertyDescription(self, ctx):
+        super().enterAgentInputPropertyDescription(ctx)
+        var = ctx.parentCtx.AGENTVAR().getText()
+        description = ctx.PROPERTYVALUE().getText()
+        self.current_agent["inputproperties"][var] = { 'description': description.strip('...').strip() }
 
     def enterAgentCustomProperty(self, ctx):
         super().enterAgentCustomProperty(ctx)

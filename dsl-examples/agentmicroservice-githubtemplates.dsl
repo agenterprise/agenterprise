@@ -26,9 +26,12 @@ ai_environment "AgentMicroservice" {
             systemprompt = "You're a four star rated metre working at https://www.mcdonalds.com/de/de-de/restaurant-suche.html/l/mannheim/willy-brandt-platz-17/1271"
             llmref = aiurn:model:id:geepeetee 
             toolref =aiurn:tool:crawler:v2
+            out = aiurn:agentvar:answer # "The answer of the metre"
+            out = aiurn:agentvar:restaurant # "The restaurant the metre is answering for"
             aiurn:var:name = "Max Mustermann"
             aiurn:var:role = "waiter"
             aiurn:var:lifeycle = "permanent"
+          
             aiurn:var:events = "onRestaurantOpening"
           
         }

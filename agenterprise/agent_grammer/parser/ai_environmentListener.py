@@ -98,6 +98,42 @@ class ai_environmentListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by ai_environmentParser#agentInputProperty.
+    def enterAgentInputProperty(self, ctx:ai_environmentParser.AgentInputPropertyContext):
+        pass
+
+    # Exit a parse tree produced by ai_environmentParser#agentInputProperty.
+    def exitAgentInputProperty(self, ctx:ai_environmentParser.AgentInputPropertyContext):
+        pass
+
+
+    # Enter a parse tree produced by ai_environmentParser#agentOutputProperty.
+    def enterAgentOutputProperty(self, ctx:ai_environmentParser.AgentOutputPropertyContext):
+        pass
+
+    # Exit a parse tree produced by ai_environmentParser#agentOutputProperty.
+    def exitAgentOutputProperty(self, ctx:ai_environmentParser.AgentOutputPropertyContext):
+        pass
+
+
+    # Enter a parse tree produced by ai_environmentParser#agentOutputPropertyDescription.
+    def enterAgentOutputPropertyDescription(self, ctx:ai_environmentParser.AgentOutputPropertyDescriptionContext):
+        pass
+
+    # Exit a parse tree produced by ai_environmentParser#agentOutputPropertyDescription.
+    def exitAgentOutputPropertyDescription(self, ctx:ai_environmentParser.AgentOutputPropertyDescriptionContext):
+        pass
+
+
+    # Enter a parse tree produced by ai_environmentParser#agentInputPropertyDescription.
+    def enterAgentInputPropertyDescription(self, ctx:ai_environmentParser.AgentInputPropertyDescriptionContext):
+        pass
+
+    # Exit a parse tree produced by ai_environmentParser#agentInputPropertyDescription.
+    def exitAgentInputPropertyDescription(self, ctx:ai_environmentParser.AgentInputPropertyDescriptionContext):
+        pass
+
+
     # Enter a parse tree produced by ai_environmentParser#agentCustomProperty.
     def enterAgentCustomProperty(self, ctx:ai_environmentParser.AgentCustomPropertyContext):
         pass
