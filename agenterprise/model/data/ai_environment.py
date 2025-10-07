@@ -15,6 +15,12 @@ class LLM:
     properties: Optional[Dict[AIURN, str]] = None 
 
 @dataclass
+class Entity:
+    uid: AIURN
+    name: str
+    elements: Optional[List[Dict[str, AIURN|str]]] = None
+
+@dataclass
 class Agent:
     uid: AIURN
     namespace: AIURN
@@ -22,8 +28,8 @@ class Agent:
     systemprompt: str
     llmref: AIURN
     toolrefs: List[AIURN]
-    inputproperties: Optional[Dict[AIURN, Dict]] = None
-    outputproperties: Optional[Dict[AIURN, Dict]] = None
+    input: Optional[AIURN] = None
+    output: Optional[AIURN] = None
     properties: Optional[Dict[AIURN, str]] = None
 
 
@@ -34,8 +40,8 @@ class Tool:
     endpoint: str
     type: str
     properties: Optional[Dict[AIURN, str]] = None
-    inputproperties: Optional[Dict[AIURN, Dict]] = None
-    outputproperties: Optional[Dict[AIURN, Dict]] = None
+    input: Optional[AIURN] = None
+    output: Optional[AIURN] = None
     description: str = Field("No description", description="A brief description of the tool's functionality"   )
     
 
@@ -46,6 +52,7 @@ class AIEnvironment:
     envid: str
     ai_techlayer: AIURN
     service_techlayer: AIURN
+    data_techlayer: AIURN
     agents: List[Agent]
     llms: List[LLM]
 

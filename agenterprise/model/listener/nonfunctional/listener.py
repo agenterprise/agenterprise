@@ -10,12 +10,17 @@ class NonFunctionalListener(ai_environmentListener):
         self.ai_techlayer = None
         self.service_techlayer = None
         self.project_techstack = None
+        self.data_techlayer=None
         self.environment = None
         self.envid = None
     
     def enterArchitectureAiStack(self, ctx):
         super().enterArchitectureAiStack(ctx)
         self.ai_techlayer = ctx.TECHLAYER_AIURN().getText()
+
+    def enterArchitectureDataStack(self, ctx):
+        super().enterArchitectureDataStack(ctx)
+        self.data_techlayer = ctx.TECHLAYER_AIURN().getText()
 
     def enterArchitectureServiceStack(self, ctx):
         super().enterArchitectureServiceStack(ctx)
@@ -31,6 +36,7 @@ class NonFunctionalListener(ai_environmentListener):
             name=ctx.PROPERTYVALUE().getText(),
             ai_techlayer=AIURN(self.ai_techlayer),
             service_techlayer=AIURN(self.service_techlayer),
+            data_techlayer=AIURN(self.data_techlayer),
             envid=self.envid,
             agents=[],
             llms=[]

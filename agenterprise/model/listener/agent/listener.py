@@ -32,8 +32,8 @@ class BaseAIAgentListener(ai_environmentListener):
             llmref=AIURN(self.current_agent.get("llmref")),
             toolrefs=[ AIURN(x) for x in self.current_agent["toolrefs"]],
             properties=self.current_agent.get("properties", {}),
-            outputproperties=self.current_agent.get("outputproperties", []),
-            inputproperties=self.current_agent.get("inputproperties", [])
+            output=self.current_agent.get("output"),
+            input=self.current_agent.get("input")
         )
         self.agents.append(agent)
         self.current_agent = None
@@ -60,25 +60,13 @@ class BaseAIAgentListener(ai_environmentListener):
 
     def enterAgentInputProperty(self, ctx):
         super().enterAgentInputProperty(ctx)
-        var = ctx.AGENTVAR().getText()
-        self.current_agent["inputproperties"][var] = {}
+        var = ctx.ENTITY_ID().getText()
+        self.current_agent["input"]= AIURN(var)
 
     def enterAgentOutputProperty(self, ctx):
         super().enterAgentOutputProperty(ctx)
-        var = ctx.AGENTVAR().getText()
-        self.current_agent["outputproperties"][var] = {}
-
-    def enterAgentOutputPropertyDescription(self, ctx):
-        super().enterAgentOutputPropertyDescription(ctx)
-        var = ctx.parentCtx.AGENTVAR().getText()
-        description = ctx.PROPERTYVALUE().getText()
-        self.current_agent["outputproperties"][var] = { 'description': description.strip('...').strip() }
-
-    def enterAgentInputPropertyDescription(self, ctx):
-        super().enterAgentInputPropertyDescription(ctx)
-        var = ctx.parentCtx.AGENTVAR().getText()
-        description = ctx.PROPERTYVALUE().getText()
-        self.current_agent["inputproperties"][var] = { 'description': description.strip('...').strip() }
+        var = ctx.ENTITY_ID().getText()
+        self.current_agent["output"] = AIURN(var)
 
     def enterAgentCustomProperty(self, ctx):
         super().enterAgentCustomProperty(ctx)

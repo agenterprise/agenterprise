@@ -16,8 +16,8 @@ class BaseAIToolListener(ai_environmentListener):
             "type": "",
             "description" : "",
             "properties": {},
-            "inputproperties": {},
-            "outputproperties": {}
+            "input": None,
+            "output": None
         }
     def enterToolIdProp(self, ctx):
         super().enterToolIdProp(ctx)
@@ -25,26 +25,13 @@ class BaseAIToolListener(ai_environmentListener):
 
     def enterToolInputProperty(self, ctx):
         super().enterToolInputProperty(ctx)
-        var = ctx.TOOLVAR().getText()
-        self.current_tool["inputproperties"][var] = {}
+        var = ctx.ENTITY_ID().getText()
+        self.current_tool["input"] = AIURN(var)
 
     def enterToolOutputProperty(self, ctx):
         super().enterToolOutputProperty(ctx)
-        var = ctx.TOOLVAR().getText()
-        self.current_tool["outputproperties"][var] = {}
-
-    def enterToolOutputPropertyDescription(self, ctx):
-        super().enterToolOutputPropertyDescription(ctx)
-        var = ctx.parentCtx.TOOLVAR().getText()
-        description = ctx.PROPERTYVALUE().getText()
-        self.current_tool["outputproperties"][var] = { 'description': description.strip('...').strip() }
-
-    def enterToolInputPropertyDescription(self, ctx):
-        super().enterToolInputPropertyDescription(ctx)
-        var = ctx.parentCtx.TOOLVAR().getText()
-        description = ctx.PROPERTYVALUE().getText()
-        self.current_tool["inputproperties"][var] = { 'description': description.strip('...').strip() }
-
+        var = ctx.ENTITY_ID().getText()
+        self.current_tool["output"] = AIURN(var)
 
     def enterToolEndpointProp(self, ctx):
         super().enterToolEndpointProp(ctx)
@@ -70,8 +57,8 @@ class BaseAIToolListener(ai_environmentListener):
             endpoint=self.current_tool.get("endpoint"),
             type = self.current_tool.get("type"),
             properties=self.current_tool.get("properties", {}),
-            outputproperties=self.current_tool.get("outputproperties", []),
-            inputproperties=self.current_tool.get("inputproperties", [])
+            output=self.current_tool.get("outputproperties"),
+            input=self.current_tool.get("input")
         )
         self.tools.append(tool)
         self.tool = None

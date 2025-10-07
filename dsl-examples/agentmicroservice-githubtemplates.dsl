@@ -4,6 +4,20 @@ ai_environment "AgentMicroservice" {
         service-techlayer = aiurn:techlayer:github:www.github.com:agenterprise:service-layer-fastapi-base
         ai-techlayer = aiurn:techlayer:github:www.github.com:agenterprise:ai-layer-pydanticai
     }
+    data{
+        entity "Restaurant Answer" {
+            uid = aiurn:entity:id:restaurantanswer 
+            element = aiurn:entity:var:answer -> TEXT # "The answer of the metre"
+            element = aiurn:entity:var:restaurant -> aiurn:entity:id:restaurant  # "The restaurant of the metre"
+        }
+        entity "Restaurant" {
+            uid = aiurn:entity:id:restaurant 
+            element = aiurn:entity:var:name -> TEXT # "The name of the restaurant"
+            element = aiurn:entity:var:street -> TEXT # "The street where the restaurant is located"
+            element = aiurn:entity:var:city -> TEXT # "The city where the restaurant is located"
+            element = aiurn:entity:var:rating -> NUMBER # "The rating of the restaurant"
+        }
+    }
 
     infrastructure {
         llm "My LLM" {

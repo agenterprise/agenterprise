@@ -29,6 +29,36 @@ class ai_environmentVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by ai_environmentParser#architectureDataStack.
+    def visitArchitectureDataStack(self, ctx:ai_environmentParser.ArchitectureDataStackContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by ai_environmentParser#entityDef.
+    def visitEntityDef(self, ctx:ai_environmentParser.EntityDefContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by ai_environmentParser#entityIdProp.
+    def visitEntityIdProp(self, ctx:ai_environmentParser.EntityIdPropContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by ai_environmentParser#entityElementProp.
+    def visitEntityElementProp(self, ctx:ai_environmentParser.EntityElementPropContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by ai_environmentParser#entityElementType.
+    def visitEntityElementType(self, ctx:ai_environmentParser.EntityElementTypeContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by ai_environmentParser#entityElementDescription.
+    def visitEntityElementDescription(self, ctx:ai_environmentParser.EntityElementDescriptionContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by ai_environmentParser#agentDef.
     def visitAgentDef(self, ctx:ai_environmentParser.AgentDefContext):
         return self.visitChildren(ctx)
@@ -66,16 +96,6 @@ class ai_environmentVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by ai_environmentParser#agentOutputProperty.
     def visitAgentOutputProperty(self, ctx:ai_environmentParser.AgentOutputPropertyContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by ai_environmentParser#agentOutputPropertyDescription.
-    def visitAgentOutputPropertyDescription(self, ctx:ai_environmentParser.AgentOutputPropertyDescriptionContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by ai_environmentParser#agentInputPropertyDescription.
-    def visitAgentInputPropertyDescription(self, ctx:ai_environmentParser.AgentInputPropertyDescriptionContext):
         return self.visitChildren(ctx)
 
 
@@ -141,16 +161,6 @@ class ai_environmentVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by ai_environmentParser#toolOutputProperty.
     def visitToolOutputProperty(self, ctx:ai_environmentParser.ToolOutputPropertyContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by ai_environmentParser#toolOutputPropertyDescription.
-    def visitToolOutputPropertyDescription(self, ctx:ai_environmentParser.ToolOutputPropertyDescriptionContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by ai_environmentParser#toolInputPropertyDescription.
-    def visitToolInputPropertyDescription(self, ctx:ai_environmentParser.ToolInputPropertyDescriptionContext):
         return self.visitChildren(ctx)
 
 

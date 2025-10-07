@@ -7,7 +7,7 @@ from antlr4.error.ErrorListener import ErrorListener
 from cookiecutter.main import cookiecutter
 from cookiecutter.exceptions import OutputDirExistsException
 
-from agenterprise.model.data.ai_environment import Agent, Tool
+from agenterprise.model.data.ai_environment import Agent, Entity, Tool
 from agenterprise.model.data.ai_environment import LLM
 from agenterprise.model.listener.nonfunctional.listener import NonFunctionalListener
 from agenterprise.model.project import  Project
@@ -105,8 +105,27 @@ def _scaffold_tool_layer(target_dir, proj: Project, tool:Tool):
     except OutputDirExistsException:
         raise RuntimeError("The output directory exists already.")
     
+def _scaffold_entity_layer(target_dir, proj: Project, entity:Entity):
+    """
+    Create entities.
+    """
+    logger.info(f"Scaffolding entity layer in {target_dir} using template {proj.get_entitylayer()}")
+    template_path = proj.get_entitylayer()
+    project_name = os.path.basename(os.path.abspath(target_dir))
+    try:
+        cookiecutter(
+                template_path,
+                directory="entitylayer",
+                output_dir=os.path.dirname(os.path.abspath(target_dir)),
+                no_input=True,
+                extra_context={"project_name": project_name, "entity":entity.__dict__, "project_build_id": proj.project_build_id},
+                overwrite_if_exists=True
+            )
+    except OutputDirExistsException:
+        raise RuntimeError("The output directory exists already.")
+    
 
-def _scaffold_service_layer(target_dir, proj: Project, agents:List[Agent], llms:List[LLM], tools:List[Tool]):
+def _scaffold_service_layer(target_dir, proj: Project, agents:List[Agent], llms:List[LLM], tools:List[Tool], entities:List[Entity]):
     """
     Create initial project structure using the selected cookiecutter template.
     """
@@ -119,6 +138,9 @@ def _scaffold_service_layer(target_dir, proj: Project, agents:List[Agent], llms:
 
     tools = [tool.__dict__ for tool in tools]
     tools = dict(enumerate(tools))
+
+    entities = [entity.__dict__ for entity in entities]
+    entities = dict(enumerate(entities))
     
     template_path =  proj.get_servicelayer()
     project_name = os.path.basename(os.path.abspath(target_dir))
@@ -128,7 +150,7 @@ def _scaffold_service_layer(target_dir, proj: Project, agents:List[Agent], llms:
             directory="servicelayer",
             output_dir=os.path.dirname(os.path.abspath(target_dir)),
             no_input=True,
-            extra_context={"project_name": project_name, "agents":agents, "tools":tools, "llms":llms, "project_build_id": proj.project_build_id},
+            extra_context={"project_name": project_name, "agents":agents, "tools":tools, "llms":llms, "entities":entities, "project_build_id": proj.project_build_id},
             overwrite_if_exists=True
         )
     except OutputDirExistsException:
@@ -162,6 +184,7 @@ def run_code_generation(dsl_file, target_dir):
     aiEnv = nonfuncListener.environment
     project = Project(ai_techstack=aiEnv.ai_techlayer,
                       service_techstack=aiEnv.service_techlayer, 
+                      data_techstack=aiEnv.data_techlayer,
                       target_dir=target_dir,  
                       envid=aiEnv.envid,
                       dsl_file=dsl_target_file)
@@ -188,11 +211,17 @@ def run_code_generation(dsl_file, target_dir):
     walker.walk(toolListener, tree)
     for tool in toolListener.tools:
         _scaffold_tool_layer(target_dir, project, tool)
+    
+    # Entity Layer
+    entityListener = project.entitylistener()
+    walker.walk(entityListener, tree)
+    for entity in entityListener.entites:
+        _scaffold_entity_layer(target_dir, project, entity)
 
     # Service Layer
     serviceListener = project.servicelistener()
     walker.walk(serviceListener, tree)
-    _scaffold_service_layer(target_dir, project, agentListener.agents, llmListener.llms, toolListener.tools)
+    _scaffold_service_layer(target_dir, project, agentListener.agents, llmListener.llms, toolListener.tools, entityListener.entites)
  
     logger.info(f"AI Environment generated to {target_dir}")
 
