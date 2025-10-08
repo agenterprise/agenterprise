@@ -23,7 +23,7 @@ Grab `dsl-examples/agentmicroservice.a4` or copy and modify it
 
 At CLI execute
 ```bash
- uv run python -m agenterprise --code-generation  --dsl dsl-examples/agentmicroservice-localtemplates.dsl --target target/myagentenv  
+ uv run python -m agenterprise --code-generation  --dsl dsl-examples/agentmicroservice-githubtemplates.dsl  --target target/myagentenv  
 ```
 
 ### 5. Explore the generated code

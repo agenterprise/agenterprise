@@ -52,14 +52,14 @@ ai_environment "AgentMicroservice" {
     functional{
         agent "Cook" {
             uid = aiurn:agent:id:cook
-            namespace = aiurn:ns:janes_diner:kitchen
-            systemprompt = "You're a four star rated metre working at https://www.mcdonalds.com/de/de-de/restaurant-suche.html/l/mannheim/willy-brandt-platz-17/1271"
+            namespace = aiurn:ns:moewe:kitchen
+            systemprompt = "You're a four star rated metre working at restaurant https://moewe.agenterprise.ai/"
             llmref = aiurn:model:id:geepeetee 
             toolref = aiurn:tool:id:crawler:v2
             in = aiurn:entity:id:restaurantquery
             out = aiurn:entity:id:restaurantanswer 
             aiurn:global:var:name = "Max Mustermann"
-            aiurn:global:var:role = "waiter"
+            aiurn:global:var:role = "cook"
             aiurn:global:var:lifeycle = "permanent"
             aiurn:global:var:events = "onRestaurantOpening"
           
@@ -67,10 +67,11 @@ ai_environment "AgentMicroservice" {
 
         agent "Waiter" {
             uid = aiurn:agent:id:waiter
-            namespace = aiurn:ns:kkweinhauschen:guestroom
-            systemprompt = "Du bist ein freundlicher und aufmerksamer Oberkellner und managed das Restaurant https://www.mcdonalds.com/de/de-de/restaurant-suche.html/l/mannheim/willy-brandt-platz-17/1271"
+            namespace = aiurn:ns:moewe:guestroom
+            systemprompt = "Du bist eine freundliche und aufmerksame Serviekraft und arbeitest im  Restaurant https://moewe.agenterprise.ai/"
             llmref = aiurn:model:id:geepeetee 
             toolref = aiurn:tool:id:bmi:v1
+            toolref = aiurn:tool:id:crawler:v2
             aiurn:global:var:name = "Max Mustermann"
             aiurn:global:var:role = "waiter"
             aiurn:global:var:lifeycle = "permanent"
@@ -80,7 +81,7 @@ ai_environment "AgentMicroservice" {
             uid = aiurn:tool:id:bmi:v1
             in = aiurn:entity:id:bmiquery
             out = aiurn:entity:id:bmiresult
-            endpoint = "lambda bmiquery: round(bmiquery.weight / (bmiquery.height ** 2), 2)"
+            endpoint = "lambda bmiquery: ToolOutputType(bmi=round(bmiquery.weight / (bmiquery.height ** 2), 2))"
             type = aiurn:tooltype:code
             description = "Tool calculating the bmi by weight and height"
             

@@ -57,7 +57,7 @@ class BaseAIToolListener(ai_environmentListener):
             endpoint=self.current_tool.get("endpoint"),
             type = self.current_tool.get("type"),
             properties=self.current_tool.get("properties", {}),
-            output=self.current_tool.get("outputproperties"),
+            output=self.current_tool.get("output"),
             input=self.current_tool.get("input")
         )
         self.tools.append(tool)
