@@ -40,7 +40,7 @@ def _scaffold_project_layer(target_dir, proj: Project):
             no_input=True,
             extra_context={"project_name": project_name,
                            "project_build_id": proj.project_build_id,
-                           "dsl_file": proj.dsl_file},
+                           "dsl_file": proj.get_dsl_filename()},
             overwrite_if_exists=True,
             skip_if_file_exists=True
         )

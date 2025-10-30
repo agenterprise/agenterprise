@@ -41,3 +41,5 @@ class Project():
         return self.ai_techstack.to_url()    
     def get_entitylayer(self):
         return self.data_techstack.to_url()    
+    def get_dsl_filename(self):
+        return os.path.basename(self.dsl_file) if self.dsl_file else None
