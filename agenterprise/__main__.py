@@ -61,7 +61,10 @@ def _scaffold_llm_layer(target_dir, proj: Project, llm:LLM):
             directory="llmlayer",
             output_dir=os.path.dirname(os.path.abspath(target_dir)),
             no_input=True,
-            extra_context={"project_name": project_name, "llm":llm.__dict__, "project_build_id": proj.project_build_id},
+            extra_context={"project_name": project_name,
+                           "llm":llm.__dict__, 
+                           "project_build_id": proj.project_build_id,
+                           "dsl_file": proj.get_dsl_filename()},
             overwrite_if_exists=True
         )
     except OutputDirExistsException:
@@ -80,7 +83,10 @@ def _scaffold_agent_layer(target_dir, proj: Project, agent:Agent):
             directory="agentlayer",
             output_dir=os.path.dirname(os.path.abspath(target_dir)),
             no_input=True,
-            extra_context={"project_name": project_name, "agent":agent.__dict__, "project_build_id": proj.project_build_id},
+            extra_context={"project_name": project_name, 
+                           "agent":agent.__dict__, 
+                           "project_build_id": proj.project_build_id,
+                           "dsl_file": proj.get_dsl_filename()},
             overwrite_if_exists=True
         )
     except OutputDirExistsException:
@@ -99,7 +105,10 @@ def _scaffold_tool_layer(target_dir, proj: Project, tool:Tool):
             directory="toollayer",
             output_dir=os.path.dirname(os.path.abspath(target_dir)),
             no_input=True,
-            extra_context={"project_name": project_name, "tool":tool.__dict__, "project_build_id": proj.project_build_id},
+            extra_context={"project_name": project_name, 
+                           "tool":tool.__dict__, 
+                           "project_build_id": proj.project_build_id,
+                           "dsl_file": proj.get_dsl_filename()},
             overwrite_if_exists=True
         )
     except OutputDirExistsException:
@@ -118,7 +127,10 @@ def _scaffold_entity_layer(target_dir, proj: Project, entity:Entity):
                 directory="entitylayer",
                 output_dir=os.path.dirname(os.path.abspath(target_dir)),
                 no_input=True,
-                extra_context={"project_name": project_name, "entity":entity.__dict__, "project_build_id": proj.project_build_id},
+                extra_context={"project_name": project_name, 
+                               "entity":entity.__dict__, 
+                               "project_build_id": proj.project_build_id,
+                               "dsl_file": proj.get_dsl_filename()},
                 overwrite_if_exists=True
             )
     except OutputDirExistsException:
@@ -150,7 +162,13 @@ def _scaffold_service_layer(target_dir, proj: Project, agents:List[Agent], llms:
             directory="servicelayer",
             output_dir=os.path.dirname(os.path.abspath(target_dir)),
             no_input=True,
-            extra_context={"project_name": project_name, "agents":agents, "tools":tools, "llms":llms, "entities":entities, "project_build_id": proj.project_build_id},
+            extra_context={"project_name": project_name, 
+                           "agents":agents, 
+                           "tools":tools, 
+                           "llms":llms, 
+                           "entities":entities, 
+                           "project_build_id": proj.project_build_id,
+                           "dsl_file": proj.get_dsl_filename()},
             overwrite_if_exists=True
         )
     except OutputDirExistsException:
