@@ -11,6 +11,7 @@ class BasicServiceListener(ai_environmentListener):
         self.service_techlayer = None
         self.data_techlayer=None
         self.ai_techlayer = None
+        self.agentic_middleware_techlayer = None
         self.environment = None
 
     def enterArchitectureAiStack(self, ctx):
@@ -24,12 +25,15 @@ class BasicServiceListener(ai_environmentListener):
     def enterArchitectureDataStack(self, ctx):
         super().enterArchitectureDataStack(ctx)
         self.data_techlayer = ctx.TECHLAYER_AIURN().getText()
+    
+    def enterArchitectureAgenticMiddlewareStack(self, ctx):
+        super().enterArchitectureAgenticMiddlewareStack(ctx)
+        self.agentic_middleware_techlayer = ctx.TECHLAYER_AIURN().getText()
  
     def exitEnvId(self, ctx):
         super().exitEnvId(ctx)
         self.envId = ctx.PROPERTYVALUE().getText()
 
-    
     def exitAi_envDef(self, ctx):
         super().exitAi_envDef(ctx)
         self.environment = AIEnvironment(
@@ -37,6 +41,7 @@ class BasicServiceListener(ai_environmentListener):
             ai_techlayer=AIURN(self.ai_techlayer),
             service_techlayer=AIURN(self.service_techlayer),
             data_techlayer=AIURN(self.data_techlayer),
+            agentic_middleware_techlayer=AIURN(self.agentic_middleware_techlayer),
             envid=self.envId,
             agents=[],
             llms=[]

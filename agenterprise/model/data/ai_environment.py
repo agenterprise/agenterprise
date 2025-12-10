@@ -53,6 +53,7 @@ class AIEnvironment:
     ai_techlayer: AIURN
     service_techlayer: AIURN
     data_techlayer: AIURN
+    agentic_middleware_techlayer: AIURN
     agents: List[Agent]
     llms: List[LLM]
 

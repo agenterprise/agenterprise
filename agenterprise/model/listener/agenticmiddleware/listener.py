@@ -5,28 +5,26 @@ from agenterprise.model.data.ai_environment import AIEnvironment
 from agenterprise.model.listener.AIURN import AIURN
 
 
-class NonFunctionalListener(ai_environmentListener):
+class BasicAgenticMiddlewareListener(ai_environmentListener):
     def __init__(self):
-        self.ai_techlayer = None
+        self.app_pattern = None
         self.service_techlayer = None
-        self.project_techstack = None
         self.data_techlayer=None
-        self.environment = None
+        self.ai_techlayer = None
         self.agentic_middleware_techlayer = None
+        self.environment = None
 
-        self.envid = None
-    
     def enterArchitectureAiStack(self, ctx):
         super().enterArchitectureAiStack(ctx)
         self.ai_techlayer = ctx.TECHLAYER_AIURN().getText()
 
-    def enterArchitectureDataStack(self, ctx):
-        super().enterArchitectureDataStack(ctx)
-        self.data_techlayer = ctx.TECHLAYER_AIURN().getText()
-
     def enterArchitectureServiceStack(self, ctx):
         super().enterArchitectureServiceStack(ctx)
         self.service_techlayer = ctx.TECHLAYER_AIURN().getText()
+    
+    def enterArchitectureDataStack(self, ctx):
+        super().enterArchitectureDataStack(ctx)
+        self.data_techlayer = ctx.TECHLAYER_AIURN().getText()
 
     def enterArchitectureAgenticMiddlewareStack(self, ctx):
         super().enterArchitectureAgenticMiddlewareStack(ctx)
@@ -34,7 +32,7 @@ class NonFunctionalListener(ai_environmentListener):
  
     def exitEnvId(self, ctx):
         super().exitEnvId(ctx)
-        self.envid = ctx.PROPERTYVALUE().getText()
+        self.envId = ctx.PROPERTYVALUE().getText()
 
     def exitAi_envDef(self, ctx):
         super().exitAi_envDef(ctx)
@@ -44,7 +42,8 @@ class NonFunctionalListener(ai_environmentListener):
             service_techlayer=AIURN(self.service_techlayer),
             data_techlayer=AIURN(self.data_techlayer),
             agentic_middleware_techlayer=AIURN(self.agentic_middleware_techlayer),
-            envid=self.envid,
+            envid=self.envId,
             agents=[],
             llms=[]
         )
+

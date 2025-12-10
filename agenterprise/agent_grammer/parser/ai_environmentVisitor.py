@@ -34,6 +34,11 @@ class ai_environmentVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by ai_environmentParser#architectureAgenticMiddlewareStack.
+    def visitArchitectureAgenticMiddlewareStack(self, ctx:ai_environmentParser.ArchitectureAgenticMiddlewareStackContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by ai_environmentParser#entityDef.
     def visitEntityDef(self, ctx:ai_environmentParser.EntityDefContext):
         return self.visitChildren(ctx)

@@ -47,12 +47,15 @@ def _scaffold_project_layer(target_dir, proj: Project):
     except OutputDirExistsException:
         raise RuntimeError("The output directory exists already.")
 
-def _scaffold_llm_layer(target_dir, proj: Project, llm:LLM):
+def _scaffold_llm_layer(target_dir, proj: Project, llm:LLM, llms:List[LLM]):
     """
     Create layer for llms
     """
     logger.info(f"Scaffolding llm layer in {target_dir} using template {proj.get_llmlayer()}")
 
+    llms = [llm.__dict__ for llm in llms]
+    llms = dict(enumerate(llms))
+    
     template_path = proj.get_llmlayer()
     project_name = os.path.basename(os.path.abspath(target_dir))
     try:
@@ -63,6 +66,7 @@ def _scaffold_llm_layer(target_dir, proj: Project, llm:LLM):
             no_input=True,
             extra_context={"project_name": project_name,
                            "llm":llm.__dict__, 
+                           "llms":llms, 
                            "project_build_id": proj.project_build_id,
                            "dsl_file": proj.get_dsl_filename()},
             overwrite_if_exists=True
@@ -173,6 +177,43 @@ def _scaffold_service_layer(target_dir, proj: Project, agents:List[Agent], llms:
         )
     except OutputDirExistsException:
         raise RuntimeError("The output directory exists already.")
+    
+def _scaffold_agentic_middleware_layer(target_dir, proj: Project, agents:List[Agent], llms:List[LLM], tools:List[Tool], entities:List[Entity]):
+    """
+    Create initial project structure using the selected cookiecutter template.
+    """
+    logger.info(f"Scaffolding agentic middleware layer in {target_dir} using template {proj.get_agentic_middleware_layer()}")
+    agents = [agent.__dict__ for agent in agents]
+    agents = dict(enumerate(agents))
+
+    llms = [llm.__dict__ for llm in llms]
+    llms = dict(enumerate(llms))
+
+    tools = [tool.__dict__ for tool in tools]
+    tools = dict(enumerate(tools))
+
+    entities = [entity.__dict__ for entity in entities]
+    entities = dict(enumerate(entities))
+    
+    template_path =  proj.get_agentic_middleware_layer()
+    project_name = os.path.basename(os.path.abspath(target_dir))
+    try:
+        cookiecutter(
+            template_path,
+            directory="middlewarelayer",
+            output_dir=os.path.dirname(os.path.abspath(target_dir)),
+            no_input=True,
+            extra_context={"project_name": project_name, 
+                           "agents":agents, 
+                           "tools":tools, 
+                           "llms":llms, 
+                           "entities":entities, 
+                           "project_build_id": proj.project_build_id,
+                           "dsl_file": proj.get_dsl_filename()},
+            overwrite_if_exists=True
+        )
+    except OutputDirExistsException:
+        raise RuntimeError("The output directory exists already.")
         
 
 
@@ -203,6 +244,7 @@ def run_code_generation(dsl_file, target_dir):
     project = Project(ai_techstack=aiEnv.ai_techlayer,
                       service_techstack=aiEnv.service_techlayer, 
                       data_techstack=aiEnv.data_techlayer,
+                      agentic_middleware_techstack=aiEnv.agentic_middleware_techlayer,
                       target_dir=target_dir,  
                       envid=aiEnv.envid,
                       dsl_file=dsl_target_file)
@@ -216,7 +258,7 @@ def run_code_generation(dsl_file, target_dir):
     llmListener = project.llmlistener()
     walker.walk(llmListener, tree)
     for llm in llmListener.llms:
-        _scaffold_llm_layer(target_dir, project, llm)
+        _scaffold_llm_layer(target_dir, project, llm, llmListener.llms)
 
     # Agent Layer
     agentListener = project.agentlistener()
@@ -236,11 +278,17 @@ def run_code_generation(dsl_file, target_dir):
     for entity in entityListener.entites:
         _scaffold_entity_layer(target_dir, project, entity)
 
+    # Agentic Middleware Layer
+    agenticMiddlwareListener = project.agenticMiddlewareListener()
+    walker.walk(agenticMiddlwareListener, tree)
+    _scaffold_agentic_middleware_layer(target_dir, project, agentListener.agents, llmListener.llms, toolListener.tools, entityListener.entites)
+ 
     # Service Layer
     serviceListener = project.servicelistener()
     walker.walk(serviceListener, tree)
     _scaffold_service_layer(target_dir, project, agentListener.agents, llmListener.llms, toolListener.tools, entityListener.entites)
  
+    
     logger.info(f"AI Environment generated to {target_dir}")
 
 

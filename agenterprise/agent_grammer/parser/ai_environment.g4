@@ -3,7 +3,7 @@ grammar ai_environment;
 //// AI Environment Grammar 
 ///////////////////////
 ai_envDef: 'ai_environment' PROPERTYVALUE '{' 
-                    'architecture' '{'envId architectureServiceStack architectureAiStack architectureDataStack'}' 
+                    'architecture' '{'envId architectureServiceStack architectureAiStack architectureDataStack architectureAgenticMiddlewareStack'}' 
                     'data' '{' entityDef* '}' 
                     'infrastructure' '{' llmDef* '}'  
                     'functional' '{' agentDef*  toolDef* '}' 
@@ -15,6 +15,7 @@ envId: 'envid' '=' PROPERTYVALUE ;
 architectureServiceStack: 'service-techlayer' '=' TECHLAYER_AIURN; //service TECHLAYER
 architectureAiStack: 'ai-techlayer' '=' TECHLAYER_AIURN; // AI TECHLAYERs
 architectureDataStack: 'data-techlayer' '=' TECHLAYER_AIURN; // DATA TECHLAYERs
+architectureAgenticMiddlewareStack: 'agentic-middleware-techlayer' '=' TECHLAYER_AIURN; // Agentic Middleware TECHLAYERs
 
 
 ///////////

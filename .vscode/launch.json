@@ -1,0 +1,20 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug agenterprise Code Generation",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/agenterprise/__main__.py",
+      "args": [
+        "--code-generation",
+        "--dsl", "dsl-examples/agentmicroservice-githubtemplates.dsl",
+        "--target", "target/myagentenv"
+      ],
+      "console": "integratedTerminal",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    }
+  ]
+}

@@ -53,6 +53,15 @@ class ai_environmentListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by ai_environmentParser#architectureAgenticMiddlewareStack.
+    def enterArchitectureAgenticMiddlewareStack(self, ctx:ai_environmentParser.ArchitectureAgenticMiddlewareStackContext):
+        pass
+
+    # Exit a parse tree produced by ai_environmentParser#architectureAgenticMiddlewareStack.
+    def exitArchitectureAgenticMiddlewareStack(self, ctx:ai_environmentParser.ArchitectureAgenticMiddlewareStackContext):
+        pass
+
+
     # Enter a parse tree produced by ai_environmentParser#entityDef.
     def enterEntityDef(self, ctx:ai_environmentParser.EntityDefContext):
         pass

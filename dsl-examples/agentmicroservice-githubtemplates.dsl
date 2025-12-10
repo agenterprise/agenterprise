@@ -4,7 +4,7 @@ ai_environment "AgentMicroservice" {
         service-techlayer = aiurn:techlayer:github:www.github.com:agenterprise:service-layer-fastapi-base
         ai-techlayer = aiurn:techlayer:github:www.github.com:agenterprise:ai-layer-pydanticai
         data-techlayer = aiurn:techlayer:github:www.github.com:agenterprise:data-layer-pydantic
-
+        agentic-middleware-techlayer = aiurn:techlayer:github:www.github.com:agenterprise:agentic-middleware-layer-redistream
     }
     data{
         entity "Restaurant Query" {

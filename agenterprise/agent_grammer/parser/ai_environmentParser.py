@@ -10,103 +10,105 @@ else:
 
 def serializedATN():
     return [
-        4,1,52,306,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
+        4,1,53,313,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
         6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,
         2,14,7,14,2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,2,20,
         7,20,2,21,7,21,2,22,7,22,2,23,7,23,2,24,7,24,2,25,7,25,2,26,7,26,
         2,27,7,27,2,28,7,28,2,29,7,29,2,30,7,30,2,31,7,31,2,32,7,32,2,33,
-        7,33,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,5,0,82,
-        8,0,10,0,12,0,85,9,0,1,0,1,0,1,0,1,0,5,0,91,8,0,10,0,12,0,94,9,0,
-        1,0,1,0,1,0,1,0,5,0,100,8,0,10,0,12,0,103,9,0,1,0,5,0,106,8,0,10,
-        0,12,0,109,9,0,1,0,1,0,1,0,1,1,1,1,1,1,1,1,1,2,1,2,1,2,1,2,1,3,1,
-        3,1,3,1,3,1,4,1,4,1,4,1,4,1,5,1,5,1,5,1,5,1,5,5,5,135,8,5,10,5,12,
-        5,138,9,5,1,5,1,5,1,6,1,6,1,6,1,6,1,7,1,7,1,7,1,7,1,7,1,7,1,8,1,
-        8,1,8,1,9,1,9,1,9,1,10,1,10,1,10,1,10,1,10,1,10,1,10,1,10,5,10,166,
-        8,10,10,10,12,10,169,9,10,1,10,3,10,172,8,10,1,10,3,10,175,8,10,
-        1,10,5,10,178,8,10,10,10,12,10,181,9,10,1,10,1,10,1,11,1,11,1,11,
-        1,11,1,12,1,12,1,12,1,12,1,13,1,13,1,13,1,13,1,14,1,14,1,14,1,14,
-        1,15,1,15,1,15,1,15,1,16,1,16,1,16,1,16,1,17,1,17,1,17,1,17,1,18,
-        1,18,1,18,1,18,1,19,1,19,1,19,1,19,1,19,1,19,1,19,1,19,1,19,5,19,
-        226,8,19,10,19,12,19,229,9,19,1,19,1,19,1,20,1,20,1,20,1,20,1,21,
-        1,21,1,21,1,21,1,22,1,22,1,22,1,22,1,23,1,23,1,23,1,23,1,24,1,24,
-        1,24,1,24,1,25,1,25,1,25,1,25,1,26,1,26,1,26,1,26,1,26,3,26,262,
-        8,26,1,26,3,26,265,8,26,1,26,1,26,1,26,1,26,5,26,271,8,26,10,26,
-        12,26,274,9,26,1,26,1,26,1,27,1,27,1,27,1,27,1,28,1,28,1,28,1,28,
-        1,29,1,29,1,29,1,29,1,30,1,30,1,30,1,30,1,31,1,31,1,31,1,31,1,32,
-        1,32,1,32,1,32,1,33,1,33,1,33,1,33,1,33,0,0,34,0,2,4,6,8,10,12,14,
-        16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,
-        60,62,64,66,0,2,1,0,37,38,2,0,36,36,39,39,284,0,68,1,0,0,0,2,113,
-        1,0,0,0,4,117,1,0,0,0,6,121,1,0,0,0,8,125,1,0,0,0,10,129,1,0,0,0,
-        12,141,1,0,0,0,14,145,1,0,0,0,16,151,1,0,0,0,18,154,1,0,0,0,20,157,
-        1,0,0,0,22,184,1,0,0,0,24,188,1,0,0,0,26,192,1,0,0,0,28,196,1,0,
-        0,0,30,200,1,0,0,0,32,204,1,0,0,0,34,208,1,0,0,0,36,212,1,0,0,0,
-        38,216,1,0,0,0,40,232,1,0,0,0,42,236,1,0,0,0,44,240,1,0,0,0,46,244,
-        1,0,0,0,48,248,1,0,0,0,50,252,1,0,0,0,52,256,1,0,0,0,54,277,1,0,
-        0,0,56,281,1,0,0,0,58,285,1,0,0,0,60,289,1,0,0,0,62,293,1,0,0,0,
-        64,297,1,0,0,0,66,301,1,0,0,0,68,69,5,1,0,0,69,70,5,48,0,0,70,71,
-        5,2,0,0,71,72,5,3,0,0,72,73,5,2,0,0,73,74,3,2,1,0,74,75,3,4,2,0,
-        75,76,3,6,3,0,76,77,3,8,4,0,77,78,5,4,0,0,78,79,5,5,0,0,79,83,5,
-        2,0,0,80,82,3,10,5,0,81,80,1,0,0,0,82,85,1,0,0,0,83,81,1,0,0,0,83,
-        84,1,0,0,0,84,86,1,0,0,0,85,83,1,0,0,0,86,87,5,4,0,0,87,88,5,6,0,
-        0,88,92,5,2,0,0,89,91,3,38,19,0,90,89,1,0,0,0,91,94,1,0,0,0,92,90,
-        1,0,0,0,92,93,1,0,0,0,93,95,1,0,0,0,94,92,1,0,0,0,95,96,5,4,0,0,
-        96,97,5,7,0,0,97,101,5,2,0,0,98,100,3,20,10,0,99,98,1,0,0,0,100,
-        103,1,0,0,0,101,99,1,0,0,0,101,102,1,0,0,0,102,107,1,0,0,0,103,101,
-        1,0,0,0,104,106,3,52,26,0,105,104,1,0,0,0,106,109,1,0,0,0,107,105,
-        1,0,0,0,107,108,1,0,0,0,108,110,1,0,0,0,109,107,1,0,0,0,110,111,
-        5,4,0,0,111,112,5,4,0,0,112,1,1,0,0,0,113,114,5,8,0,0,114,115,5,
-        9,0,0,115,116,5,48,0,0,116,3,1,0,0,0,117,118,5,10,0,0,118,119,5,
-        9,0,0,119,120,5,34,0,0,120,5,1,0,0,0,121,122,5,11,0,0,122,123,5,
-        9,0,0,123,124,5,34,0,0,124,7,1,0,0,0,125,126,5,12,0,0,126,127,5,
-        9,0,0,127,128,5,34,0,0,128,9,1,0,0,0,129,130,5,13,0,0,130,131,5,
-        48,0,0,131,132,5,2,0,0,132,136,3,12,6,0,133,135,3,14,7,0,134,133,
-        1,0,0,0,135,138,1,0,0,0,136,134,1,0,0,0,136,137,1,0,0,0,137,139,
-        1,0,0,0,138,136,1,0,0,0,139,140,5,4,0,0,140,11,1,0,0,0,141,142,5,
-        14,0,0,142,143,5,9,0,0,143,144,5,36,0,0,144,13,1,0,0,0,145,146,5,
-        15,0,0,146,147,5,9,0,0,147,148,7,0,0,0,148,149,3,16,8,0,149,150,
-        3,18,9,0,150,15,1,0,0,0,151,152,5,16,0,0,152,153,7,1,0,0,153,17,
-        1,0,0,0,154,155,5,17,0,0,155,156,5,48,0,0,156,19,1,0,0,0,157,158,
-        5,18,0,0,158,159,5,48,0,0,159,160,5,2,0,0,160,161,3,24,12,0,161,
-        162,3,26,13,0,162,163,3,22,11,0,163,167,3,28,14,0,164,166,3,30,15,
-        0,165,164,1,0,0,0,166,169,1,0,0,0,167,165,1,0,0,0,167,168,1,0,0,
-        0,168,171,1,0,0,0,169,167,1,0,0,0,170,172,3,32,16,0,171,170,1,0,
-        0,0,171,172,1,0,0,0,172,174,1,0,0,0,173,175,3,34,17,0,174,173,1,
-        0,0,0,174,175,1,0,0,0,175,179,1,0,0,0,176,178,3,36,18,0,177,176,
-        1,0,0,0,178,181,1,0,0,0,179,177,1,0,0,0,179,180,1,0,0,0,180,182,
-        1,0,0,0,181,179,1,0,0,0,182,183,5,4,0,0,183,21,1,0,0,0,184,185,5,
-        19,0,0,185,186,5,9,0,0,186,187,5,48,0,0,187,23,1,0,0,0,188,189,5,
-        14,0,0,189,190,5,9,0,0,190,191,5,45,0,0,191,25,1,0,0,0,192,193,5,
-        20,0,0,193,194,5,9,0,0,194,195,5,46,0,0,195,27,1,0,0,0,196,197,5,
-        21,0,0,197,198,5,9,0,0,198,199,5,41,0,0,199,29,1,0,0,0,200,201,5,
-        22,0,0,201,202,5,9,0,0,202,203,5,43,0,0,203,31,1,0,0,0,204,205,5,
-        23,0,0,205,206,5,9,0,0,206,207,5,36,0,0,207,33,1,0,0,0,208,209,5,
-        24,0,0,209,210,5,9,0,0,210,211,5,36,0,0,211,35,1,0,0,0,212,213,5,
-        35,0,0,213,214,5,9,0,0,214,215,5,48,0,0,215,37,1,0,0,0,216,217,5,
-        25,0,0,217,218,5,48,0,0,218,219,5,2,0,0,219,220,3,40,20,0,220,221,
-        3,42,21,0,221,222,3,44,22,0,222,223,3,46,23,0,223,227,3,48,24,0,
-        224,226,3,50,25,0,225,224,1,0,0,0,226,229,1,0,0,0,227,225,1,0,0,
-        0,227,228,1,0,0,0,228,230,1,0,0,0,229,227,1,0,0,0,230,231,5,4,0,
-        0,231,39,1,0,0,0,232,233,5,14,0,0,233,234,5,9,0,0,234,235,5,41,0,
-        0,235,41,1,0,0,0,236,237,5,26,0,0,237,238,5,9,0,0,238,239,5,40,0,
-        0,239,43,1,0,0,0,240,241,5,27,0,0,241,242,5,9,0,0,242,243,5,48,0,
-        0,243,45,1,0,0,0,244,245,5,28,0,0,245,246,5,9,0,0,246,247,5,48,0,
-        0,247,47,1,0,0,0,248,249,5,29,0,0,249,250,5,9,0,0,250,251,5,48,0,
-        0,251,49,1,0,0,0,252,253,5,35,0,0,253,254,5,9,0,0,254,255,5,48,0,
-        0,255,51,1,0,0,0,256,257,5,30,0,0,257,258,5,48,0,0,258,259,5,2,0,
-        0,259,261,3,54,27,0,260,262,3,58,29,0,261,260,1,0,0,0,261,262,1,
-        0,0,0,262,264,1,0,0,0,263,265,3,60,30,0,264,263,1,0,0,0,264,265,
-        1,0,0,0,265,266,1,0,0,0,266,267,3,56,28,0,267,268,3,64,32,0,268,
-        272,3,62,31,0,269,271,3,66,33,0,270,269,1,0,0,0,271,274,1,0,0,0,
-        272,270,1,0,0,0,272,273,1,0,0,0,273,275,1,0,0,0,274,272,1,0,0,0,
-        275,276,5,4,0,0,276,53,1,0,0,0,277,278,5,14,0,0,278,279,5,9,0,0,
-        279,280,5,43,0,0,280,55,1,0,0,0,281,282,5,28,0,0,282,283,5,9,0,0,
-        283,284,5,48,0,0,284,57,1,0,0,0,285,286,5,23,0,0,286,287,5,9,0,0,
-        287,288,5,36,0,0,288,59,1,0,0,0,289,290,5,24,0,0,290,291,5,9,0,0,
-        291,292,5,36,0,0,292,61,1,0,0,0,293,294,5,31,0,0,294,295,5,9,0,0,
-        295,296,5,48,0,0,296,63,1,0,0,0,297,298,5,32,0,0,298,299,5,9,0,0,
-        299,300,5,44,0,0,300,65,1,0,0,0,301,302,5,35,0,0,302,303,5,9,0,0,
-        303,304,5,48,0,0,304,67,1,0,0,0,13,83,92,101,107,136,167,171,174,
-        179,227,261,264,272
+        7,33,2,34,7,34,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,
+        0,1,0,5,0,85,8,0,10,0,12,0,88,9,0,1,0,1,0,1,0,1,0,5,0,94,8,0,10,
+        0,12,0,97,9,0,1,0,1,0,1,0,1,0,5,0,103,8,0,10,0,12,0,106,9,0,1,0,
+        5,0,109,8,0,10,0,12,0,112,9,0,1,0,1,0,1,0,1,1,1,1,1,1,1,1,1,2,1,
+        2,1,2,1,2,1,3,1,3,1,3,1,3,1,4,1,4,1,4,1,4,1,5,1,5,1,5,1,5,1,6,1,
+        6,1,6,1,6,1,6,5,6,142,8,6,10,6,12,6,145,9,6,1,6,1,6,1,7,1,7,1,7,
+        1,7,1,8,1,8,1,8,1,8,1,8,1,8,1,9,1,9,1,9,1,10,1,10,1,10,1,11,1,11,
+        1,11,1,11,1,11,1,11,1,11,1,11,5,11,173,8,11,10,11,12,11,176,9,11,
+        1,11,3,11,179,8,11,1,11,3,11,182,8,11,1,11,5,11,185,8,11,10,11,12,
+        11,188,9,11,1,11,1,11,1,12,1,12,1,12,1,12,1,13,1,13,1,13,1,13,1,
+        14,1,14,1,14,1,14,1,15,1,15,1,15,1,15,1,16,1,16,1,16,1,16,1,17,1,
+        17,1,17,1,17,1,18,1,18,1,18,1,18,1,19,1,19,1,19,1,19,1,20,1,20,1,
+        20,1,20,1,20,1,20,1,20,1,20,1,20,5,20,233,8,20,10,20,12,20,236,9,
+        20,1,20,1,20,1,21,1,21,1,21,1,21,1,22,1,22,1,22,1,22,1,23,1,23,1,
+        23,1,23,1,24,1,24,1,24,1,24,1,25,1,25,1,25,1,25,1,26,1,26,1,26,1,
+        26,1,27,1,27,1,27,1,27,1,27,3,27,269,8,27,1,27,3,27,272,8,27,1,27,
+        1,27,1,27,1,27,5,27,278,8,27,10,27,12,27,281,9,27,1,27,1,27,1,28,
+        1,28,1,28,1,28,1,29,1,29,1,29,1,29,1,30,1,30,1,30,1,30,1,31,1,31,
+        1,31,1,31,1,32,1,32,1,32,1,32,1,33,1,33,1,33,1,33,1,34,1,34,1,34,
+        1,34,1,34,0,0,35,0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,
+        36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,0,2,1,0,38,39,
+        2,0,37,37,40,40,290,0,70,1,0,0,0,2,116,1,0,0,0,4,120,1,0,0,0,6,124,
+        1,0,0,0,8,128,1,0,0,0,10,132,1,0,0,0,12,136,1,0,0,0,14,148,1,0,0,
+        0,16,152,1,0,0,0,18,158,1,0,0,0,20,161,1,0,0,0,22,164,1,0,0,0,24,
+        191,1,0,0,0,26,195,1,0,0,0,28,199,1,0,0,0,30,203,1,0,0,0,32,207,
+        1,0,0,0,34,211,1,0,0,0,36,215,1,0,0,0,38,219,1,0,0,0,40,223,1,0,
+        0,0,42,239,1,0,0,0,44,243,1,0,0,0,46,247,1,0,0,0,48,251,1,0,0,0,
+        50,255,1,0,0,0,52,259,1,0,0,0,54,263,1,0,0,0,56,284,1,0,0,0,58,288,
+        1,0,0,0,60,292,1,0,0,0,62,296,1,0,0,0,64,300,1,0,0,0,66,304,1,0,
+        0,0,68,308,1,0,0,0,70,71,5,1,0,0,71,72,5,49,0,0,72,73,5,2,0,0,73,
+        74,5,3,0,0,74,75,5,2,0,0,75,76,3,2,1,0,76,77,3,4,2,0,77,78,3,6,3,
+        0,78,79,3,8,4,0,79,80,3,10,5,0,80,81,5,4,0,0,81,82,5,5,0,0,82,86,
+        5,2,0,0,83,85,3,12,6,0,84,83,1,0,0,0,85,88,1,0,0,0,86,84,1,0,0,0,
+        86,87,1,0,0,0,87,89,1,0,0,0,88,86,1,0,0,0,89,90,5,4,0,0,90,91,5,
+        6,0,0,91,95,5,2,0,0,92,94,3,40,20,0,93,92,1,0,0,0,94,97,1,0,0,0,
+        95,93,1,0,0,0,95,96,1,0,0,0,96,98,1,0,0,0,97,95,1,0,0,0,98,99,5,
+        4,0,0,99,100,5,7,0,0,100,104,5,2,0,0,101,103,3,22,11,0,102,101,1,
+        0,0,0,103,106,1,0,0,0,104,102,1,0,0,0,104,105,1,0,0,0,105,110,1,
+        0,0,0,106,104,1,0,0,0,107,109,3,54,27,0,108,107,1,0,0,0,109,112,
+        1,0,0,0,110,108,1,0,0,0,110,111,1,0,0,0,111,113,1,0,0,0,112,110,
+        1,0,0,0,113,114,5,4,0,0,114,115,5,4,0,0,115,1,1,0,0,0,116,117,5,
+        8,0,0,117,118,5,9,0,0,118,119,5,49,0,0,119,3,1,0,0,0,120,121,5,10,
+        0,0,121,122,5,9,0,0,122,123,5,35,0,0,123,5,1,0,0,0,124,125,5,11,
+        0,0,125,126,5,9,0,0,126,127,5,35,0,0,127,7,1,0,0,0,128,129,5,12,
+        0,0,129,130,5,9,0,0,130,131,5,35,0,0,131,9,1,0,0,0,132,133,5,13,
+        0,0,133,134,5,9,0,0,134,135,5,35,0,0,135,11,1,0,0,0,136,137,5,14,
+        0,0,137,138,5,49,0,0,138,139,5,2,0,0,139,143,3,14,7,0,140,142,3,
+        16,8,0,141,140,1,0,0,0,142,145,1,0,0,0,143,141,1,0,0,0,143,144,1,
+        0,0,0,144,146,1,0,0,0,145,143,1,0,0,0,146,147,5,4,0,0,147,13,1,0,
+        0,0,148,149,5,15,0,0,149,150,5,9,0,0,150,151,5,37,0,0,151,15,1,0,
+        0,0,152,153,5,16,0,0,153,154,5,9,0,0,154,155,7,0,0,0,155,156,3,18,
+        9,0,156,157,3,20,10,0,157,17,1,0,0,0,158,159,5,17,0,0,159,160,7,
+        1,0,0,160,19,1,0,0,0,161,162,5,18,0,0,162,163,5,49,0,0,163,21,1,
+        0,0,0,164,165,5,19,0,0,165,166,5,49,0,0,166,167,5,2,0,0,167,168,
+        3,26,13,0,168,169,3,28,14,0,169,170,3,24,12,0,170,174,3,30,15,0,
+        171,173,3,32,16,0,172,171,1,0,0,0,173,176,1,0,0,0,174,172,1,0,0,
+        0,174,175,1,0,0,0,175,178,1,0,0,0,176,174,1,0,0,0,177,179,3,34,17,
+        0,178,177,1,0,0,0,178,179,1,0,0,0,179,181,1,0,0,0,180,182,3,36,18,
+        0,181,180,1,0,0,0,181,182,1,0,0,0,182,186,1,0,0,0,183,185,3,38,19,
+        0,184,183,1,0,0,0,185,188,1,0,0,0,186,184,1,0,0,0,186,187,1,0,0,
+        0,187,189,1,0,0,0,188,186,1,0,0,0,189,190,5,4,0,0,190,23,1,0,0,0,
+        191,192,5,20,0,0,192,193,5,9,0,0,193,194,5,49,0,0,194,25,1,0,0,0,
+        195,196,5,15,0,0,196,197,5,9,0,0,197,198,5,46,0,0,198,27,1,0,0,0,
+        199,200,5,21,0,0,200,201,5,9,0,0,201,202,5,47,0,0,202,29,1,0,0,0,
+        203,204,5,22,0,0,204,205,5,9,0,0,205,206,5,42,0,0,206,31,1,0,0,0,
+        207,208,5,23,0,0,208,209,5,9,0,0,209,210,5,44,0,0,210,33,1,0,0,0,
+        211,212,5,24,0,0,212,213,5,9,0,0,213,214,5,37,0,0,214,35,1,0,0,0,
+        215,216,5,25,0,0,216,217,5,9,0,0,217,218,5,37,0,0,218,37,1,0,0,0,
+        219,220,5,36,0,0,220,221,5,9,0,0,221,222,5,49,0,0,222,39,1,0,0,0,
+        223,224,5,26,0,0,224,225,5,49,0,0,225,226,5,2,0,0,226,227,3,42,21,
+        0,227,228,3,44,22,0,228,229,3,46,23,0,229,230,3,48,24,0,230,234,
+        3,50,25,0,231,233,3,52,26,0,232,231,1,0,0,0,233,236,1,0,0,0,234,
+        232,1,0,0,0,234,235,1,0,0,0,235,237,1,0,0,0,236,234,1,0,0,0,237,
+        238,5,4,0,0,238,41,1,0,0,0,239,240,5,15,0,0,240,241,5,9,0,0,241,
+        242,5,42,0,0,242,43,1,0,0,0,243,244,5,27,0,0,244,245,5,9,0,0,245,
+        246,5,41,0,0,246,45,1,0,0,0,247,248,5,28,0,0,248,249,5,9,0,0,249,
+        250,5,49,0,0,250,47,1,0,0,0,251,252,5,29,0,0,252,253,5,9,0,0,253,
+        254,5,49,0,0,254,49,1,0,0,0,255,256,5,30,0,0,256,257,5,9,0,0,257,
+        258,5,49,0,0,258,51,1,0,0,0,259,260,5,36,0,0,260,261,5,9,0,0,261,
+        262,5,49,0,0,262,53,1,0,0,0,263,264,5,31,0,0,264,265,5,49,0,0,265,
+        266,5,2,0,0,266,268,3,56,28,0,267,269,3,60,30,0,268,267,1,0,0,0,
+        268,269,1,0,0,0,269,271,1,0,0,0,270,272,3,62,31,0,271,270,1,0,0,
+        0,271,272,1,0,0,0,272,273,1,0,0,0,273,274,3,58,29,0,274,275,3,66,
+        33,0,275,279,3,64,32,0,276,278,3,68,34,0,277,276,1,0,0,0,278,281,
+        1,0,0,0,279,277,1,0,0,0,279,280,1,0,0,0,280,282,1,0,0,0,281,279,
+        1,0,0,0,282,283,5,4,0,0,283,55,1,0,0,0,284,285,5,15,0,0,285,286,
+        5,9,0,0,286,287,5,44,0,0,287,57,1,0,0,0,288,289,5,29,0,0,289,290,
+        5,9,0,0,290,291,5,49,0,0,291,59,1,0,0,0,292,293,5,24,0,0,293,294,
+        5,9,0,0,294,295,5,37,0,0,295,61,1,0,0,0,296,297,5,25,0,0,297,298,
+        5,9,0,0,298,299,5,37,0,0,299,63,1,0,0,0,300,301,5,32,0,0,301,302,
+        5,9,0,0,302,303,5,49,0,0,303,65,1,0,0,0,304,305,5,33,0,0,305,306,
+        5,9,0,0,306,307,5,45,0,0,307,67,1,0,0,0,308,309,5,36,0,0,309,310,
+        5,9,0,0,310,311,5,49,0,0,311,69,1,0,0,0,13,86,95,104,110,143,174,
+        178,181,186,234,268,271,279
     ]
 
 class ai_environmentParser ( Parser ):
@@ -122,11 +124,12 @@ class ai_environmentParser ( Parser ):
     literalNames = [ "<INVALID>", "'ai_environment'", "'{'", "'architecture'", 
                      "'}'", "'data'", "'infrastructure'", "'functional'", 
                      "'envid'", "'='", "'service-techlayer'", "'ai-techlayer'", 
-                     "'data-techlayer'", "'entity'", "'uid'", "'element'", 
-                     "'->'", "'#'", "'agent'", "'systemprompt'", "'namespace'", 
-                     "'llmref'", "'toolref'", "'in'", "'out'", "'llm'", 
-                     "'provider'", "'model'", "'endpoint'", "'version'", 
-                     "'tool'", "'description'", "'type'" ]
+                     "'data-techlayer'", "'agentic-middleware-techlayer'", 
+                     "'entity'", "'uid'", "'element'", "'->'", "'#'", "'agent'", 
+                     "'systemprompt'", "'namespace'", "'llmref'", "'toolref'", 
+                     "'in'", "'out'", "'llm'", "'provider'", "'model'", 
+                     "'endpoint'", "'version'", "'tool'", "'description'", 
+                     "'type'" ]
 
     symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
@@ -136,7 +139,7 @@ class ai_environmentParser ( Parser ):
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "<INVALID>", "TECHLAYER_RESSOURCE", "TECHLAYER_AIURN", 
+                      "<INVALID>", "<INVALID>", "TECHLAYER_RESSOURCE", "TECHLAYER_AIURN", 
                       "VAR", "ENTITY_ID", "ENTITY_VAR", "ENTITY_CONSTANT", 
                       "ENTITY_TYPE", "LLMPROVIDER", "LLMID", "TOOLVAR", 
                       "TOOLID", "TOOL_TYPE", "AGENTID", "AGENTNAMESPACE", 
@@ -148,47 +151,48 @@ class ai_environmentParser ( Parser ):
     RULE_architectureServiceStack = 2
     RULE_architectureAiStack = 3
     RULE_architectureDataStack = 4
-    RULE_entityDef = 5
-    RULE_entityIdProp = 6
-    RULE_entityElementProp = 7
-    RULE_entityElementType = 8
-    RULE_entityElementDescription = 9
-    RULE_agentDef = 10
-    RULE_agentSystemPromptProperty = 11
-    RULE_agentIdentity = 12
-    RULE_agentNamespace = 13
-    RULE_agentLLMRefProperty = 14
-    RULE_agentToolRefProperty = 15
-    RULE_agentInputProperty = 16
-    RULE_agentOutputProperty = 17
-    RULE_agentCustomProperty = 18
-    RULE_llmDef = 19
-    RULE_llmIdProp = 20
-    RULE_llmProviderProp = 21
-    RULE_llmModelProp = 22
-    RULE_llmEndpointProp = 23
-    RULE_llmVersionProp = 24
-    RULE_llmOtherProperty = 25
-    RULE_toolDef = 26
-    RULE_toolIdProp = 27
-    RULE_toolEndpointProp = 28
-    RULE_toolInputProperty = 29
-    RULE_toolOutputProperty = 30
-    RULE_toolDescriptionProp = 31
-    RULE_toolTypeProp = 32
-    RULE_toolOtherProperty = 33
+    RULE_architectureAgenticMiddlewareStack = 5
+    RULE_entityDef = 6
+    RULE_entityIdProp = 7
+    RULE_entityElementProp = 8
+    RULE_entityElementType = 9
+    RULE_entityElementDescription = 10
+    RULE_agentDef = 11
+    RULE_agentSystemPromptProperty = 12
+    RULE_agentIdentity = 13
+    RULE_agentNamespace = 14
+    RULE_agentLLMRefProperty = 15
+    RULE_agentToolRefProperty = 16
+    RULE_agentInputProperty = 17
+    RULE_agentOutputProperty = 18
+    RULE_agentCustomProperty = 19
+    RULE_llmDef = 20
+    RULE_llmIdProp = 21
+    RULE_llmProviderProp = 22
+    RULE_llmModelProp = 23
+    RULE_llmEndpointProp = 24
+    RULE_llmVersionProp = 25
+    RULE_llmOtherProperty = 26
+    RULE_toolDef = 27
+    RULE_toolIdProp = 28
+    RULE_toolEndpointProp = 29
+    RULE_toolInputProperty = 30
+    RULE_toolOutputProperty = 31
+    RULE_toolDescriptionProp = 32
+    RULE_toolTypeProp = 33
+    RULE_toolOtherProperty = 34
 
     ruleNames =  [ "ai_envDef", "envId", "architectureServiceStack", "architectureAiStack", 
-                   "architectureDataStack", "entityDef", "entityIdProp", 
-                   "entityElementProp", "entityElementType", "entityElementDescription", 
-                   "agentDef", "agentSystemPromptProperty", "agentIdentity", 
-                   "agentNamespace", "agentLLMRefProperty", "agentToolRefProperty", 
-                   "agentInputProperty", "agentOutputProperty", "agentCustomProperty", 
-                   "llmDef", "llmIdProp", "llmProviderProp", "llmModelProp", 
-                   "llmEndpointProp", "llmVersionProp", "llmOtherProperty", 
-                   "toolDef", "toolIdProp", "toolEndpointProp", "toolInputProperty", 
-                   "toolOutputProperty", "toolDescriptionProp", "toolTypeProp", 
-                   "toolOtherProperty" ]
+                   "architectureDataStack", "architectureAgenticMiddlewareStack", 
+                   "entityDef", "entityIdProp", "entityElementProp", "entityElementType", 
+                   "entityElementDescription", "agentDef", "agentSystemPromptProperty", 
+                   "agentIdentity", "agentNamespace", "agentLLMRefProperty", 
+                   "agentToolRefProperty", "agentInputProperty", "agentOutputProperty", 
+                   "agentCustomProperty", "llmDef", "llmIdProp", "llmProviderProp", 
+                   "llmModelProp", "llmEndpointProp", "llmVersionProp", 
+                   "llmOtherProperty", "toolDef", "toolIdProp", "toolEndpointProp", 
+                   "toolInputProperty", "toolOutputProperty", "toolDescriptionProp", 
+                   "toolTypeProp", "toolOtherProperty" ]
 
     EOF = Token.EOF
     T__0=1
@@ -223,26 +227,27 @@ class ai_environmentParser ( Parser ):
     T__29=30
     T__30=31
     T__31=32
-    TECHLAYER_RESSOURCE=33
-    TECHLAYER_AIURN=34
-    VAR=35
-    ENTITY_ID=36
-    ENTITY_VAR=37
-    ENTITY_CONSTANT=38
-    ENTITY_TYPE=39
-    LLMPROVIDER=40
-    LLMID=41
-    TOOLVAR=42
-    TOOLID=43
-    TOOL_TYPE=44
-    AGENTID=45
-    AGENTNAMESPACE=46
-    AGENTVAR=47
-    PROPERTYVALUE=48
-    THINK=49
-    WS=50
-    COMMENT=51
-    ML_COMMENT=52
+    T__32=33
+    TECHLAYER_RESSOURCE=34
+    TECHLAYER_AIURN=35
+    VAR=36
+    ENTITY_ID=37
+    ENTITY_VAR=38
+    ENTITY_CONSTANT=39
+    ENTITY_TYPE=40
+    LLMPROVIDER=41
+    LLMID=42
+    TOOLVAR=43
+    TOOLID=44
+    TOOL_TYPE=45
+    AGENTID=46
+    AGENTNAMESPACE=47
+    AGENTVAR=48
+    PROPERTYVALUE=49
+    THINK=50
+    WS=51
+    COMMENT=52
+    ML_COMMENT=53
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
@@ -277,6 +282,10 @@ class ai_environmentParser ( Parser ):
 
         def architectureDataStack(self):
             return self.getTypedRuleContext(ai_environmentParser.ArchitectureDataStackContext,0)
+
+
+        def architectureAgenticMiddlewareStack(self):
+            return self.getTypedRuleContext(ai_environmentParser.ArchitectureAgenticMiddlewareStackContext,0)
 
 
         def entityDef(self, i:int=None):
@@ -334,85 +343,87 @@ class ai_environmentParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 68
-            self.match(ai_environmentParser.T__0)
-            self.state = 69
-            self.match(ai_environmentParser.PROPERTYVALUE)
             self.state = 70
-            self.match(ai_environmentParser.T__1)
+            self.match(ai_environmentParser.T__0)
             self.state = 71
-            self.match(ai_environmentParser.T__2)
+            self.match(ai_environmentParser.PROPERTYVALUE)
             self.state = 72
             self.match(ai_environmentParser.T__1)
             self.state = 73
-            self.envId()
+            self.match(ai_environmentParser.T__2)
             self.state = 74
-            self.architectureServiceStack()
+            self.match(ai_environmentParser.T__1)
             self.state = 75
-            self.architectureAiStack()
+            self.envId()
             self.state = 76
-            self.architectureDataStack()
+            self.architectureServiceStack()
             self.state = 77
-            self.match(ai_environmentParser.T__3)
+            self.architectureAiStack()
             self.state = 78
-            self.match(ai_environmentParser.T__4)
+            self.architectureDataStack()
             self.state = 79
+            self.architectureAgenticMiddlewareStack()
+            self.state = 80
+            self.match(ai_environmentParser.T__3)
+            self.state = 81
+            self.match(ai_environmentParser.T__4)
+            self.state = 82
             self.match(ai_environmentParser.T__1)
-            self.state = 83
-            self._errHandler.sync(self)
-            _la = self._input.LA(1)
-            while _la==13:
-                self.state = 80
-                self.entityDef()
-                self.state = 85
-                self._errHandler.sync(self)
-                _la = self._input.LA(1)
-
             self.state = 86
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            while _la==14:
+                self.state = 83
+                self.entityDef()
+                self.state = 88
+                self._errHandler.sync(self)
+                _la = self._input.LA(1)
+
+            self.state = 89
             self.match(ai_environmentParser.T__3)
-            self.state = 87
+            self.state = 90
             self.match(ai_environmentParser.T__5)
-            self.state = 88
+            self.state = 91
             self.match(ai_environmentParser.T__1)
-            self.state = 92
-            self._errHandler.sync(self)
-            _la = self._input.LA(1)
-            while _la==25:
-                self.state = 89
-                self.llmDef()
-                self.state = 94
-                self._errHandler.sync(self)
-                _la = self._input.LA(1)
-
             self.state = 95
-            self.match(ai_environmentParser.T__3)
-            self.state = 96
-            self.match(ai_environmentParser.T__6)
-            self.state = 97
-            self.match(ai_environmentParser.T__1)
-            self.state = 101
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la==18:
-                self.state = 98
-                self.agentDef()
-                self.state = 103
+            while _la==26:
+                self.state = 92
+                self.llmDef()
+                self.state = 97
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
-            self.state = 107
+            self.state = 98
+            self.match(ai_environmentParser.T__3)
+            self.state = 99
+            self.match(ai_environmentParser.T__6)
+            self.state = 100
+            self.match(ai_environmentParser.T__1)
+            self.state = 104
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la==30:
-                self.state = 104
-                self.toolDef()
-                self.state = 109
+            while _la==19:
+                self.state = 101
+                self.agentDef()
+                self.state = 106
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
             self.state = 110
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            while _la==31:
+                self.state = 107
+                self.toolDef()
+                self.state = 112
+                self._errHandler.sync(self)
+                _la = self._input.LA(1)
+
+            self.state = 113
             self.match(ai_environmentParser.T__3)
-            self.state = 111
+            self.state = 114
             self.match(ai_environmentParser.T__3)
         except RecognitionException as re:
             localctx.exception = re
@@ -459,11 +470,11 @@ class ai_environmentParser ( Parser ):
         self.enterRule(localctx, 2, self.RULE_envId)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 113
+            self.state = 116
             self.match(ai_environmentParser.T__7)
-            self.state = 114
+            self.state = 117
             self.match(ai_environmentParser.T__8)
-            self.state = 115
+            self.state = 118
             self.match(ai_environmentParser.PROPERTYVALUE)
         except RecognitionException as re:
             localctx.exception = re
@@ -510,11 +521,11 @@ class ai_environmentParser ( Parser ):
         self.enterRule(localctx, 4, self.RULE_architectureServiceStack)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 117
+            self.state = 120
             self.match(ai_environmentParser.T__9)
-            self.state = 118
+            self.state = 121
             self.match(ai_environmentParser.T__8)
-            self.state = 119
+            self.state = 122
             self.match(ai_environmentParser.TECHLAYER_AIURN)
         except RecognitionException as re:
             localctx.exception = re
@@ -561,11 +572,11 @@ class ai_environmentParser ( Parser ):
         self.enterRule(localctx, 6, self.RULE_architectureAiStack)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 121
+            self.state = 124
             self.match(ai_environmentParser.T__10)
-            self.state = 122
+            self.state = 125
             self.match(ai_environmentParser.T__8)
-            self.state = 123
+            self.state = 126
             self.match(ai_environmentParser.TECHLAYER_AIURN)
         except RecognitionException as re:
             localctx.exception = re
@@ -612,11 +623,62 @@ class ai_environmentParser ( Parser ):
         self.enterRule(localctx, 8, self.RULE_architectureDataStack)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 125
+            self.state = 128
             self.match(ai_environmentParser.T__11)
-            self.state = 126
+            self.state = 129
             self.match(ai_environmentParser.T__8)
-            self.state = 127
+            self.state = 130
+            self.match(ai_environmentParser.TECHLAYER_AIURN)
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class ArchitectureAgenticMiddlewareStackContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def TECHLAYER_AIURN(self):
+            return self.getToken(ai_environmentParser.TECHLAYER_AIURN, 0)
+
+        def getRuleIndex(self):
+            return ai_environmentParser.RULE_architectureAgenticMiddlewareStack
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterArchitectureAgenticMiddlewareStack" ):
+                listener.enterArchitectureAgenticMiddlewareStack(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitArchitectureAgenticMiddlewareStack" ):
+                listener.exitArchitectureAgenticMiddlewareStack(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitArchitectureAgenticMiddlewareStack" ):
+                return visitor.visitArchitectureAgenticMiddlewareStack(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def architectureAgenticMiddlewareStack(self):
+
+        localctx = ai_environmentParser.ArchitectureAgenticMiddlewareStackContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 10, self.RULE_architectureAgenticMiddlewareStack)
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 132
+            self.match(ai_environmentParser.T__12)
+            self.state = 133
+            self.match(ai_environmentParser.T__8)
+            self.state = 134
             self.match(ai_environmentParser.TECHLAYER_AIURN)
         except RecognitionException as re:
             localctx.exception = re
@@ -671,29 +733,29 @@ class ai_environmentParser ( Parser ):
     def entityDef(self):
 
         localctx = ai_environmentParser.EntityDefContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 10, self.RULE_entityDef)
+        self.enterRule(localctx, 12, self.RULE_entityDef)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 129
-            self.match(ai_environmentParser.T__12)
-            self.state = 130
-            self.match(ai_environmentParser.PROPERTYVALUE)
-            self.state = 131
-            self.match(ai_environmentParser.T__1)
-            self.state = 132
-            self.entityIdProp()
             self.state = 136
+            self.match(ai_environmentParser.T__13)
+            self.state = 137
+            self.match(ai_environmentParser.PROPERTYVALUE)
+            self.state = 138
+            self.match(ai_environmentParser.T__1)
+            self.state = 139
+            self.entityIdProp()
+            self.state = 143
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la==15:
-                self.state = 133
+            while _la==16:
+                self.state = 140
                 self.entityElementProp()
-                self.state = 138
+                self.state = 145
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
-            self.state = 139
+            self.state = 146
             self.match(ai_environmentParser.T__3)
         except RecognitionException as re:
             localctx.exception = re
@@ -737,14 +799,14 @@ class ai_environmentParser ( Parser ):
     def entityIdProp(self):
 
         localctx = ai_environmentParser.EntityIdPropContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 12, self.RULE_entityIdProp)
+        self.enterRule(localctx, 14, self.RULE_entityIdProp)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 141
-            self.match(ai_environmentParser.T__13)
-            self.state = 142
+            self.state = 148
+            self.match(ai_environmentParser.T__14)
+            self.state = 149
             self.match(ai_environmentParser.T__8)
-            self.state = 143
+            self.state = 150
             self.match(ai_environmentParser.ENTITY_ID)
         except RecognitionException as re:
             localctx.exception = re
@@ -799,24 +861,24 @@ class ai_environmentParser ( Parser ):
     def entityElementProp(self):
 
         localctx = ai_environmentParser.EntityElementPropContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 14, self.RULE_entityElementProp)
+        self.enterRule(localctx, 16, self.RULE_entityElementProp)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 145
-            self.match(ai_environmentParser.T__14)
-            self.state = 146
+            self.state = 152
+            self.match(ai_environmentParser.T__15)
+            self.state = 153
             self.match(ai_environmentParser.T__8)
-            self.state = 147
+            self.state = 154
             _la = self._input.LA(1)
-            if not(_la==37 or _la==38):
+            if not(_la==38 or _la==39):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
                 self.consume()
-            self.state = 148
+            self.state = 155
             self.entityElementType()
-            self.state = 149
+            self.state = 156
             self.entityElementDescription()
         except RecognitionException as re:
             localctx.exception = re
@@ -863,15 +925,15 @@ class ai_environmentParser ( Parser ):
     def entityElementType(self):
 
         localctx = ai_environmentParser.EntityElementTypeContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 16, self.RULE_entityElementType)
+        self.enterRule(localctx, 18, self.RULE_entityElementType)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 151
-            self.match(ai_environmentParser.T__15)
-            self.state = 152
+            self.state = 158
+            self.match(ai_environmentParser.T__16)
+            self.state = 159
             _la = self._input.LA(1)
-            if not(_la==36 or _la==39):
+            if not(_la==37 or _la==40):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
@@ -918,12 +980,12 @@ class ai_environmentParser ( Parser ):
     def entityElementDescription(self):
 
         localctx = ai_environmentParser.EntityElementDescriptionContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 18, self.RULE_entityElementDescription)
+        self.enterRule(localctx, 20, self.RULE_entityElementDescription)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 154
-            self.match(ai_environmentParser.T__16)
-            self.state = 155
+            self.state = 161
+            self.match(ai_environmentParser.T__17)
+            self.state = 162
             self.match(ai_environmentParser.PROPERTYVALUE)
         except RecognitionException as re:
             localctx.exception = re
@@ -1005,61 +1067,61 @@ class ai_environmentParser ( Parser ):
     def agentDef(self):
 
         localctx = ai_environmentParser.AgentDefContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 20, self.RULE_agentDef)
+        self.enterRule(localctx, 22, self.RULE_agentDef)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 157
-            self.match(ai_environmentParser.T__17)
-            self.state = 158
+            self.state = 164
+            self.match(ai_environmentParser.T__18)
+            self.state = 165
             self.match(ai_environmentParser.PROPERTYVALUE)
-            self.state = 159
+            self.state = 166
             self.match(ai_environmentParser.T__1)
-            self.state = 160
-            self.agentIdentity()
-            self.state = 161
-            self.agentNamespace()
-            self.state = 162
-            self.agentSystemPromptProperty()
-            self.state = 163
-            self.agentLLMRefProperty()
             self.state = 167
-            self._errHandler.sync(self)
-            _la = self._input.LA(1)
-            while _la==22:
-                self.state = 164
-                self.agentToolRefProperty()
-                self.state = 169
-                self._errHandler.sync(self)
-                _la = self._input.LA(1)
-
-            self.state = 171
-            self._errHandler.sync(self)
-            _la = self._input.LA(1)
-            if _la==23:
-                self.state = 170
-                self.agentInputProperty()
-
-
+            self.agentIdentity()
+            self.state = 168
+            self.agentNamespace()
+            self.state = 169
+            self.agentSystemPromptProperty()
+            self.state = 170
+            self.agentLLMRefProperty()
             self.state = 174
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la==24:
-                self.state = 173
-                self.agentOutputProperty()
-
-
-            self.state = 179
-            self._errHandler.sync(self)
-            _la = self._input.LA(1)
-            while _la==35:
+            while _la==23:
+                self.state = 171
+                self.agentToolRefProperty()
                 self.state = 176
-                self.agentCustomProperty()
-                self.state = 181
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
-            self.state = 182
+            self.state = 178
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            if _la==24:
+                self.state = 177
+                self.agentInputProperty()
+
+
+            self.state = 181
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            if _la==25:
+                self.state = 180
+                self.agentOutputProperty()
+
+
+            self.state = 186
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            while _la==36:
+                self.state = 183
+                self.agentCustomProperty()
+                self.state = 188
+                self._errHandler.sync(self)
+                _la = self._input.LA(1)
+
+            self.state = 189
             self.match(ai_environmentParser.T__3)
         except RecognitionException as re:
             localctx.exception = re
@@ -1103,14 +1165,14 @@ class ai_environmentParser ( Parser ):
     def agentSystemPromptProperty(self):
 
         localctx = ai_environmentParser.AgentSystemPromptPropertyContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 22, self.RULE_agentSystemPromptProperty)
+        self.enterRule(localctx, 24, self.RULE_agentSystemPromptProperty)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 184
-            self.match(ai_environmentParser.T__18)
-            self.state = 185
+            self.state = 191
+            self.match(ai_environmentParser.T__19)
+            self.state = 192
             self.match(ai_environmentParser.T__8)
-            self.state = 186
+            self.state = 193
             self.match(ai_environmentParser.PROPERTYVALUE)
         except RecognitionException as re:
             localctx.exception = re
@@ -1154,14 +1216,14 @@ class ai_environmentParser ( Parser ):
     def agentIdentity(self):
 
         localctx = ai_environmentParser.AgentIdentityContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 24, self.RULE_agentIdentity)
+        self.enterRule(localctx, 26, self.RULE_agentIdentity)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 188
-            self.match(ai_environmentParser.T__13)
-            self.state = 189
+            self.state = 195
+            self.match(ai_environmentParser.T__14)
+            self.state = 196
             self.match(ai_environmentParser.T__8)
-            self.state = 190
+            self.state = 197
             self.match(ai_environmentParser.AGENTID)
         except RecognitionException as re:
             localctx.exception = re
@@ -1205,14 +1267,14 @@ class ai_environmentParser ( Parser ):
     def agentNamespace(self):
 
         localctx = ai_environmentParser.AgentNamespaceContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 26, self.RULE_agentNamespace)
+        self.enterRule(localctx, 28, self.RULE_agentNamespace)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 192
-            self.match(ai_environmentParser.T__19)
-            self.state = 193
+            self.state = 199
+            self.match(ai_environmentParser.T__20)
+            self.state = 200
             self.match(ai_environmentParser.T__8)
-            self.state = 194
+            self.state = 201
             self.match(ai_environmentParser.AGENTNAMESPACE)
         except RecognitionException as re:
             localctx.exception = re
@@ -1256,14 +1318,14 @@ class ai_environmentParser ( Parser ):
     def agentLLMRefProperty(self):
 
         localctx = ai_environmentParser.AgentLLMRefPropertyContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 28, self.RULE_agentLLMRefProperty)
+        self.enterRule(localctx, 30, self.RULE_agentLLMRefProperty)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 196
-            self.match(ai_environmentParser.T__20)
-            self.state = 197
+            self.state = 203
+            self.match(ai_environmentParser.T__21)
+            self.state = 204
             self.match(ai_environmentParser.T__8)
-            self.state = 198
+            self.state = 205
             self.match(ai_environmentParser.LLMID)
         except RecognitionException as re:
             localctx.exception = re
@@ -1307,14 +1369,14 @@ class ai_environmentParser ( Parser ):
     def agentToolRefProperty(self):
 
         localctx = ai_environmentParser.AgentToolRefPropertyContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 30, self.RULE_agentToolRefProperty)
+        self.enterRule(localctx, 32, self.RULE_agentToolRefProperty)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 200
-            self.match(ai_environmentParser.T__21)
-            self.state = 201
+            self.state = 207
+            self.match(ai_environmentParser.T__22)
+            self.state = 208
             self.match(ai_environmentParser.T__8)
-            self.state = 202
+            self.state = 209
             self.match(ai_environmentParser.TOOLID)
         except RecognitionException as re:
             localctx.exception = re
@@ -1358,14 +1420,14 @@ class ai_environmentParser ( Parser ):
     def agentInputProperty(self):
 
         localctx = ai_environmentParser.AgentInputPropertyContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 32, self.RULE_agentInputProperty)
+        self.enterRule(localctx, 34, self.RULE_agentInputProperty)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 204
-            self.match(ai_environmentParser.T__22)
-            self.state = 205
+            self.state = 211
+            self.match(ai_environmentParser.T__23)
+            self.state = 212
             self.match(ai_environmentParser.T__8)
-            self.state = 206
+            self.state = 213
             self.match(ai_environmentParser.ENTITY_ID)
         except RecognitionException as re:
             localctx.exception = re
@@ -1409,14 +1471,14 @@ class ai_environmentParser ( Parser ):
     def agentOutputProperty(self):
 
         localctx = ai_environmentParser.AgentOutputPropertyContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 34, self.RULE_agentOutputProperty)
+        self.enterRule(localctx, 36, self.RULE_agentOutputProperty)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 208
-            self.match(ai_environmentParser.T__23)
-            self.state = 209
+            self.state = 215
+            self.match(ai_environmentParser.T__24)
+            self.state = 216
             self.match(ai_environmentParser.T__8)
-            self.state = 210
+            self.state = 217
             self.match(ai_environmentParser.ENTITY_ID)
         except RecognitionException as re:
             localctx.exception = re
@@ -1463,14 +1525,14 @@ class ai_environmentParser ( Parser ):
     def agentCustomProperty(self):
 
         localctx = ai_environmentParser.AgentCustomPropertyContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 36, self.RULE_agentCustomProperty)
+        self.enterRule(localctx, 38, self.RULE_agentCustomProperty)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 212
+            self.state = 219
             self.match(ai_environmentParser.VAR)
-            self.state = 213
+            self.state = 220
             self.match(ai_environmentParser.T__8)
-            self.state = 214
+            self.state = 221
             self.match(ai_environmentParser.PROPERTYVALUE)
         except RecognitionException as re:
             localctx.exception = re
@@ -1541,37 +1603,37 @@ class ai_environmentParser ( Parser ):
     def llmDef(self):
 
         localctx = ai_environmentParser.LlmDefContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 38, self.RULE_llmDef)
+        self.enterRule(localctx, 40, self.RULE_llmDef)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 216
-            self.match(ai_environmentParser.T__24)
-            self.state = 217
-            self.match(ai_environmentParser.PROPERTYVALUE)
-            self.state = 218
-            self.match(ai_environmentParser.T__1)
-            self.state = 219
-            self.llmIdProp()
-            self.state = 220
-            self.llmProviderProp()
-            self.state = 221
-            self.llmModelProp()
-            self.state = 222
-            self.llmEndpointProp()
             self.state = 223
-            self.llmVersionProp()
+            self.match(ai_environmentParser.T__25)
+            self.state = 224
+            self.match(ai_environmentParser.PROPERTYVALUE)
+            self.state = 225
+            self.match(ai_environmentParser.T__1)
+            self.state = 226
+            self.llmIdProp()
             self.state = 227
+            self.llmProviderProp()
+            self.state = 228
+            self.llmModelProp()
+            self.state = 229
+            self.llmEndpointProp()
+            self.state = 230
+            self.llmVersionProp()
+            self.state = 234
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la==35:
-                self.state = 224
+            while _la==36:
+                self.state = 231
                 self.llmOtherProperty()
-                self.state = 229
+                self.state = 236
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
-            self.state = 230
+            self.state = 237
             self.match(ai_environmentParser.T__3)
         except RecognitionException as re:
             localctx.exception = re
@@ -1615,14 +1677,14 @@ class ai_environmentParser ( Parser ):
     def llmIdProp(self):
 
         localctx = ai_environmentParser.LlmIdPropContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 40, self.RULE_llmIdProp)
+        self.enterRule(localctx, 42, self.RULE_llmIdProp)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 232
-            self.match(ai_environmentParser.T__13)
-            self.state = 233
+            self.state = 239
+            self.match(ai_environmentParser.T__14)
+            self.state = 240
             self.match(ai_environmentParser.T__8)
-            self.state = 234
+            self.state = 241
             self.match(ai_environmentParser.LLMID)
         except RecognitionException as re:
             localctx.exception = re
@@ -1666,14 +1728,14 @@ class ai_environmentParser ( Parser ):
     def llmProviderProp(self):
 
         localctx = ai_environmentParser.LlmProviderPropContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 42, self.RULE_llmProviderProp)
+        self.enterRule(localctx, 44, self.RULE_llmProviderProp)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 236
-            self.match(ai_environmentParser.T__25)
-            self.state = 237
+            self.state = 243
+            self.match(ai_environmentParser.T__26)
+            self.state = 244
             self.match(ai_environmentParser.T__8)
-            self.state = 238
+            self.state = 245
             self.match(ai_environmentParser.LLMPROVIDER)
         except RecognitionException as re:
             localctx.exception = re
@@ -1717,14 +1779,14 @@ class ai_environmentParser ( Parser ):
     def llmModelProp(self):
 
         localctx = ai_environmentParser.LlmModelPropContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 44, self.RULE_llmModelProp)
+        self.enterRule(localctx, 46, self.RULE_llmModelProp)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 240
-            self.match(ai_environmentParser.T__26)
-            self.state = 241
+            self.state = 247
+            self.match(ai_environmentParser.T__27)
+            self.state = 248
             self.match(ai_environmentParser.T__8)
-            self.state = 242
+            self.state = 249
             self.match(ai_environmentParser.PROPERTYVALUE)
         except RecognitionException as re:
             localctx.exception = re
@@ -1768,14 +1830,14 @@ class ai_environmentParser ( Parser ):
     def llmEndpointProp(self):
 
         localctx = ai_environmentParser.LlmEndpointPropContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 46, self.RULE_llmEndpointProp)
+        self.enterRule(localctx, 48, self.RULE_llmEndpointProp)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 244
-            self.match(ai_environmentParser.T__27)
-            self.state = 245
+            self.state = 251
+            self.match(ai_environmentParser.T__28)
+            self.state = 252
             self.match(ai_environmentParser.T__8)
-            self.state = 246
+            self.state = 253
             self.match(ai_environmentParser.PROPERTYVALUE)
         except RecognitionException as re:
             localctx.exception = re
@@ -1819,14 +1881,14 @@ class ai_environmentParser ( Parser ):
     def llmVersionProp(self):
 
         localctx = ai_environmentParser.LlmVersionPropContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 48, self.RULE_llmVersionProp)
+        self.enterRule(localctx, 50, self.RULE_llmVersionProp)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 248
-            self.match(ai_environmentParser.T__28)
-            self.state = 249
+            self.state = 255
+            self.match(ai_environmentParser.T__29)
+            self.state = 256
             self.match(ai_environmentParser.T__8)
-            self.state = 250
+            self.state = 257
             self.match(ai_environmentParser.PROPERTYVALUE)
         except RecognitionException as re:
             localctx.exception = re
@@ -1873,14 +1935,14 @@ class ai_environmentParser ( Parser ):
     def llmOtherProperty(self):
 
         localctx = ai_environmentParser.LlmOtherPropertyContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 50, self.RULE_llmOtherProperty)
+        self.enterRule(localctx, 52, self.RULE_llmOtherProperty)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 252
+            self.state = 259
             self.match(ai_environmentParser.VAR)
-            self.state = 253
+            self.state = 260
             self.match(ai_environmentParser.T__8)
-            self.state = 254
+            self.state = 261
             self.match(ai_environmentParser.PROPERTYVALUE)
         except RecognitionException as re:
             localctx.exception = re
@@ -1955,51 +2017,51 @@ class ai_environmentParser ( Parser ):
     def toolDef(self):
 
         localctx = ai_environmentParser.ToolDefContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 52, self.RULE_toolDef)
+        self.enterRule(localctx, 54, self.RULE_toolDef)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 256
-            self.match(ai_environmentParser.T__29)
-            self.state = 257
-            self.match(ai_environmentParser.PROPERTYVALUE)
-            self.state = 258
-            self.match(ai_environmentParser.T__1)
-            self.state = 259
-            self.toolIdProp()
-            self.state = 261
-            self._errHandler.sync(self)
-            _la = self._input.LA(1)
-            if _la==23:
-                self.state = 260
-                self.toolInputProperty()
-
-
+            self.state = 263
+            self.match(ai_environmentParser.T__30)
             self.state = 264
+            self.match(ai_environmentParser.PROPERTYVALUE)
+            self.state = 265
+            self.match(ai_environmentParser.T__1)
+            self.state = 266
+            self.toolIdProp()
+            self.state = 268
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==24:
-                self.state = 263
+                self.state = 267
+                self.toolInputProperty()
+
+
+            self.state = 271
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            if _la==25:
+                self.state = 270
                 self.toolOutputProperty()
 
 
-            self.state = 266
+            self.state = 273
             self.toolEndpointProp()
-            self.state = 267
+            self.state = 274
             self.toolTypeProp()
-            self.state = 268
+            self.state = 275
             self.toolDescriptionProp()
-            self.state = 272
+            self.state = 279
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la==35:
-                self.state = 269
+            while _la==36:
+                self.state = 276
                 self.toolOtherProperty()
-                self.state = 274
+                self.state = 281
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
-            self.state = 275
+            self.state = 282
             self.match(ai_environmentParser.T__3)
         except RecognitionException as re:
             localctx.exception = re
@@ -2043,14 +2105,14 @@ class ai_environmentParser ( Parser ):
     def toolIdProp(self):
 
         localctx = ai_environmentParser.ToolIdPropContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 54, self.RULE_toolIdProp)
+        self.enterRule(localctx, 56, self.RULE_toolIdProp)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 277
-            self.match(ai_environmentParser.T__13)
-            self.state = 278
+            self.state = 284
+            self.match(ai_environmentParser.T__14)
+            self.state = 285
             self.match(ai_environmentParser.T__8)
-            self.state = 279
+            self.state = 286
             self.match(ai_environmentParser.TOOLID)
         except RecognitionException as re:
             localctx.exception = re
@@ -2094,14 +2156,14 @@ class ai_environmentParser ( Parser ):
     def toolEndpointProp(self):
 
         localctx = ai_environmentParser.ToolEndpointPropContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 56, self.RULE_toolEndpointProp)
+        self.enterRule(localctx, 58, self.RULE_toolEndpointProp)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 281
-            self.match(ai_environmentParser.T__27)
-            self.state = 282
+            self.state = 288
+            self.match(ai_environmentParser.T__28)
+            self.state = 289
             self.match(ai_environmentParser.T__8)
-            self.state = 283
+            self.state = 290
             self.match(ai_environmentParser.PROPERTYVALUE)
         except RecognitionException as re:
             localctx.exception = re
@@ -2145,14 +2207,14 @@ class ai_environmentParser ( Parser ):
     def toolInputProperty(self):
 
         localctx = ai_environmentParser.ToolInputPropertyContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 58, self.RULE_toolInputProperty)
+        self.enterRule(localctx, 60, self.RULE_toolInputProperty)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 285
-            self.match(ai_environmentParser.T__22)
-            self.state = 286
+            self.state = 292
+            self.match(ai_environmentParser.T__23)
+            self.state = 293
             self.match(ai_environmentParser.T__8)
-            self.state = 287
+            self.state = 294
             self.match(ai_environmentParser.ENTITY_ID)
         except RecognitionException as re:
             localctx.exception = re
@@ -2196,14 +2258,14 @@ class ai_environmentParser ( Parser ):
     def toolOutputProperty(self):
 
         localctx = ai_environmentParser.ToolOutputPropertyContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 60, self.RULE_toolOutputProperty)
+        self.enterRule(localctx, 62, self.RULE_toolOutputProperty)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 289
-            self.match(ai_environmentParser.T__23)
-            self.state = 290
+            self.state = 296
+            self.match(ai_environmentParser.T__24)
+            self.state = 297
             self.match(ai_environmentParser.T__8)
-            self.state = 291
+            self.state = 298
             self.match(ai_environmentParser.ENTITY_ID)
         except RecognitionException as re:
             localctx.exception = re
@@ -2247,14 +2309,14 @@ class ai_environmentParser ( Parser ):
     def toolDescriptionProp(self):
 
         localctx = ai_environmentParser.ToolDescriptionPropContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 62, self.RULE_toolDescriptionProp)
+        self.enterRule(localctx, 64, self.RULE_toolDescriptionProp)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 293
-            self.match(ai_environmentParser.T__30)
-            self.state = 294
+            self.state = 300
+            self.match(ai_environmentParser.T__31)
+            self.state = 301
             self.match(ai_environmentParser.T__8)
-            self.state = 295
+            self.state = 302
             self.match(ai_environmentParser.PROPERTYVALUE)
         except RecognitionException as re:
             localctx.exception = re
@@ -2298,14 +2360,14 @@ class ai_environmentParser ( Parser ):
     def toolTypeProp(self):
 
         localctx = ai_environmentParser.ToolTypePropContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 64, self.RULE_toolTypeProp)
+        self.enterRule(localctx, 66, self.RULE_toolTypeProp)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 297
-            self.match(ai_environmentParser.T__31)
-            self.state = 298
+            self.state = 304
+            self.match(ai_environmentParser.T__32)
+            self.state = 305
             self.match(ai_environmentParser.T__8)
-            self.state = 299
+            self.state = 306
             self.match(ai_environmentParser.TOOL_TYPE)
         except RecognitionException as re:
             localctx.exception = re
@@ -2352,14 +2414,14 @@ class ai_environmentParser ( Parser ):
     def toolOtherProperty(self):
 
         localctx = ai_environmentParser.ToolOtherPropertyContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 66, self.RULE_toolOtherProperty)
+        self.enterRule(localctx, 68, self.RULE_toolOtherProperty)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 301
+            self.state = 308
             self.match(ai_environmentParser.VAR)
-            self.state = 302
+            self.state = 309
             self.match(ai_environmentParser.T__8)
-            self.state = 303
+            self.state = 310
             self.match(ai_environmentParser.PROPERTYVALUE)
         except RecognitionException as re:
             localctx.exception = re
