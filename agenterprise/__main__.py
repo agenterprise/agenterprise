@@ -302,16 +302,24 @@ def run_dsl_template(dsl_file):
 def main():
     
     import argparse
+    from importlib import metadata
 
-    parser = argparse.ArgumentParser(description="AI project generator")
-    group = parser.add_mutually_exclusive_group(required=True)
+    parser = argparse.ArgumentParser(description="AI project generator. Visit https://www.agenterprise.ai/ for more information.")
+    group = parser.add_mutually_exclusive_group()
     group.add_argument("--code-generation", action="store_true", help="Generate agent code from DSL")
     group.add_argument("--dsl-template", action="store_true", help="Generate a DSL template file at the specified path")
     parser.add_argument("--dsl", type=str, help="Path to agent DSL file (required for setup/code-generation/template)")
     parser.add_argument("--target", type=str, help="Target directory for generated code (required for setup/code-generation)")
+    parser.add_argument("--version", action="store_true", help="Show the installed version of Agenterprise")
     args = parser.parse_args()
 
-    if args.code_generation:
+    if args.version:
+        version = metadata.version("agenterprise")
+        print(f"Agenterprise version: {version}")
+        sys.exit(0)
+    elif args.code_generation and args.dsl_template:
+        raise ValueError("Only one of --code-generation or --dsl-template can be specified.")   
+    elif args.code_generation:
         if not args.target:
             raise ValueError("--target is required for code-generation.")
         if not args.dsl:
