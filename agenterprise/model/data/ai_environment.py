@@ -26,7 +26,10 @@ class Agent:
     namespace: AIURN
     name: str
     systemprompt: str
+    description: str
     llmref: AIURN
+    examples: List[str]
+    tags: List[str]
     toolrefs: List[AIURN]
     input: Optional[AIURN] = None
     output: Optional[AIURN] = None

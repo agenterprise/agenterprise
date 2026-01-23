@@ -15,6 +15,9 @@ class BaseAIAgentListener(ai_environmentListener):
             "uid": None,
             "namespace": None,
             "systemprompt": None,
+            "description": None,
+            "examples": [],
+            "tags": [],
             "toolrefs": [],
             "inputproperties": {},
             "outputproperties": {},
@@ -29,6 +32,9 @@ class BaseAIAgentListener(ai_environmentListener):
             uid=AIURN(self.current_agent.get("uid")),
             namespace=AIURN(self.current_agent.get("namespace")),
             systemprompt=self.current_agent.get("systemprompt"),
+            description=self.current_agent.get("description", "No description"),
+            tags=self.current_agent.get("tags", []),
+            examples=self.current_agent.get("examples", []),
             llmref=AIURN(self.current_agent.get("llmref")),
             toolrefs=[ AIURN(x) for x in self.current_agent["toolrefs"]],
             properties=self.current_agent.get("properties", {}),
@@ -43,6 +49,17 @@ class BaseAIAgentListener(ai_environmentListener):
         if self.current_agent is not None and ctx.AGENTID():
             self.current_agent["uid"] = ctx.AGENTID().getText()
 
+    def enterAgentExampleProp(self, ctx):
+        self.current_agent["examples"].append(ctx.PROPERTYVALUE().getText().strip('"'))
+    
+    def enterAgentTagsProp(self, ctx):
+        self.current_agent["tags"].append(ctx.PROPERTYVALUE().getText().strip('"'))
+
+    def enterAgentDescriptionProp(self, ctx):
+        super().enterAgentDescriptionProp(ctx)
+        if self.current_agent is not None:
+            self.current_agent["description"] = ctx.PROPERTYVALUE().getText().strip('"')
+
     def enterAgentNamespace(self, ctx):
         super().enterAgentNamespace(ctx)
         if self.current_agent is not None and ctx.AGENTNAMESPACE():
@@ -56,7 +73,7 @@ class BaseAIAgentListener(ai_environmentListener):
     def enterAgentSystemPromptProperty(self, ctx):
         super().enterAgentSystemPromptProperty(ctx)
         if self.current_agent is not None:
-            self.current_agent["systemprompt"] = ctx.PROPERTYVALUE().getText()  
+            self.current_agent["systemprompt"] = ctx.PROPERTYVALUE().getText().strip('"')  
 
     def enterAgentInputProperty(self, ctx):
         super().enterAgentInputProperty(ctx)

@@ -43,8 +43,9 @@ antlr4-parse agenterprise/agent_grammer/parser/ai_environment.g4 ai_envDef dsl-e
 ```
 If test are a sucessfull it is mandatory to generate the parser. 
 Note: The parsers will be in same directory as the grammar. 
-```bash
-u```
+```bash 
+antlr4 -Dlanguage=Python3 -visitor agenterprise/agent_grammer/parser/ai_environment.g4
+```
 
 # Check Template Definitions
 

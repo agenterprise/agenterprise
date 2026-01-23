@@ -35,7 +35,7 @@ entityElementDescription: '#' PROPERTYVALUE;
 /////////// 
 // Agents
 ///////////
-agentDef: 'agent' PROPERTYVALUE '{' agentIdentity agentNamespace agentSystemPromptProperty agentLLMRefProperty agentToolRefProperty* agentInputProperty? agentOutputProperty? agentCustomProperty* '}' ;
+agentDef: 'agent' PROPERTYVALUE '{' agentIdentity agentNamespace agentSystemPromptProperty agentLLMRefProperty agentDescriptionProp? agentExampleProp* agentTagsProp* agentToolRefProperty* agentInputProperty? agentOutputProperty? agentCustomProperty* '}' ;
 
 agentSystemPromptProperty: 'systemprompt' '=' PROPERTYVALUE ;
 agentIdentity: 'uid' '=' AGENTID ;
@@ -44,6 +44,12 @@ agentLLMRefProperty: 'llmref' '=' LLMID ;
 agentToolRefProperty: 'toolref' '=' TOOLID ;
 agentInputProperty: 'in' '=' ENTITY_ID;
 agentOutputProperty: 'out' '='  ENTITY_ID;
+agentDescriptionProp: 'description' '=' PROPERTYVALUE ;
+agentExampleProp: 'example' '=' PROPERTYVALUE ;
+agentTagsProp: 'tag' '=' PROPERTYVALUE ;
+
+
+
 
 agentCustomProperty: VAR '=' PROPERTYVALUE   ;
 

@@ -104,6 +104,21 @@ class ai_environmentVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by ai_environmentParser#agentDescriptionProp.
+    def visitAgentDescriptionProp(self, ctx:ai_environmentParser.AgentDescriptionPropContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by ai_environmentParser#agentExampleProp.
+    def visitAgentExampleProp(self, ctx:ai_environmentParser.AgentExamplePropContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by ai_environmentParser#agentTagsProp.
+    def visitAgentTagsProp(self, ctx:ai_environmentParser.AgentTagsPropContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by ai_environmentParser#agentCustomProperty.
     def visitAgentCustomProperty(self, ctx:ai_environmentParser.AgentCustomPropertyContext):
         return self.visitChildren(ctx)

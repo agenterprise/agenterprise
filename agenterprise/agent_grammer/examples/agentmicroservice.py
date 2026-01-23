@@ -1,9 +1,10 @@
 import uuid
 
 identifier = str(uuid.uuid4()).replace("-", "")
+
 example="""ai_environment "AgentMicroservice" {
     architecture{
-        envid = "$$IDENTIFIER$$"
+        envid = "fb98001a0ce94c44ad091de3d2e78164"
         service-techlayer = aiurn:techlayer:github:www.github.com:agenterprise:service-layer-fastapi-base
         ai-techlayer = aiurn:techlayer:github:www.github.com:agenterprise:ai-layer-pydanticai
         data-techlayer = aiurn:techlayer:github:www.github.com:agenterprise:data-layer-pydantic
@@ -59,6 +60,11 @@ example="""ai_environment "AgentMicroservice" {
             namespace = aiurn:ns:moewe:kitchen
             systemprompt = "You're a four star rated metre working at restaurant https://moewe.agenterprise.ai/"
             llmref = aiurn:model:id:geepeetee 
+            description = "A Cook in a restaurant"
+            example = "Hey, there is a fly in my soup"
+            example = "Delicious, hmmm"
+            tag = "Restaurant"
+            tag = "Recipies"
             toolref = aiurn:tool:id:crawler:v2
             in = aiurn:entity:id:restaurantquery
             out = aiurn:entity:id:restaurantanswer 
@@ -74,6 +80,11 @@ example="""ai_environment "AgentMicroservice" {
             namespace = aiurn:ns:moewe:guestroom
             systemprompt = "Du bist eine freundliche und aufmerksame Serviekraft und arbeitest im  Restaurant https://moewe.agenterprise.ai/"
             llmref = aiurn:model:id:geepeetee 
+            description = "A Waiter in a restaurant"
+            example = "One drink, please"
+            example = "Delicious, hmmm"
+            tag = "Restaurant"
+            tag = "Service"
             toolref = aiurn:tool:id:bmi:v1
             toolref = aiurn:tool:id:crawler:v2
             aiurn:global:var:name = "Max Mustermann"
@@ -100,4 +111,4 @@ example="""ai_environment "AgentMicroservice" {
         }
 
     }
-}"""
+}""".replace("envid = \"fb98001a0ce94c44ad091de3d2e78164\"","envid = \""+identifier+"\"")
