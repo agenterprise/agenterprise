@@ -60,13 +60,13 @@ Documentation of the agenterprise project
 ```bash
 source .venv/bin/activate
 
-cd documentation/agenterprise-doc/
+cd docs-raw/agenterprise-doc/
 mkdocs serve
 ```
 ## Building site
 ```bash
-cd documentation/agenterprise-doc/
-mkdocs build -d ../docs
+cd docs-raw/agenterprise-doc/
+mkdocs build -d ../../docs
 ```
 
 # Check Template Definitions
