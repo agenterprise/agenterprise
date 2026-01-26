@@ -31,7 +31,6 @@ jobs:
       run: |
         uv run python -m build
     - name: Publish to PyPI
-      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
       env:
         TWINE_USERNAME: __token__
         TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
