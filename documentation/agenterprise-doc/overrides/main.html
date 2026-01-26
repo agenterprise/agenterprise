@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block fonts %}{% endblock %}
+
+{% block styles %}
+  {{ super() }}
+  <style>
+    :root {
+      --md-text-font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+      --md-code-font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+    }
+  </style>
+{% endblock %}

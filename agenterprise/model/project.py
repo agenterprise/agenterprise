@@ -14,7 +14,7 @@ from agenterprise.model.listener.agenticmiddleware.listener import BasicAgenticM
 
 class Project():
 
-    def __init__(self, ai_techstack: AIURN, service_techstack: AIURN, data_techstack: AIURN, agentic_middleware_techstack: AIURN, target_dir: str, envid: str = None, dsl_file: str = None):
+    def __init__(self, ai_techstack: AIURN, service_techstack: AIURN, data_techstack: AIURN, agentic_middleware_techstack: AIURN, target_dir: str, envid: str = None, dsl_file: str = None, llms_txt: str = None):
         self.ai_techstack = ai_techstack
         self.service_techstack = service_techstack
         self.data_techstack = data_techstack
@@ -23,6 +23,7 @@ class Project():
         self.project_build_id = envid
         self.target_dir = target_dir
         self.dsl_file = dsl_file
+        self.llms_txt = llms_txt
 
         self.projectlistener = NonFunctionalListener
         self.agentlistener = BaseAIAgentListener

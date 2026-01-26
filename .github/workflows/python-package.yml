@@ -4,9 +4,8 @@
 name: Python package
 
 on:
- release:
-   types: released
-
+  release:
+    types: [created]
 jobs:
   build:
 

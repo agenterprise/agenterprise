@@ -4,6 +4,7 @@ __pycache__/
 build/
 dist/
 wheels/
+.cache/
 
 *.egg-info
 # Ignore everything inside target/, but keep the target directory itself

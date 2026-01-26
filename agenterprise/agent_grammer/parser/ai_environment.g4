@@ -22,10 +22,12 @@ architectureAgenticMiddlewareStack: 'agentic-middleware-techlayer' '=' TECHLAYER
 // Data
 ///////////
 entityDef: 'entity' PROPERTYVALUE '{'
-           entityIdProp
-           entityElementProp*
+          entityProp*
        '}' ;
 
+entityProp: entityIdProp
+            | entityElementProp
+            ;
 entityIdProp: 'uid' '=' ENTITY_ID ;
 entityElementProp: 'element' '=' (ENTITY_VAR | ENTITY_CONSTANT) entityElementType entityElementDescription;
 entityElementType:  '->' (ENTITY_TYPE | ENTITY_ID);
@@ -35,8 +37,20 @@ entityElementDescription: '#' PROPERTYVALUE;
 /////////// 
 // Agents
 ///////////
-agentDef: 'agent' PROPERTYVALUE '{' agentIdentity agentNamespace agentSystemPromptProperty agentLLMRefProperty agentDescriptionProp? agentExampleProp* agentTagsProp* agentToolRefProperty* agentInputProperty? agentOutputProperty? agentCustomProperty* '}' ;
+agentDef: 'agent' PROPERTYVALUE '{' agentProperty* '}' ;
 
+agentProperty: agentSystemPromptProperty 
+            | agentIdentity 
+            | agentNamespace 
+            | agentLLMRefProperty 
+            | agentToolRefProperty 
+            | agentInputProperty 
+            | agentOutputProperty 
+            | agentDescriptionProp 
+            | agentExampleProp 
+            | agentTagsProp 
+            | agentCustomProperty 
+            ;
 agentSystemPromptProperty: 'systemprompt' '=' PROPERTYVALUE ;
 agentIdentity: 'uid' '=' AGENTID ;
 agentNamespace: 'namespace' '=' AGENTNAMESPACE ;
@@ -57,14 +71,16 @@ agentCustomProperty: VAR '=' PROPERTYVALUE   ;
 // LLMs
 ///////////
 llmDef: 'llm' PROPERTYVALUE '{'
-           llmIdProp
-           llmProviderProp
-           llmModelProp
-           llmEndpointProp
-           llmVersionProp
-           llmOtherProperty*
+           llmProp*
        '}' ;
 
+llmProp: llmIdProp
+           |llmProviderProp
+           |llmModelProp
+           |llmEndpointProp
+           |llmVersionProp
+           |llmOtherProperty
+           ;
 llmIdProp: 'uid' '=' LLMID ;
 llmProviderProp: 'provider' '=' LLMPROVIDER ;
 llmModelProp: 'model' '=' PROPERTYVALUE ;
@@ -76,14 +92,17 @@ llmOtherProperty: VAR '=' PROPERTYVALUE;
 // Tools
 ///////////
 toolDef: 'tool' PROPERTYVALUE '{'
-           toolIdProp
-           toolInputProperty?
-           toolOutputProperty?
-           toolEndpointProp
-           toolTypeProp
-           toolDescriptionProp
-           toolOtherProperty*
+           toolProp*
        '}' ;
+
+toolProp: toolIdProp
+           |toolInputProperty
+           |toolOutputProperty
+           |toolEndpointProp
+           |toolTypeProp
+           |toolDescriptionProp
+           |toolOtherProperty
+           ;
 
 toolIdProp: 'uid' '=' TOOLID ;
 toolEndpointProp: 'endpoint' '=' PROPERTYVALUE ;

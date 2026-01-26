@@ -71,6 +71,15 @@ class ai_environmentListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by ai_environmentParser#entityProp.
+    def enterEntityProp(self, ctx:ai_environmentParser.EntityPropContext):
+        pass
+
+    # Exit a parse tree produced by ai_environmentParser#entityProp.
+    def exitEntityProp(self, ctx:ai_environmentParser.EntityPropContext):
+        pass
+
+
     # Enter a parse tree produced by ai_environmentParser#entityIdProp.
     def enterEntityIdProp(self, ctx:ai_environmentParser.EntityIdPropContext):
         pass
@@ -113,6 +122,15 @@ class ai_environmentListener(ParseTreeListener):
 
     # Exit a parse tree produced by ai_environmentParser#agentDef.
     def exitAgentDef(self, ctx:ai_environmentParser.AgentDefContext):
+        pass
+
+
+    # Enter a parse tree produced by ai_environmentParser#agentProperty.
+    def enterAgentProperty(self, ctx:ai_environmentParser.AgentPropertyContext):
+        pass
+
+    # Exit a parse tree produced by ai_environmentParser#agentProperty.
+    def exitAgentProperty(self, ctx:ai_environmentParser.AgentPropertyContext):
         pass
 
 
@@ -224,6 +242,15 @@ class ai_environmentListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by ai_environmentParser#llmProp.
+    def enterLlmProp(self, ctx:ai_environmentParser.LlmPropContext):
+        pass
+
+    # Exit a parse tree produced by ai_environmentParser#llmProp.
+    def exitLlmProp(self, ctx:ai_environmentParser.LlmPropContext):
+        pass
+
+
     # Enter a parse tree produced by ai_environmentParser#llmIdProp.
     def enterLlmIdProp(self, ctx:ai_environmentParser.LlmIdPropContext):
         pass
@@ -284,6 +311,15 @@ class ai_environmentListener(ParseTreeListener):
 
     # Exit a parse tree produced by ai_environmentParser#toolDef.
     def exitToolDef(self, ctx:ai_environmentParser.ToolDefContext):
+        pass
+
+
+    # Enter a parse tree produced by ai_environmentParser#toolProp.
+    def enterToolProp(self, ctx:ai_environmentParser.ToolPropContext):
+        pass
+
+    # Exit a parse tree produced by ai_environmentParser#toolProp.
+    def exitToolProp(self, ctx:ai_environmentParser.ToolPropContext):
         pass
 
 

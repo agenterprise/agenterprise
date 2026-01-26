@@ -1,5 +1,9 @@
 ## Quick Start
 
+## If using AI for development
+Below .github/agents/agenterprise-lib.agent.md an agent is available.
+
+
 ### 1. Create a virtual environment
 
 Use [uv venv](https://github.com/astral-sh/uv) or your preferred tool:
@@ -12,7 +16,7 @@ source .venv/bin/activate
 ### 2. Install dependencies
 
 ```bash
-uv sync --extra dev
+uv sync --extra dev --all-groups  
 ```
 
 ### 3. Prepare your DSL file
@@ -45,6 +49,24 @@ If test are a sucessfull it is mandatory to generate the parser.
 Note: The parsers will be in same directory as the grammar. 
 ```bash 
 antlr4 -Dlanguage=Python3 -visitor agenterprise/agent_grammer/parser/ai_environment.g4
+```
+---
+
+## Agenterprise-Documentation
+Documentation of the agenterprise project
+
+## Edit and View 
+
+```bash
+source .venv/bin/activate
+
+cd documentation/agenterprise-doc/
+mkdocs serve
+```
+## Building site
+```bash
+cd documentation/agenterprise-doc/
+mkdocs build -d ../docs
 ```
 
 # Check Template Definitions

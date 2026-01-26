@@ -234,6 +234,14 @@ def run_code_generation(dsl_file, target_dir):
     os.makedirs(os.path.dirname(dsl_target_file), exist_ok=True)
     with open(dsl_target_file, "w") as f:
         f.write(str(input_stream))
+
+    os.makedirs(os.path.join(target_dir, ".ai"), exist_ok=True)
+    llms_txt_target = os.path.join(target_dir, ".ai", os.path.basename("llms.txt"))
+    with open(llms_txt_target, "w") as f:
+        from agenterprise.agent_grammer.support.llms_txt import llms_txt
+        f.write(llms_txt)
+    logger.info(f"Wrote {llms_txt_target}")  
+   
     
     # Nonfunctional Part
     nonfuncListener = NonFunctionalListener()

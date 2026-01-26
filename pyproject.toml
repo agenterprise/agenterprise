@@ -1,6 +1,6 @@
 [project]
 name = "agenterprise"
-version = "0.1.13"
+version = "0.1.14"
 description = "Generator for AI Environments"
 readme = "README.md"
 requires-python = ">=3.12"
@@ -36,6 +36,12 @@ packages = { find = { include = ["agenterprise*"], exclude = ["target*", "test*"
 [dependency-groups]
 dev = [
     "pytest-cov>=7.0.0",
+]
+documentation = [
+    "mkdocs>=1.6.1",
+    "mkdocs-material>=9.6.20",
+    "mkdocs-terminal>=4.7.0",
+    "svgwrite>=1.4.3",
 ]
 
 [project.optional-dependencies]
