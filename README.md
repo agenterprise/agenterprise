@@ -1,4 +1,4 @@
-# Agenterprise
+# Agenterprise - Fast Agent Development
 
 [![PyPI - Version](https://img.shields.io/pypi/v/agenterprise?label=PyPI&color=blue)](https://pypi.org/project/agenterprise/)
 [![Python Versions](https://img.shields.io/pypi/pyversions/agenterprise.svg)](https://pypi.org/project/agenterprise/)
